@@ -1,0 +1,11 @@
+.ofco-title-logo {
+  width: 55px;
+  height: 55px;
+  display: inline-block;
+  margin-bottom: 10px;
+  vertical-align: sub;
+}
+
+.dark .ofco-title-logo {
+  filter: invert(1);
+}
