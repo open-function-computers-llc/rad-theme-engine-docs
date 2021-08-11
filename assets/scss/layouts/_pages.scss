@@ -45,7 +45,8 @@ p.meta {
 }
 
 figure img {
-  width: 100%;
+  max-width: 100%;
+  width: auto;
 }
 
 .col1-nowrap tr td:first-child {

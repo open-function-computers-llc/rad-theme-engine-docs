@@ -27,7 +27,7 @@ Where `"enable"` is an array of strings selected from the options below.
 | ------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | `"post-thumbnails"` | Enables [post thumbnails](https://codex.wordpress.org/Post_Thumbnails)                                              |
 | `"menus"`           | Enables WordPress menus. Individual menus can be registered using the [`menu-locations`](../menu-locations) option. |
-| `"styleselect"`     |                                                                                                                     |
+| `"styleselect"`     | Enables custom tinyMCE styles, declared [here](../tinyMCEAdditions) |
 {.table .table-bordered .col1-nowrap}
 
 ## Example
