@@ -1,5 +1,6 @@
 ---
 title: "enable"
+member: true
 date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
 draft: false

@@ -10,6 +10,12 @@
   identifier = "configuration"
   url = "/docs/configuration/"
 
+  [[docs]]
+  name = "Reference"
+  weight = 30
+  identifier = "reference"
+  url = "/docs/reference/"
+
 [[docs]]
   name = "Help"
   weight = 60
