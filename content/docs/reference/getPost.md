@@ -67,7 +67,7 @@ site()->getPost(96, [
   "id" => 96,
   "url" => "http://used.car.site/vehicles/2019-volkswagen-gti-4-door/",
   "title" => "2019 Volkswagen GTI 4-Door",
-  "miles" => "3148"
+  "miles" => 3148
   "car_type" => [
     [
       "slug" => "hatchback",
