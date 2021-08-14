@@ -17,7 +17,7 @@ Get meta information or specific fields from a post, ACF fields included.
 ## Usage
 
 ```php
-site()->getPost($idOrPost, $fields)
+site()->getPost($idOrPost, $fields);
 ```
 
 ### Parameters

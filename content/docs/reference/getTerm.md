@@ -1,5 +1,5 @@
 ---
-title: "getTerm($slug,$fields)"
+title: "getTerm($slug, $fields)"
 member: true
 date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
@@ -17,7 +17,7 @@ Get all the registered terms for a given taxonomy.
 ## Usage
 
 ```php
-site()->getTerm($slug,$fields)
+site()->getTerm($slug, $fields);
 ```
 
 ### Parameters
@@ -55,7 +55,7 @@ Getting the name and slug for all the terms within the `car_type` taxonomy.
 
 
 ```php
-site()->getTerm('car_type', ['name','slug'])
+site()->getTerm('car_type', ['name','slug']);
 
 // Returns
 [

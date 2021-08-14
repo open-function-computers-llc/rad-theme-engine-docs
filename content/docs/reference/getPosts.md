@@ -17,7 +17,7 @@ Get specific fields or WP_Post objects for multiple posts.
 ## Usage
 
 ```php
-site()->getPosts($args, $fields)
+site()->getPosts($args, $fields);
 ```
 
 ### Parameters
@@ -57,13 +57,13 @@ In this example we get the name, mileage and country for vehicles from France or
 
 ```php
 site()->getPosts([
-    "type"=>"vehicles",
-    "taxonomy.country"=>"france,italy"
+    "type" => "vehicles",
+    "taxonomy.country" => "france,italy"
 ], [
     "title",
     "acf.miles",
     "taxonomy.country.name"
-])
+]);
 
 // Returns
 [

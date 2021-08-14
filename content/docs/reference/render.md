@@ -17,7 +17,7 @@ Render a template with the given data, using handlebars.
 ## Usage
 
 ```php
-site()->render($fileName, $data)
+site()->render($fileName, $data);
 ```
 
 ### Parameters

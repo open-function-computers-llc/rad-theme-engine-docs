@@ -17,7 +17,7 @@ Get an array of the default posts for the page. Equivilent to calling WP's `get_
 ## Usage
 
 ```php
-site()->getDefaultPosts($fields)
+site()->getDefaultPosts($fields);
 ```
 
 ### Parameters
@@ -42,7 +42,7 @@ site()->getDefaultPosts([
   'title',
   'id',
   'acf.price'
-])
+]);
 
 // Returns
 [

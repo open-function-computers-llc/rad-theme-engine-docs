@@ -44,9 +44,14 @@ p.meta {
   font-size: $font-size-base;
 }
 
+figure {
+  text-align: center;
+}
+
 figure img {
   max-width: 100%;
   width: auto;
+  margin: 0 auto;
 }
 
 .col1-nowrap tr td:first-child {
