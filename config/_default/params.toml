@@ -9,7 +9,7 @@ description = "A suite of utilities to aide in the development of WordPress them
 ## Open Graph
 images = ["doks.png"]
 ogLocale = "en_US"
-domainTLD = "doks.netlify.app"
+domainTLD = "better-wordpress.ofco.cloud"
 titleHome = "Doks Theme"
 
 ## Twitter Cards
