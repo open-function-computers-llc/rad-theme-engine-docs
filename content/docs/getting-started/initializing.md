@@ -17,7 +17,7 @@ toc: true
 
 To start using better-wordpress in your theme, add the following code to `functions.php`:
 
-```
+```php
 <?php
 
 # Imports all Composer packages
@@ -38,7 +38,7 @@ function site()
 
 Optionally, an array can be passed directly into the `Site` constructor, overriding `config.php`. Here's what that looks like:
 
-```
+```php
 # Declare a new Site object
 $site = new Site([
   "excerpt-length" => 100,

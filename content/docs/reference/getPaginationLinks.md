@@ -28,7 +28,7 @@ site()->getPaginationLinks();
 | ↳ `"older"`       | `string\|false` – URL to the previous posts page, or false if there aren't any older posts. |
 | ↳ `"newer"`       | `string\|false` – URL to the next posts page, or false if there aren't any newer posts.     |
 | ↳ `"totalPages"`  | `int` – Total amount of pages                                                               |
-| ↳ `"currentPage"` | `int` – Index of the current page, starting at `0`                                          |
+| ↳ `"currentPage"` | `int` – Index of the current page, starting at `1`                                          |
 {.col1-nowrap}
 
 ## Example
@@ -37,5 +37,31 @@ site()->getPaginationLinks();
 site()->getPaginationLinks();
 
 // Results
-coming soon
+[
+  "older" => "http://my.epic.site/blog/page/3/",
+  "newer" => "http://my.epic.site/blog/", // Same as "/blog/1/"
+  "totalPages" => 3,
+  "currentPage" => 2 // The second page
+]
+```
+
+Passing pagination links into a template is very easy:
+
+```php
+echo site()->view("blog-archive", [
+    "pagination" => site()->getPaginationLinks(),
+]);
+```
+
+```html
+<!-- tpl/blog-archive.tpl -->
+
+...
+
+{{#if pagination.older }}
+    <a href="{{ pagination.older }}">Older Posts</a>
+{{/if}}
+{{#if pagination.newer }}
+    <a href="{{ pagination.newer }}">Newer Posts</a>
+{{/if}}
 ```

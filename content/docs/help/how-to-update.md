@@ -1,7 +1,7 @@
 ---
 title: "How to Update"
-description: "Regularly update the installed npm packages to keep your Doks website stable, usable, and secure."
-lead: "Regularly update the installed npm packages to keep your Doks website stable, usable, and secure."
+description: "Regularly update to keep your theme stable and secure."
+lead: "Regularly update to keep your theme stable and secure."
 date: 2020-11-12T13:26:54+01:00
 lastmod: 2020-11-12T13:26:54+01:00
 draft: false
@@ -9,24 +9,26 @@ images: []
 menu:
   docs:
     parent: "help"
-weight: 610
+weight: 10
 toc: true
 ---
 
-{{< alert icon="💡" text="Learn more about <a href=\"https://docs.npmjs.com/about-semantic-versioning\">semantic versioning</a> and <a href=\"https://docs.npmjs.com/cli/v6/using-npm/semver#advanced-range-syntax\">advanced range syntax</a>." />}}
+## Check for updates
 
-## Check for outdated packages
-
-The [`npm outdated`](https://docs.npmjs.com/cli/v7/commands/npm-outdated) command will check the registry to see if any (or, specific) installed packages are currently outdated:
+The [`composer outdated`](https://getcomposer.org/doc/03-cli.md#outdated) command will check the registry to see if your local installation of the package is outdated:
 
 ```bash
-npm outdated [[<@scope>/]<pkg> ...]
+composer outdated open-function-computers-llc/better-wordpress
 ```
 
 ## Update packages
 
-The [`npm update`](https://docs.npmjs.com/cli/v7/commands/npm-update) command will update all the packages listed to the latest version (specified by the tag config), respecting semver:
+The [`composer update`](https://getcomposer.org/doc/03-cli.md#update-u) command can update either all of your packages or just `better-wordpress`:
 
 ```bash
-npm update [<pkg>...]
+# All Packages
+composer update
+
+# Just better-wordpress
+composer update open-function-computers-llc/better-wordpress
 ```

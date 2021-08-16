@@ -26,7 +26,7 @@ toc: true
 
 Navigate to your theme's folder within the WordPress file structure (by default `wp-content/themes/<theme>`) and run the following command to install `open-function-computers-llc/better-wordpress` and its dependancies to your project.
 
-```
+```bash
 # Composer Globally Installed
 composer require open-function-computers-llc/better-wordpress
 
