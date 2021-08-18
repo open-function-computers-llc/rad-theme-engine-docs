@@ -1,14 +1,14 @@
 ---
-title: "getPost($idOrPost, $fields)"
+title: "getPost($id|WP_Post, $fields)"
 member: true
 date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
 draft: false
 images: []
-menu: 
+menu:
   docs:
     parent: "reference"
-weight: 30
+weight: 305
 toc: true
 ---
 
@@ -33,7 +33,7 @@ site()->getPost($idOrPost, $fields);
 - __`name`__ – Same as `title`.
 - __`url`__ – Uses `get_permalink($id)` to fetch the url of the post.
 - __`permalink`__ – Same as `url`.
-- __`thumbnail`__ – Uses `get_the_post_thumbnail_url($id)` to get the post thumbnail. 
+- __`thumbnail`__ – Uses `get_the_post_thumbnail_url($id)` to get the post thumbnail.
 - __`content`__ – Retrieves the content of the post.
 - __`excerpt`__ – Retrieves the post excerpt, if enabled.
 - __`meta.<key>`__ – Get the value of a specific post meta field.

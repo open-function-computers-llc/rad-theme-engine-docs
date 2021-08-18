@@ -5,10 +5,10 @@ date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
 draft: false
 images: []
-menu: 
+menu:
   docs:
     parent: "reference"
-weight: 90
+weight: 340
 toc: true
 ---
 
@@ -36,16 +36,16 @@ The [WordPress docs](https://developer.wordpress.org/reference/functions/wp_nav_
 
 ## Example
 
-First we make sure the menu location is registered in the theme's config.php
+First we make sure the menu location <a href="/docs/configuration/menu-locations/">is registered in the theme's config.php</a>:
 
 ```php
 <?php # config.php
 
 return [
-  "menu-locations" => [
-    "main-nav" => "Main Navigation"
-    ... // More menu locations
-  ]
+    "menu-locations" => [
+        "main-nav" => "Main Navigation"
+        ... // More menu locations
+    ]
 ]
 ```
 

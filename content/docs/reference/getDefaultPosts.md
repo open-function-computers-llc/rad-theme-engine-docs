@@ -5,10 +5,10 @@ date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
 draft: false
 images: []
-menu: 
+menu:
   docs:
     parent: "reference"
-weight: 50
+weight: 307
 toc: true
 ---
 
@@ -34,7 +34,7 @@ site()->getDefaultPosts($fields);
 
 ## Example
 
-Using `getDefaultPosts` to get a list of vehicles, called from the archive page.
+Using `getDefaultPosts` to get a list of vehicles, called from the archive page `archive-vehicle.php`.
 
 
 ```php
@@ -46,26 +46,26 @@ site()->getDefaultPosts([
 
 // Returns
 [
-  [
-    "title" => "2010 Ferrari 458 Italia",
-    "id" => 170,
-    "price" => 205000
-  ],
-  [
-    "title" => "2019 Renault Alpine A110 Légende GT",
-    "id" => 163,
-    "price" => 68700
-  ],
-  [
-    "title" => "2019 MINI Cooper S 2-Door Hardtop",
-    "id" => 109,
-    "price" => 30129
-  ],
-  [
-    "title" => "2019 FIAT 124 Spider Abarth",
-    "id" => 102,
-    "price" => 27200
-  ],
-  ... // And more
+    [
+        "title" => "2010 Ferrari 458 Italia",
+        "id" => 170,
+        "price" => 205000
+    ],
+    [
+        "title" => "2019 Renault Alpine A110 Légende GT",
+        "id" => 163,
+        "price" => 68700
+    ],
+    [
+        "title" => "2019 MINI Cooper S 2-Door Hardtop",
+        "id" => 109,
+        "price" => 30129
+    ],
+    [
+        "title" => "2019 FIAT 124 Spider Abarth",
+        "id" => 102,
+        "price" => 27200
+    ],
+    ... // And more
 ]
 ```

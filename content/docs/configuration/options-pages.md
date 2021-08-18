@@ -7,7 +7,7 @@ images: []
 menu:
   docs:
     parent: "configuration"
-weight: 40
+weight: 250
 toc: true
 ---
 
@@ -31,8 +31,8 @@ To register an options page under a custom post type, see the [`custom-post-type
 <?php # config.php
 return [
     "options-pages" => [
-      "general-options",
-      "theme-options"
+        "general-options",
+        "theme-options"
     ],
 ]
 ```

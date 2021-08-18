@@ -5,10 +5,10 @@ date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
 draft: false
 images: []
-menu: 
+menu:
   docs:
     parent: "reference"
-weight: 110
+weight: 310
 toc: true
 ---
 
@@ -38,10 +38,10 @@ site()->getPaginationLinks();
 
 // Results
 [
-  "older" => "http://my.epic.site/blog/page/3/",
-  "newer" => "http://my.epic.site/blog/", // Same as "/blog/1/"
-  "totalPages" => 3,
-  "currentPage" => 2 // The second page
+    "older" => "http://my.epic.site/blog/page/3/",
+    "newer" => "http://my.epic.site/blog/",
+    "totalPages" => 3,
+    "currentPage" => 2
 ]
 ```
 

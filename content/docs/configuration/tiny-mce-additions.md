@@ -5,10 +5,10 @@ date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
 draft: false
 images: []
-menu: 
+menu:
   docs:
     parent: "configuration"
-weight: 90
+weight: 235
 toc: true
 ---
 
@@ -58,7 +58,7 @@ return [
 ]
 ```
 
-Now in the editor we see our newly defined format: 
+Now in the editor we see our newly defined format:
 
 {{< figure src="/images/tinymce-example.png" >}}
 

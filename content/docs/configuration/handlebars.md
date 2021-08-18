@@ -5,10 +5,10 @@ date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
 draft: false
 images: []
-menu: 
+menu:
   docs:
     parent: "configuration"
-weight: 60
+weight: 260
 toc: true
 ---
 
@@ -30,7 +30,7 @@ Handlebars helpers are methods inside your template files to perform php code an
 
 ### Writing
 
-Organizing your helpers is important, as it's not reccomended you write functions directly inside the `config.php` file. Creating a `helpers/` folder is the way we'd suggest doing this, and then creating individual files for helpers used in different templates. 
+Organizing your helpers is important, as it's not reccomended you write functions directly inside the `config.php` file. Creating a `helpers/` folder is the way we'd suggest doing this, and then creating individual files for helpers used in different templates.
 
 In my `helpers/ShowHelpers.php` file, for example, I wrote this function to generate a rating bar html string from a some given parameters ([here's what it will look like](#results)):
 
@@ -84,7 +84,7 @@ Since we're using a custom namespace to declare our functions, we'll use Compose
 ```
 The key is the name of the namespace followed by two backslashes, and the value is the folder it's located in.
 
-To install this new namespace into Composer's `autoload.php` file, execute the following command in the base of your theme. 
+To install this new namespace into Composer's `autoload.php` file, execute the following command in the base of your theme.
 
 ```
 composer dump-autoload -o
@@ -98,7 +98,7 @@ Now in our `config.php` file we can add the following:
 <?php # config.php
 
 return [
-    "handlebars" => [   
+    "handlebars" => [
         "additional-helpers" => [
             "ratingBar" => ThemeHelpers\ShowHelpers::ratingBar(),
         ],

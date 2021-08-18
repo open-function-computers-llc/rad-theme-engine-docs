@@ -9,8 +9,9 @@ images: []
 menu:
   docs:
     parent: "getting-started"
+    next: "installation"
 weight: 100
-toc: true
+toc: false
 ---
 
 ### Philosophy
@@ -20,5 +21,5 @@ The purpose of better-wordpress is to enable developers to use the familiar mode
 ### Install
 
 Check out the [Installation]({{< relref "installation" >}})
- page for information on how to include better-wordpress in your theme. 
+ page for information on how to include better-wordpress in your theme.
 

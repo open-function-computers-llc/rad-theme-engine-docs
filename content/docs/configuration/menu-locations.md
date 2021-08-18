@@ -7,7 +7,7 @@ images: []
 menu:
   docs:
     parent: "configuration"
-weight: 30
+weight: 240
 toc: true
 ---
 
@@ -27,8 +27,8 @@ The `key` of the item will act as the identifier (like a slug) and the `value` w
 <?php # config.php
 return [
     "menu-locations" => [
-      "main-nav" => "Main Navigation",
-      "footer-nav" => "Footer Navigation",
+        "main-nav" => "Main Navigation",
+        "footer-nav" => "Footer Navigation",
     ],
 ]
 ```

@@ -5,10 +5,10 @@ date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
 draft: false
 images: []
-menu: 
+menu:
   docs:
     parent: "reference"
-weight: 70
+weight: 310
 toc: true
 ---
 
@@ -43,17 +43,18 @@ site()->getPostTaxonomy(get_post(), 'car_type');
 
 // Returns
 [
-  object(WP_Term) [
-    "term_id" => 5,
-    "name" => "Hatchback",
-    "slug" => "hatchback",
-    ... // Other WP_Term things
-  ],
-  object(WP_Term) [
-    "term_id" => 6,
-    "name" => "Sports Car",
-    "slug" => "sportscar",
+    object(WP_Term) [
+        "term_id" => 5,
+        "name" => "Hatchback",
+        "slug" => "hatchback",
+        ... // Other WP_Term attributes
+    ],
+    object(WP_Term) [
+        "term_id" => 6,
+        "name" => "Sports Car",
+        "slug" => "sportscar",
+        ...
+    ],
     ...
-  ],
 ]
 ```

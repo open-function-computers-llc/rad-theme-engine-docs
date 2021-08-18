@@ -5,10 +5,10 @@ date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
 draft: false
 images: []
-menu: 
+menu:
   docs:
     parent: "reference"
-weight: 80
+weight: 330
 toc: true
 ---
 
@@ -29,11 +29,11 @@ site()->setPostMeta($postID, $data);
 
 ## Example
 
-Update `key1` and `key2` of the meta for post with ID `23`
+Update `key1` and `key2` of the meta for post with ID `42`
 
 ```php
-site()->setPostMeta(23, [
-  "key1" => "value1", 
-  "key2" => "value2"
+site()->setPostMeta(42, [
+    "key1" => "value1",
+    "key2" => "value2",
 ]);
 ```

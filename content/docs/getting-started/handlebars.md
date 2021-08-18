@@ -9,13 +9,13 @@ images: []
 menu:
   docs:
     parent: "getting-started"
-weight: 140
+weight: 130
 toc: true
 ---
 
 ### Usage
 
-Firstly, create a new template file in the `tpl/` folder. For this example we'll name the file `home-title.tpl`. For a complete guide on how to use Handlebars templating syntax, check out [the handlebars-php repository](https://github.com/salesforce/handlebars-php). 
+Firstly, create a new template file in the `tpl/` folder. For this example we'll name the file `home-title.tpl`. For a complete guide on how to use Handlebars templating syntax, check out [the handlebars-php repository](https://github.com/salesforce/handlebars-php).
 
 ```
 <!-- tpl/home-title.tpl -->
@@ -45,18 +45,15 @@ Wow! What a site!
 
 ### Template File Extension
 
-{{< alert icon="👉" text="Note that when you change the template extension, the parent folder name must match it." />}}
+{{< alert icon="👉" text="By default both the template file extension and folder are both `tpl`. You can change either of these defaults in the `handlebars` <a href='/docs/configuration/handlebars/'>configuration</a>." />}}
 
-By default Handlebars templates exist in `.tpl` files within the `tpl/` folder in the theme root. This can be changed by adding editing a field in `config.php`:
+By default Handlebars templates are files that end with `.tpl` and exist inside the `tpl/` folder in the theme root.
 
 ```
+<?php #config.php
 return [
-    ... # Other options
     "handlebars" => [
-        "template-extension" => ".tpl"
+        "template-extension" => "tpl"
     ]
 ]
 ```
-
-
-

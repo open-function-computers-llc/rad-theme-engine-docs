@@ -5,10 +5,10 @@ date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
 draft: false
 images: []
-menu: 
+menu:
   docs:
     parent: "reference"
-weight: 60
+weight: 320
 toc: true
 ---
 
@@ -59,18 +59,18 @@ site()->getTerm('car_type', ['name','slug']);
 
 // Returns
 [
-  [
-    "name" => "Hatchback",
-    "slug" => "hatchback"
-  ],
-  [
-    "name" => "Hyper Car",
-    "slug" => "hypercar"
-  ],
-  [
-    "name" => "Sports Car",
-    "slug" => "sportscar"
-  ],
-  ... // And more
+    [
+        "name" => "Hatchback",
+        "slug" => "hatchback"
+    ],
+    [
+        "name" => "Hyper Car",
+        "slug" => "hypercar"
+    ],
+    [
+        "name" => "Sports Car",
+        "slug" => "sportscar"
+    ],
+    ... // And more
 ]
 ```

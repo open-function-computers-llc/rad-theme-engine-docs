@@ -5,10 +5,10 @@ date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
 draft: false
 images: []
-menu: 
+menu:
   docs:
     parent: "configuration"
-weight: 50
+weight: 250
 toc: true
 ---
 
@@ -57,28 +57,28 @@ Here is a custom post type for a TV Show with custom labels and option pages:
 <?php # config.php
 
 return [
-  "custom-post-types" => [
-    [
-      "slug" => 'shows',
-      "icon" => 'dashicons-format-video',
-      "options-pages" => ['show-archive-settings'],
-      "disable" => ['yoast'],
-      "options" => [
-        "has_archive" => 'shows',
-        "show_in_nav_menus" => true,
-        "supports" => ['title', 'editor', 'thumbnail',],
-        "rewrite" => [
-          'slug' => 'shows',
-          'with_front' => true,
-          'pages' => true,
-          'feeds' => true,
+    "custom-post-types" => [
+        [
+            "slug" => 'shows',
+            "icon" => 'dashicons-format-video',
+            "options-pages" => ['show-archive-settings'],
+            "disable" => ['yoast'],
+            "options" => [
+                "has_archive" => 'shows',
+                "show_in_nav_menus" => true,
+                "supports" => ['title', 'editor', 'thumbnail'],
+                "rewrite" => [
+                    'slug' => 'shows',
+                    'with_front' => true,
+                    'pages' => true,
+                    'feeds' => true,
+                ],
+                "labels" => [
+                    'name' => _x('TV Shows', 'Post Type General Name', 'text_domain'),
+                    'singular_name' => _x('TV Show', 'Post Type Singular Name', 'text_domain'),
+                ]
+            ]
         ],
-        "labels" => [
-          'name' => _x('TV Shows', 'Post Type General Name', 'text_domain'),
-          'singular_name' => _x('TV Show', 'Post Type Singular Name', 'text_domain'),
-        ]
-      ]
-    ],
-  ]
+    ]
 ]
 ```

@@ -5,10 +5,10 @@ date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
 draft: false
 images: []
-menu: 
+menu:
   docs:
     parent: "configuration"
-weight: 20
+weight: 220
 toc: true
 ---
 
@@ -41,6 +41,6 @@ Also note that we must call the `body_class()` (or `get_body_class()`) function 
 <body <?php body_class() ?>>
 ```
 
-Now when we visit the site without being logged in: 
+Now when we visit the site without being logged in:
 
 {{< figure src="/images/guest-class-example.png" >}}
