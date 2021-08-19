@@ -21,6 +21,7 @@ Configure the Handlebars file extension and add custom helpers to your templates
 | `"handlebars"`           | `array`  | No       | `[]`    |
 | ↳ `"additional-helpers"` | `array`  | No       | `[]`    |
 | ↳ `"template-extension"` | `string` | No       | `"tpl"` |
+| ↳ `"template-directory"` | `string` | No       | `"tpl"` |
 
 The value of the `"handlebars"` field is an associative array containing two optional items to configure.
 
@@ -141,9 +142,13 @@ Finally, here's what gets rendered. Yours might look a little nicer, but at leas
 
 To change your template extension from the default (`.tpl`) [here](../../getting-started/handlebars/#template-file-extension) are some instructions.
 
+## Template Directory
+
+Changing `template-directory` will change where handlebars looks for your template files.
+
 ## Example
 
-This is a theme configuration with a couple additional helpers and a custom `.view` template extension. Note that their `.view` template files must be in a folder named `view`.
+This is a theme configuration with a couple additional helpers, a custom `.view` template extension, where template files will live in the `views` folder instead of `tpl`.
 
 ```php
 <?php # config.php
@@ -157,6 +162,7 @@ return [
             "asset" => ThemeHelpers\GlobalHelpers::asset(),
         ],
         "template-extension" => "view",
+        "template-directory" => "views",
     ],
 ]
 ```

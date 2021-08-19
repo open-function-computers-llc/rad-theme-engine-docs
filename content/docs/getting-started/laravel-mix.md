@@ -45,14 +45,14 @@ To compile once:
 npx mix
 ```
 
-To watch for changes and compile:
+To watch for changes:
 ```bash
 npx mix watch
 ```
 
-## Implementing Scripts/Styles
+## Including Scripts/Styles
 
-better-wordpress will automatically look for Laravel Mix's `mix-manifest.json` in the `dist` folder and register/queue any javascript or css it finds there.
+better-wordpress will automatically look for Laravel Mix's `mix-manifest.json` in the `dist` folder and register/enqueue any javascript or css it finds there.
 
 The only requirement on your end is to include the `wp_head()` function in your theme's `<head>` element. For example:
 
