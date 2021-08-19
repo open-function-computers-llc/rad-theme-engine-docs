@@ -5,12 +5,18 @@
   url = "/docs/getting-started/"
 
 [[docs]]
+  name = "Guides"
+  weight = 15
+  identifier = "guides"
+  url = "/docs/guides/"
+
+[[docs]]
   name = "Configuration"
   weight = 20
   identifier = "configuration"
   url = "/docs/configuration/"
 
-  [[docs]]
+[[docs]]
   name = "Reference"
   weight = 30
   identifier = "reference"

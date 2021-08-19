@@ -17,12 +17,44 @@ toc: true
 
 {{< alert icon="👉" text="This package uses Composer for dependancy management. If you don't already have Composer installed, follow <a href='https://getcomposer.org/doc/00-intro.md'>this guide</a> for your system. If you're planning on using better-wordpress in multiple projects it's recommended you install Composer globally, otherwise locally works fine too." />}}
 
-- [Composer](https://getcomposer.org/)
+- [Composer](https://getcomposer.org/) `>= 2.0`
 - PHP ``>= 7.4``
 - WordPress ``>= 5.7`` (older versions may not be supported in the future)
 
+## The Easy Way
 
-### Installing
+{{< alert icon="👉" text="This method requires Composer to be installed globally." />}}
+
+Let Composer create a new better-wordpress theme for you! Navigate to your site's `./wp-content/themes` folder and run the following command:
+
+```bash
+composer create-project open-function-computers-llc/wp-theme <theme-name>
+```
+
+Next, enter your newly created theme's folder and run `npm install`.
+
+```bash
+cd <theme-name>
+npm install
+```
+
+This will install support for Laravel Mix, which can be used to compile Sass files and Vue templates, as well as handle vanilla JavaScript/CSS.
+
+The starter project contains example `app.scss` and `app.js` files in the `src` folder, to compile them simply run:
+
+```bash
+npx mix
+```
+
+To continuously monitor/rebuild `app.js` and `app.scss`, you can use:
+
+```bash
+npx mix watch
+```
+
+`better-wordpress` will automatically register the javascript and css with WordPress, just make sure you call [`wp_head()`](https://developer.wordpress.org/reference/functions/wp_head/) in your site's `<head>`.
+
+## The Advanced Way
 
 Navigate to your theme's folder within the WordPress file structure (by default `wp-content/themes/<theme>`) and run the following command to install `open-function-computers-llc/better-wordpress` and its dependancies to your project.
 

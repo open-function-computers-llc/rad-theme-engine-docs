@@ -13,6 +13,8 @@ weight: 120
 toc: true
 ---
 
+{{< alert icon="👉" text="These steps are only necessary for advanced installations. 'composer create' will do all this for you." />}}
+
 ### Getting Started
 
 To start using better-wordpress in your theme, add the following code to `functions.php`:
@@ -53,6 +55,6 @@ $site = new Site([
 
 For most use cases it's best to use the `config.php` file, especially if you plan on adding custom post types as the array can get pretty large.
 
-### Handlebars
+### Next Steps
 
-Next, [learn how to render a page]({{< relref "handlebars" >}}) with Handlebars.
+Finally, [install laravel-mix](../laravel-mix) to begin working with Sass and JavaScript.
