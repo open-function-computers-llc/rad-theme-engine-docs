@@ -13,7 +13,7 @@ weight: 130
 toc: true
 ---
 
-{{< alert icon="👉" text="These steps are only necessary for advanced installations. 'composer create' will do all this for you." />}}
+{{< alert icon="👉" text="These steps are only necessary for advanced installations. 'composer create' will do all this for you. This still might be good information to know." />}}
 
 ## Install
 
@@ -32,10 +32,10 @@ Next, still in the root of your theme, create a new file called `webpack.mix.js`
 
 let mix = require('laravel-mix');
 
-mix.js('src/app.js', 'dist').setPublicPath('dist');
+mix.js('src/app.js', 'dist').setPublicPath('dist').version();
 ```
 
-This will tell laravel-mix to compile `src/app.js` and output it in the `dist` folder. To add other types of files, check out [these examples](https://laravel-mix.com/docs/6.0/examples).
+This will tell laravel-mix to compile `src/app.js` and output it in the `dist` folder. The addition of `.version()` will generate a random hash to append to the filename, forcing browsers to update their cache. To add other types of files, check out [these examples](https://laravel-mix.com/docs/6.0/examples).
 
 ## Compile
 

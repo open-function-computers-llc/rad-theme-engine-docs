@@ -1,7 +1,5 @@
 ---
 title: "Theme Assets"
-description: "Including assets in your theme is easy with better-wordpress."
-lead: "Including assets in your theme is easy with better-wordpress."
 date: 2020-10-13T15:21:01+02:00
 lastmod: 2020-10-13T15:21:01+02:00
 draft: false
@@ -13,7 +11,7 @@ weight: 160
 toc: true
 ---
 
-The [`getAssetUrl($filename)`](../../reference/getasseturl) function is a convenient way to get urls for files that live in your `assets` folder.
+The [`getAssetUrl($filename)`](../../reference/getasseturl) function is a convenient method of getting urls for files that exist in your theme's `assets` folder.
 
 ## Example 1
 

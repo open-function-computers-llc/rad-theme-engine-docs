@@ -38,7 +38,7 @@ cd <theme-name>
 npm install
 ```
 
-This will install support for Laravel Mix, which can be used to compile Sass files and Vue templates, as well as handle vanilla JavaScript/CSS.
+This will install support for Laravel Mix, which can be used to compile Sass, PostCSS, Vue, React and more, as well as handle vanilla JavaScript/CSS. ([laravel-mix website](https://laravel-mix.com/))
 
 The starter project contains example `app.scss` and `app.js` files in the `src` folder, to compile them simply run:
 
@@ -52,7 +52,7 @@ To continuously monitor/rebuild `app.js` and `app.scss`, you can use:
 npx mix watch
 ```
 
-`better-wordpress` will automatically register the javascript and css with WordPress, just make sure you call [`wp_head()`](https://developer.wordpress.org/reference/functions/wp_head/) in your site's `<head>`.
+`better-wordpress` will automatically register the javascript and css with WordPress, just make sure you call [`wp_head()`](https://developer.wordpress.org/reference/functions/wp_head/) in your site's `<head>` ([example](../laravel-mix/#including-scriptsstyles)).
 
 ## The Advanced Way
 
