@@ -22,24 +22,10 @@ site()->getPost($idOrPost, $fields);
 
 ### Parameters
 
-| Parameter   | Type           | Required | Description                                                                                                                     |
-| ----------- | -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `$idOrPost` | `int\|WP_Post` | Yes      | A post id or `WP_Post` object                                                                                                   |
-| `$fields`   | `array`        | No       | A string array of [members](https://developer.wordpress.org/reference/classes/wp_post) to return. See below for special fields. |
-
-##### Special fields
-- __`id`__ – Shortcut to return the post id.
-- __`title`__ – Shortcut to return the `post_title`.
-- __`name`__ – Same as `title`.
-- __`url`__ – Uses `get_permalink($id)` to fetch the url of the post.
-- __`permalink`__ – Same as `url`.
-- __`thumbnail`__ – Uses `get_the_post_thumbnail_url($id)` to get the post thumbnail.
-- __`content`__ – Retrieves the content of the post.
-- __`excerpt`__ – Retrieves the post excerpt, if enabled.
-- __`meta.<key>`__ – Get the value of a specific post meta field.
-- __`acf.<key>`__ – Get the value of a specific ACF field for this post.
-- __`categories.<member1>,<member2>,...`__ – Get specific members of the [`WP_Term`](https://developer.wordpress.org/reference/classes/wp_term) for each category this post is a part of.
-- __`taxonomy.<taxonomy>.<member1>,<member2>,...`__ – Get specific members of the [`WP_Term`](https://developer.wordpress.org/reference/classes/wp_term) for each category within the given taxonomy this post is a part of.
+| Parameter   | Type           | Required | Description                                   |
+| ----------- | -------------- | -------- | --------------------------------------------- |
+| `$idOrPost` | `int\|WP_Post` | Yes      | A post id or `WP_Post` object                 |
+| `$fields`   | `array`        | No       | [Post fields](../the-site-object#post-fields) |
 
 ### Returns
 

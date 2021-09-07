@@ -22,10 +22,10 @@ site()->getPosts($args, $fields);
 
 ### Parameters
 
-| Parameter | Type    | Required | Description                                                                                                                                     |
-| --------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$args`   | `array` | Yes      | An associative array of options to determine which posts to return. See below for a list of arguments.                                          |
-| `$fields` | `array` | No       | A string array of [members](https://developer.wordpress.org/reference/classes/wp_post) to return. See [getPost](../getpost) for special fields. |
+| Parameter | Type    | Required | Description                                                                                            |
+| --------- | ------- | -------- | ------------------------------------------------------------------------------------------------------ |
+| `$args`   | `array` | Yes      | An associative array of options to determine which posts to return. See below for a list of arguments. |
+| `$fields` | `array` | No       | [Post fields](../the-site-object#post-fields)                                                          |
 
 ### Arguments
 | Key                  | Type     | Default  | Description                                                                                                        |

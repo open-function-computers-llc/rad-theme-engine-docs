@@ -22,9 +22,9 @@ site()->getDefaultPosts($fields);
 
 ### Parameters
 
-| Parameter | Type    | Required | Description                                                                                                                                     |
-| --------- | ------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$fields` | `array` | No       | A string array of [members](https://developer.wordpress.org/reference/classes/wp_post) to return. See [getPost](../getpost) for special fields. |
+| Parameter | Type    | Required | Description                                   |
+| --------- | ------- | -------- | --------------------------------------------- |
+| `$fields` | `array` | No       | [Post fields](../the-site-object#post-fields) |
 
 ### Returns
 

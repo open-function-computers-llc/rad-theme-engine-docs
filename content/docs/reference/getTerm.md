@@ -1,5 +1,5 @@
 ---
-title: "getTerm($slug, $fields)"
+title: "getTerm($slug, $termFields)"
 member: true
 date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
@@ -17,15 +17,15 @@ Get all the registered terms for a given taxonomy.
 ## Usage
 
 ```php
-site()->getTerm($slug, $fields);
+site()->getTerm($slug, $termFields);
 ```
 
 ### Parameters
 
-| Parameter | Type     | Required | Description                                               |
-| --------- | -------- | -------- | --------------------------------------------------------- |
-| `$slug`   | `string` | Yes      | The slug of a taxonomy                                    |
-| `$fields` | `array`  | No       | A string array of fields, see below for possible options. |
+| Parameter     | Type     | Required | Description                                               |
+| ------------- | -------- | -------- | --------------------------------------------------------- |
+| `$slug`       | `string` | Yes      | The slug of a taxonomy                                    |
+| `$termFields` | `array`  | No       | A string array of fields, see below for possible options. |
 
 ##### Possible Fields
 - __`term_id`__ – Returns the term's id
