@@ -32,7 +32,7 @@ $fields = ['post_title','post_author']
 $post = site()->getPost(4,$fields)
 ```
 
-The results in our `$post` variable looking like this:
+The result of getPost is the following:
 
 ```php
 [
