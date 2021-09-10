@@ -60,4 +60,11 @@ Check out this [`getPost` example](../getpost#with-fields) to see some of these 
 - __`meta.<key>`__ – Get the value of a specific post meta field.
 - __`acf.<key>`__ – Get the value of a specific ACF field for this post.
 - __`categories.<member1>,<member2>,...`__ – Get specific members of the [`WP_Term`](https://developer.wordpress.org/reference/classes/wp_term) for each category this post is a part of.
-- __`taxonomy.<taxonomy>.<member1>,<member2>,...`__ – Get specific members of the [`WP_Term`](https://developer.wordpress.org/reference/classes/wp_term) for each category within the given taxonomy this post is a part of.
+- __`taxonomy.<taxonomy>.<member1>,<member2>,...`__ – Get specific members of the [`WP_Term`](https://developer.wordpress.org/reference/classes/wp_term) for each term within the given taxonomy this post is a part of. See below for members:
+  - `term_id`
+  - `id` – Alias for `term_id`
+  - `link` – The result of `get_term_link()`
+  - `name`
+  - `title` – Alias for `name`
+  - `slug`
+  - `description`
