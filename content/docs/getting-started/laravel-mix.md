@@ -1,7 +1,7 @@
 ---
-title: "Laravel Mix"
-description: "Install Laravel Mix, a powerful and easily configurable module bundler."
-lead: "Install Laravel Mix, a powerful and easily configurable module bundler."
+title: "Static Assets"
+description: "Laravel Mix is a powerful and easily configurable module bundler."
+lead: "Laravel Mix is a powerful and easily configurable module bundler."
 date: 2020-10-13T15:21:01+02:00
 lastmod: 2020-10-13T15:21:01+02:00
 draft: false
@@ -13,7 +13,14 @@ weight: 130
 toc: true
 ---
 
-{{< alert icon="👉" text="These steps are only necessary for advanced installations. 'composer create' will do all this for you. This still might be good information to know." />}}
+## Wordpress and your static assets
+
+Out of the box, WordPress will reference your site's theme files in various places. You've got some CSS files that are added to the &lt;head&gt;, some that go in the footer, others that are enqueued and could end up in either place. You've also got all those doc blocks that are necessary inside your site's `style.css` file that you shouldn't touch, which make it hard to minify.
+
+We get annoyed at all these steps, which is why we've landed on using laravel mix to help us manage these assets.
+
+{{< alert icon="👉" text="These steps are only necessary for advanced installations. 'composer create project' will do all this for you. This still might be good information to know." />}}
+
 
 ## Install
 
