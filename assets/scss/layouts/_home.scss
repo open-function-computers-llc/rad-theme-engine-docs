@@ -6,6 +6,11 @@
   vertical-align: sub;
 }
 
-.dark .ofco-title-logo {
+.title-logo {
+  max-width: 400px;
+}
+
+.dark .ofco-title-logo,
+.dark .title-logo {
   filter: invert(1);
 }

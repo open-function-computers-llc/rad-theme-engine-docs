@@ -28,9 +28,9 @@ Where the array contains a list of associative arrays with the options below:
 | ----------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
 | `"slug"`          | `string` | Yes      |                                                                                                                                                                             Post type slug, used as an identifier |
 | `"icon"`          | `string` | No       |                                                                                                                              A [dashicon](https://developer.wordpress.org/resource/dashicons) to display in menus |
-| `"taxonomies"`    | `array`  | No       |                                                                                                                                              A string list of taxonomy identifiers to register for this post type |
-| `"disable"`       | `array`  | No       |                                                                                                                                                                              A string list of features to disable |
-| `"options-pages"` | `array`  | No       |                                                                                                      A string list of options pages to add to this post type, using [this]({{< relref "options-pages" >}}) syntax |
+| `"taxonomies"`    | `array`  | No       |                                                                                                                                             A string array of taxonomy identifiers to register for this post type |
+| `"disable"`       | `array`  | No       |                                                                                                                                                                             A string array of features to disable |
+| `"options-pages"` | `array`  | No       |                                                                                                     A string array of options pages to add to this post type, using [this]({{< relref "options-pages" >}}) syntax |
 | `"options"`       | `array`  | No       | An associative array of [options](https://developer.wordpress.org/reference/functions/register_post_type/#parameter-detail-information) to create the post type with, where labels and rewrite options can be set |
 {.col1-nowrap}
 
@@ -51,9 +51,9 @@ A list of possible features to disable using the `"disabled"` key
 
 ## Example
 
-Here is a custom post type for a TV Show with custom labels and option pages:
+Here is a custom post type for a TV Show with a genre taxonomy, custom labels, and an options page:
 
-```
+```php
 <?php # config.php
 
 return [
@@ -62,6 +62,7 @@ return [
             "slug" => 'shows',
             "icon" => 'dashicons-format-video',
             "options-pages" => ['show-archive-settings'],
+            "taxonomies" => ['genre'],
             "disable" => ['yoast'],
             "options" => [
                 "has_archive" => 'shows',
