@@ -56,6 +56,19 @@ As well as anything else that can be passed into WP's [`get_posts`](https://deve
 In this example we get the name, mileage and country for vehicles from France or Italy.
 
 ```php
+// in config.php
+return [
+    // ...
+    "custom-post-types" => [
+        [
+            "slug" => "vehicles",
+            "taxonomies" => ["country"],
+        ]
+    ]
+    // ...
+];
+
+// where you call your lookup
 site()->getPosts([
     "type" => "vehicles",
     "taxonomy.country" => "france,italy"
@@ -94,5 +107,6 @@ site()->getPosts([
             ]
         ]
     ]
+    ...
 ]
 ```
