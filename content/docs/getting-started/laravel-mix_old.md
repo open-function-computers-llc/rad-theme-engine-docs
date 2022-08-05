@@ -4,7 +4,7 @@ description: "Laravel Mix is a powerful and easily configurable module bundler."
 lead: "Laravel Mix is a powerful and easily configurable module bundler."
 date: 2020-10-13T15:21:01+02:00
 lastmod: 2020-10-13T15:21:01+02:00
-draft: false
+draft: true
 images: []
 menu:
   docs:

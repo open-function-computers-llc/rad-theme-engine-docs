@@ -1,0 +1,72 @@
+---
+title: "Installation"
+description: "better-wordpress is a suite of utilities that aim to simplify the WordPress theme development experience."
+lead: "<b>better-wordpress</b> is a suite of utilities that aim to simplify the WordPress theme development experience."
+date: 2022-08-03T16:49:57-07:00
+lastmod: 2022-08-03T16:49:57-07:00
+draft: false
+images: []
+menu: 
+  docs:
+    parent: "getting-started"
+weight: 100
+toc: false
+---
+
+<div class="tabs">
+  <div class="tab current">
+    Create a new Theme
+  </div>
+  <a href="../advanced-installation" class="tab">
+    Add to an Existing Theme
+  </a>
+</div>
+
+<div class="timeline">
+  <div class="timeline-step">
+    <div class="step-index">
+      1
+    </div>
+    <div class="step-content">
+      Starting from the root of your WordPress site, navigate to the <code>themes</code> folder and use <a href="https://getcomposer.org/">Composer</a> to create a new better-wordpress project.
+      <code class="language-bash hljs">
+        <b>></b> cd wp-content/themes<br>
+        <b>></b> composer create-project open-function-computers-llc/wp-theme <i>&lt;theme-name&gt;</i>
+      </code>
+    </div>
+  </div>
+
+  <div class="timeline-step">
+    <div class="step-index">
+      2
+    </div>
+    <div class="step-content">
+      Next, navigate into your new theme and install better-wordpress' dependancies. 
+      <code class="language-bash hljs">
+        <b>></b> cd <i>&lt;theme-name&gt;</i><br>
+        <b>></b> npm install
+      </code>
+    </div>
+  </div>
+
+  <div class="timeline-step">
+    <div class="step-index">
+      3
+    </div>
+    <div class="step-content">
+      Finally, run Laravel Mix to begin compiling your Sass, JS, and other static assets in real-time as you work on your theme.
+      <code class="language-bash hljs">
+        <b>></b> npx mix watch
+      </code>
+    </div>
+  </div>
+
+  <div class="timeline-step">
+    <div class="step-index end">
+      🎉
+    </div>
+    <div class="step-content">
+      And just like that, you're ready to go! 
+    </div>
+  </div>
+</div>

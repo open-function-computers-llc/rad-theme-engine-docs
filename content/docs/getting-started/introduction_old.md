@@ -4,7 +4,7 @@ description: "better-wordpress is a suite of utilities to aide in the developmen
 lead: "<code>better-wordpress</code> is a suite of utilities to aide in the development of WordPress themes and make the experience suck a little less."
 date: 2020-10-06T08:48:57+00:00
 lastmod: 2020-10-06T08:48:57+00:00
-draft: false
+draft: true
 images: []
 menu:
   docs:
@@ -20,6 +20,6 @@ The purpose of better-wordpress is to enable developers to use the familiar mode
 
 ### Install
 
-Check out the [Installation]({{< relref "installation" >}})
+<!-- Check out the [Installation]({{< relref "installation" >}}) -->
  page for information on how to include better-wordpress in your theme.
 

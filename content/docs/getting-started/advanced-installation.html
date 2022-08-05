@@ -1,0 +1,150 @@
+---
+title: "Installation"
+description: "better-wordpress is a suite of utilities that aim to simplify the WordPress theme development experience."
+lead: "<b>better-wordpress</b> is a suite of utilities that aim to simplify the WordPress theme development experience."
+date: 2022-08-03T16:49:57-07:00
+lastmod: 2022-08-03T16:49:57-07:00
+draft: false
+images: []
+weight: 999
+toc: false
+---
+
+<div class="tabs">
+  <a href="../installation" class="tab">
+    Create a new Theme
+  </a>
+  <div class="tab current">
+    Add to an Existing Theme
+  </div>
+</div>
+
+<div class="timeline">
+  <div class="timeline-step">
+    <div class="step-index">
+      1
+    </div>
+    <div class="step-content">
+      From the root of your theme, use <a href="https://getcomposer.org/">Composer</a> to add <code>better-wordpress</code> as a dependency.
+      <code class="language-bash hljs">
+        <b>></b> composer require open-function-computers-llc/better-wordpress
+      </code>
+    </div>
+  </div>
+
+  <div class="timeline-step">
+    <div class="step-index">
+      2
+    </div>
+    <div class="step-content">
+      Next, copy the included <code>config.example.php</code> file into the root of your theme and rename it to
+      <code>config.php</code>.
+      <code class="language-bash hljs">
+        <span class="hljs-comment"># macOS, Linux</span><br>
+        <b>></b> cp vendor/open-function-computers-llc/better-wordpress/config.example.php config.php<br>
+        <span class="hljs-comment"># Windows</span><br>
+        <b>></b> copy vendor\open-function-computers-llc\better-wordpress\config.example.php config.php
+      </code>
+    </div>
+  </div>
+
+  <div class="timeline-step">
+    <div class="step-index">
+      3
+    </div>
+    <div class="step-content">
+      After that, edit your <code>functions.php</code> file to include the following code:
+      <br><span class="code-heading">functions.php</span>
+      <pre style="margin: 0;"><code class="language-php hljs">&lt;?php
+
+# Imports all Composer packages
+require __DIR__ . '/vendor/autoload.php';
+
+use ofc\Site;
+
+# Declare a new Site object
+$site = new Site();
+
+# Allow the Site object to be accessed in other files
+function site()
+{
+    global $site;
+    return $site;
+}
+</code></pre>
+    </div>
+  </div>
+
+  <div class="timeline-step">
+    <div class="step-index">
+      👉
+    </div>
+    <div class="step-content">
+      Steps beyond this point are optional, but encouraged if you want to get the most out of better-wordpress.
+    </div>
+  </div>
+
+  <div class="timeline-step">
+    <div class="step-index">
+      4
+    </div>
+    <div class="step-content">
+      To handle asset bundling we use <code>laravel-mix</code>, available via npm.
+      <code class="language-bash hljs">
+        <b>></b> npm install laravel-mix<br>
+      </code>
+      <span class="code-caption">Mix can process JS, CSS, Sass, PostCSS, Vue, and more. </span>
+    </div>
+  </div>
+
+  <div class="timeline-step">
+    <div class="step-index">
+      5
+    </div>
+    <div class="step-content">
+      To configure Mix, create a new file named <code>webpack.mix.js</code>
+      <code class="language-bash hljs">
+        <span class="hljs-comment"># macOS, Linux</span><br>
+        <b>></b> touch webpack.mix.js<br>
+        <span class="hljs-comment"># Windows</span><br>
+        <b>></b> copy nul "webpack.mix.js"<br>
+      </code>
+    </div>
+  </div>
+
+  <div class="timeline-step">
+    <div class="step-index">
+      6
+    </div>
+    <div class="step-content">
+      Inside <code>webpack.mix.js</code> you can define which files you want compiled. BW will automatically enqueue all scripts and stylesheets processed by Mix, so long as they are outputted to the <code>dist</code> folder.<br>
+      <span class="code-heading">webpack.mix.js</span>
+      <pre style="margin: 0;"><code class="language-js hljs">let mix = require('laravel-mix');
+
+mix.js('src/app.js', 'dist').setPublicPath('dist').version();
+</code></pre>
+<span class="code-caption">Adding <code>.version()</code> ensures that the browser will always use the most up-to-date assets. See more examples on the <a href="https://laravel-mix.com/docs/main/examples">Laravel Mix docs</a>.</span>
+    </div>
+  </div>
+
+  <div class="timeline-step">
+    <div class="step-index">
+      7
+    </div>
+    <div class="step-content">
+      Finally, begin running Mix to automatically compile your assets as you work.
+      <code class="language-bash hljs">
+        <b>></b> npx mix watch<br>
+      </code>
+    </div>
+  </div>
+
+  <div class="timeline-step">
+    <div class="step-index end">
+      🎉
+    </div>
+    <div class="step-content">
+      And just like that, you're ready to go!
+    </div>
+  </div>
+</div>
