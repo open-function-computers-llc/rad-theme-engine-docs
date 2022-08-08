@@ -9,6 +9,7 @@ module.exports = {
       content: [
         './layouts/**/*.html',
         './content/**/*.md',
+        './content/**/*.html',
       ],
       safelist: [
         'lazyloaded',
