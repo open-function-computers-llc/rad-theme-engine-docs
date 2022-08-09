@@ -9,7 +9,8 @@
     </div>
     <div class="col-lg-9 col-xl-8 text-center">
       <p class="lead">{{ .Params.lead | safeHTML }}</p>
-      <a class="btn btn-primary btn-lg px-4 mb-2" href='{{ "docs/getting-started/installation/" | relURL }}' role="button">Get
+      <a class="btn btn-primary btn-lg px-4 mb-2" href='{{ "docs/getting-started/installation/" | relURL }}'
+        role="button">Get
         started</a>
       <p class="meta">
         Open-source MIT Licensed.
@@ -28,7 +29,8 @@
     <div class="row justify-content-center text-center my-5">
       <div class="col-lg-5">
         <h2 class="h4">Inspired by Laravel</h2>
-        <p>Trying to bring the MVC and configuration patterns from the best full stack web framework to the WordPress ecosystem.</p>
+        <p>Trying to bring the MVC and configuration patterns from the best full stack web framework to the WordPress
+          ecosystem.</p>
       </div>
       <div class="col-lg-5">
         <h2 class="h4">Handlebars Included</h2>
@@ -37,7 +39,8 @@
       </div>
       <div class="col-lg-5">
         <h2 class="h4">All The Options</h2>
-        <p>Manage all your custom post types, ACF option pages, menus, handlebars helpers and more from a single array in your config.php file.</p>
+        <p>Manage all your custom post types, ACF option pages, menus, handlebars helpers and more from a single array
+          in your config.php file.</p>
       </div>
       <div class="col-lg-5">
         <h2 class="h4">Convenience First</h2>
@@ -46,26 +49,81 @@
       </div>
       <div class="col-lg-5">
         <h2 class="h4">Powered by Composer</h2>
-        <p>No child theme necessary. Run a few commands directly from your themes folder and start building your new theme in minutes.</p>
+        <p>No child theme necessary. Run a few commands directly from your themes folder and start building your new
+          theme in minutes.</p>
       </div>
     </div>
-    <!-- <div class="row justify-content-center text-center">
-      <div class="col-lg-5">
-        <h2 class="h4">Full text search</h2>
-        <p>Search your Doks site with FlexSearch. Easily customize index settings and search options to your liking.</p>
-      </div>
-      <div class="col-lg-5">
-        <h2 class="h4">Page layouts</h2>
-        <p>Build pages with a landing page, blog, or documentation layout. Add custom sections and components to suit
-          your needs.</p>
-      </div>
-      <div class="col-lg-5">
-        <h2 class="h4">Dark mode</h2>
-        <p>Switch to a low-light UI with the click of a button. Change colors with variables to match your branding.</p>
-      </div>
-    </div> -->
   </div>
 </section>
+<section class="section section-alternate">
+  <div class="container content-block">
+    <h2>MVC Meets WordPress</h2>
+    <p class="content-block-subtitle">better-wordpress uses handlebars-php under the hood to bring Model-View-Controller
+      (MVC) design patterns to WordPress, similar to frameworks like Laravel and Vue. </p>
+    <div class="content-block-compare">
+
+      <div>
+        <h4>With better-wordpress</h4>
+        <span class="code-heading">index.php</span>
+        <pre style="margin: 0;"><code class="language-php hljs">echo site()->render('my-hero',[
+  'title' => 'My Cool Site',
+  'subtitle' => 'Welcome to my website!',
+  'posts' => site()->getDefaultPosts(['title','url']),
+  'background_image' => site()->getAssetURL('hero-bg.jpg')
+]);</code></pre>
+
+        <span class="code-heading">tpl/my-hero.tpl</span>
+        <pre style="margin: 0;"><code class="language-html hljs">&lt;div class="hero" style="background: url(&lcub;{background_image}&rcub;)">
+  &lt;h1>&lcub;{title}&rcub;&lt;/h1>
+  &lt;p class="subtitle">
+    &lcub;{subtitle}&rcub;
+  &lt;/p>
+  &lt;ul class="posts">
+    &lcub;{#each posts}&rcub;
+    &lt;li>
+      &lt;a href="&lcub;{url}&rcub;">&lcub;{title}&rcub;&lt;/a>
+    &lt;/li>
+    &lcub;{/each}&rcub;
+  &lt;/ul>
+&lt;/div></code></pre>
+      </div>
+      <div>
+        <h4>Without better-wordpress</h4>
+        <span class="code-heading">index.php</span>
+        <pre style="margin: 0;"><code class="language-html hljs"><?php
+  $hero_title = 'My Cool Site';
+  $hero_subtitle = 'Welcome to my website!';
+
+  $hero_bg_file = 'hero-bg.jpg';
+  $hero_bg_url;
+  if (file_exists(get_template_directory()."/assets/$hero_bg_file")) {
+    $hero_bg_url = get_template_directory_uri()."/assets/$hero_bg_file";
+  }
+?>
+
+&lt;div class="hero" style="background: url(<?= $hero_bg_url ?>)">
+  &lt;h1><?= $hero_title ?>&lt;/h1>
+  &lt;p class="subtitle">
+    <?= $hero_subtitle ?>
+  &lt;/p>
+  &lt;ul class="posts">
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+&lt;li>
+  &lt;a href="<?= get_the_title() ?>">
+    <?= get_permalink(get_the_ID()) ?>
+  &lt;/a>
+&lt;/li>
+<?php endwhile; else : ?>
+&lt;p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?>&lt;/p>
+<?php endif; ?>
+  &lt;/ul>
+&lt;/div>
+</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
 {{ end }}
 
 {{ define "sidebar-footer" }}
