@@ -124,6 +124,116 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container content-block">
+    <h2>Powerful Customization</h2>
+    <p class="content-block-subtitle">Creating custom post types, options pages, and menu locations has never been
+      easier thanks to better-wordpress' centralized configuration system.</p>
+    <div class="content-block-compare screenshot-overlay">
+      <div>
+        <span class="code-heading">config.php</span>
+        <pre style="margin: 0;"><code class="language-php hljs">...
+
+"custom-post-types" => [
+  [
+    "slug" => 'shirts',
+    "icon" => 'dashicons-cart',
+    "taxonomies" => ['color'],
+    "options" => [
+      "has_archive" => 'shirts',
+      "show_in_nav_menus" => true,
+      "supports" => ['title', 'editor', 'thumbnail'],
+      "has_archive" => true,
+      "rewrite" => [
+        'slug' => 'shirts',
+        'with_front' => true,
+        'pages' => true,
+        'feeds' => true,
+      ],
+      "labels" => [
+        'name' => _x('Shirts', 'Post Type General Name', 'text_domain'),
+        'singular_name' => _x('Shirt', 'Post Type Singular Name', 'text_domain'),
+      ]
+    ]
+  ],
+],
+
+...</code></pre>
+        <span class="code-caption">Creating a custom post type</span>
+      </div>
+      <div class="screenshot">
+        <img src="./images/home-post-types.png" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alternate">
+  <div class="container content-block">
+    <h2>Flexible APIs</h2>
+    <p class="content-block-subtitle">better-wordpress' convenient querying functions makes fetching posts easy, no
+      matter what kind of data you're trying to grab. Get Advanced Custom Fields, taxonomies, meta fields, thumbnails,
+      urls, and more from a single function.</p>
+    <div class="content-block-compare align-items-center">
+      <div class="arrow" style="top: -1.5rem;">
+        <img src="./images/icons/home-grid-arrow.png" alt="">
+      </div>
+      <div>
+        <pre style="margin: 0;"><code class="language-php hljs">$posts = site()->getPosts([
+    "type" => "vehicles",
+    "taxonomy.country" => "france,italy"
+], [
+    "title",
+    "acf.miles",
+    "taxonomy.country.name"
+]);</code></pre>
+        <span class="code-caption">Get posts of type 'vehicles' that have the term 'france' or 'italy' as their country
+          taxonomy, only returning the post title, number of miles, and country name(s).</span>
+      </div>
+      <div>
+        <pre style="margin: 0;"><code class="language-php hljs">[
+  [
+    "title" => "2010 Ferrari 458 Italia",
+    "miles" => 13802,
+    "country" => [
+      [
+        "name" => "Italy"
+      ]
+    ]
+  ],
+  [
+    "title" => "2019 Renault Alpine A110 Légende GT",
+    "miles" => 3211,
+    "country" => [
+      [
+        "name" => "France"
+      ]
+    ]
+  ],
+  ...
+]</code></pre>
+      </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="row gap-4">
+
+
+      <div class="col">
+        <img src="./images/bw-logo.png" class="invert-me" style="height: 50px;">
+      </div>
+      <div class="col text-end">
+        <a class="btn btn-primary btn-lg px-4 mb-2 col" href='{{ "docs/getting-started/installation/" | relURL }}'
+          role="button">
+          Get started
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 {{ end }}
 
 {{ define "sidebar-footer" }}
