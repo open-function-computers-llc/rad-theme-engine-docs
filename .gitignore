@@ -6,3 +6,4 @@ resources
 .netlify
 TODO
 .vscode/settings.json
+.DS_Store
