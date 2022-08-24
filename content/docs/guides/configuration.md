@@ -1,5 +1,5 @@
 ---
-title: "Configuration Overview"
+title: "Configuration"
 description: "Available options to configure "
 lead: "Available options to configure"
 lastmod: 2020-10-13T15:21:01+02:00
@@ -7,8 +7,8 @@ draft: false
 images: []
 menu:
   docs:
-    parent: "configuration"
-weight: 201
+    parent: "guides"
+weight: 10
 toc: false
 ---
 

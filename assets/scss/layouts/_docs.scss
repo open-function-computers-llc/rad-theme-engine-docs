@@ -12,10 +12,10 @@ nav.docs-links {
   white-space: nowrap;
   width: 100%;
 
-  &::before {
-    content: "↳ ";
-    // font-family: $font-family-base;
-  }
+  // &::before {
+  //   content: "↳ ";
+  //   // font-family: $font-family-base;
+  // }
 }
 
 code.language-bash {

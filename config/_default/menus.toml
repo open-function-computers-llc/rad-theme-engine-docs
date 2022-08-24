@@ -1,29 +1,34 @@
 [[docs]]
   name = "Getting Started"
+  pre = "bi-arrow-right-circle-fill"
   weight = 10
   identifier = "getting-started"
   url = "/docs/getting-started/"
 
 [[docs]]
   name = "Guides"
+  pre = "bi-info-circle-fill"
   weight = 15
   identifier = "guides"
   url = "/docs/guides/"
 
 [[docs]]
   name = "Configuration"
+  pre = "bi-wrench-adjustable-circle-fill"
   weight = 20
   identifier = "configuration"
   url = "/docs/configuration/"
 
 [[docs]]
   name = "Reference"
+  pre = "bi-circle-square"
   weight = 30
   identifier = "reference"
   url = "/docs/reference/"
 
 [[docs]]
   name = "Help"
+  pre = "bi-question-circle-fill"
   weight = 60
   identifier = "help"
   url = "/docs/help/"
