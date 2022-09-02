@@ -11,25 +11,49 @@ weight: 200
 toc: true
 ---
 
-To ensure you can use the function, make sure you followed the instructions on the [initializing](../../getting-started/initializing) page. It's literally one step, you can't mess it up.
-
-You're free to rename the function if it clashes with any other names, but this documentation assumes you've instantiated the `better-wordpress` class into a variable named `$site` and it is referenced by a global function named `site()`.
-
 Calling the `site()` function in any of your theme's php files will return the `ofc/Site` object, a class with a collection of convenient methods to interface with various parts of WordPress.
 
 ## Patterns
+
+### Post Querying
+
+Developers familiar with the WordPress' [WP_Query](https://developer.wordpress.org/reference/functions/get_posts/) concept of querying for posts will feel right at home with better-wordpress.
+
+If you want to quickly fetch 8 posts of type "product", for example:
+
+```php
+$products = site()->getPosts([
+  "post_type" => "product",
+  "numberposts" => 8
+]);
+```
+<div class="code-caption">A simple post query</div>
+
+But unlike a normal WP_Query, better-wordpress' comes with an additional option to make working with taxonomies easier. Now if I want to grab products that have the "medium" taxonomy equal to the term with slug "vinyl", I would simply use:
+
+```php 
+$records = site()->getPosts([
+  "post_type" => "product",
+  "taxonomy.medium" => "vinyl"
+  "numberposts" => 8,
+]);
+```
+<div class="code-caption">A post query with a term specified</div>
+
+Additionally a number of aliases for commonly used fields are added by better-wordpress, which are defined in the [`getPosts` docs](../../reference/getposts#arguments).
+
 
 ### Post Fields
 
 One convenient feature of better-wordpress is the ability to define the structure of a returned post object on certain methods.
 
-In implimentation all this means is creating a string array of [`WP_Post`](https://developer.wordpress.org/reference/classes/wp_post/) members you want returned. For example, if I only want to get the `$post_title` and `$post_author` of a post, my fields would look like this:
+In practice this simply means creating a string array of [`WP_Post`](https://developer.wordpress.org/reference/classes/wp_post/) members you want returned. For example, if I only want to get the `$post_title` and `$post_author` of a post, my fields would look like this:
 
 ```php
-$fields = ['post_title','post_author']
+$fields = ['post_title','post_author'];
 
 // Get these fields from post with id 4
-$post = site()->getPost(4,$fields)
+$post = site()->getPost(4,$fields);
 ```
 
 The result of getPost is the following:
@@ -45,7 +69,7 @@ The result of getPost is the following:
 
 In addition to any member of the [`WP_Post`](https://developer.wordpress.org/reference/classes/wp_post/) object, better-wordpress comes with a collection of shortcuts for nested properties, meta fields, [Advanced Custom Fields](https://www.advancedcustomfields.com/), and taxonomies. 
 
-Check out this [`getPost` example](../getpost#with-fields) to see some of these fields in action.
+Check out this [`getPost` example](../../reference/getpost#with-fields) to see some of these fields in action.
 
 
 
@@ -68,3 +92,28 @@ Check out this [`getPost` example](../getpost#with-fields) to see some of these 
   - `title` – Alias for `name`
   - `slug`
   - `description`
+
+
+### Putting it Together
+
+Now that we know how to create a post query and define it's structure, the logical next step would be to put them together! Luckily with better-wordpress this is super simple, just use the `getPosts` function with both parameters.
+
+If I want to grab the title, url, and thumbnail for all the records I'm selling, for example:
+
+```php
+$query = [
+  "post_type" => "product",
+  "taxonomy.medium" => "vinyl"
+];
+
+$fields = [
+  "title",
+  "url",
+  "thumbnail"
+];
+
+$records = site()->getPosts($query,$fields);
+```
+<div class="code-caption">Retrieves 3 fields from all posts matching the given query</div>
+
+Check out the [`getPosts` docs](../../reference/getposts) for more information.

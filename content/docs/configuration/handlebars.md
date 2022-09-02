@@ -31,7 +31,7 @@ Handlebars helpers are methods inside your template files to perform php code an
 
 ### Writing
 
-Organizing your helpers is important, as it's not reccomended you write functions directly inside the `config.php` file. Creating a `helpers/` folder is the way we'd suggest doing this, and then creating individual files for helpers used in different templates.
+Organizing your helpers is important, as it's not recommended you write functions directly inside the `config.php` file. Creating a `helpers/` folder is the way we'd suggest doing this, and then creating individual files for helpers used in different templates.
 
 In my `helpers/ShowHelpers.php` file, for example, I wrote this function to generate a rating bar html string from a some given parameters ([here's what it will look like](#results)):
 

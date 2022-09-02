@@ -55,7 +55,7 @@ toc: false
     <div class="step-content">
       After that, edit your <code>functions.php</code> file to include the following code:
       <br><span class="code-heading">functions.php</span>
-      <pre style="margin: 0;"><code class="language-php hljs">&lt;?php
+      <pre><code class="language-php hljs">&lt;?php
 
 # Imports all Composer packages
 require __DIR__ . '/vendor/autoload.php';
@@ -119,7 +119,7 @@ function site()
     <div class="step-content">
       Inside <code>webpack.mix.js</code> you can define which files you want compiled. BW will automatically enqueue all scripts and stylesheets processed by Mix, so long as they are outputted to the <code>dist</code> folder.<br>
       <span class="code-heading">webpack.mix.js</span>
-      <pre style="margin: 0;"><code class="language-js hljs">let mix = require('laravel-mix');
+      <pre><code class="language-js hljs">let mix = require('laravel-mix');
 
 mix.js('src/app.js', 'dist').setPublicPath('dist').version();
 </code></pre>

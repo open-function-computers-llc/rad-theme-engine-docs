@@ -156,8 +156,15 @@ code .code-add {
 
 }
 
-.code-heading ~ pre {
-  margin-bottom: 0px;
+// .code-heading ~ pre {
+// margin-bottom: 0px;
+// }
+
+.docs-content {
+
+    pre + .code-caption {
+        margin-top: -2rem;
+    }
 }
 
 
@@ -177,5 +184,5 @@ code .code-add {
 }
 
 .docs-content .code-caption {
-  margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 }

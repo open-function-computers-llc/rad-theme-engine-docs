@@ -1,7 +1,7 @@
 ---
 title: "Configuration"
 description: "Available options to configure"
-lead: "better-wordpress makes configuration easy."
+lead: "better-wordpress makes theme configuration easy."
 lastmod: 2020-10-13T15:21:01+02:00
 draft: false
 images: []
