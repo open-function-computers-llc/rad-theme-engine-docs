@@ -7,7 +7,7 @@ images: []
 menu:
   docs:
     parent: "configuration"
-weight: 250
+weight: 110
 toc: true
 ---
 
