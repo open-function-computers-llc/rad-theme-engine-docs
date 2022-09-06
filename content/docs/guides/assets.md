@@ -13,12 +13,13 @@ toc: true
 
 The [`getAssetUrl($filename)`](../../reference/getasseturl) function is a convenient method of getting urls for files that exist in your theme's `assets` folder.
 
-## Example 1
+## Grabbing File URLs
 
 You can use this helper to pass absolute paths to your handlebars template. Assume that we have some images and documents in our theme code (`assets/main-logo.png, assets/documents/tandc.pdf, etc...`):
-```php
-<?php #index.php
 
+<div class="code-heading">index.php</div>
+
+```php
 echo site()->render("partials/sidebar", [
     "main-logo" => site()->getAssetURL("main-logo.png"),
     "main-logo-alt" => "Lorem ipsum",
@@ -27,8 +28,9 @@ echo site()->render("partials/sidebar", [
 ]);
 ```
 
+<div class="code-heading">tpl/partials/sidebar.tpl</div>
+
 ```html
-<!-- tpl/partials/sidebar.tpl -->
 ...
 <aside>
     <img src="{{ main-logo }}" alt="{{ main-logo-alt }}" />
@@ -37,15 +39,6 @@ echo site()->render("partials/sidebar", [
 </aside>
 ```
 
-## Example 2
+See more about the `getAssetURL` function [here](../../reference/getasseturl).
 
-You can use this helper inline in your raw HTML to generate an image path:
 
-```html
-<img
-  src="<?= site()->getAssetURL('gif/globe.gif') ?>"
-  style="float: right;"
->
-```
-
-{{< figure src="/images/asset-example.png" >}}
