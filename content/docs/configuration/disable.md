@@ -31,9 +31,12 @@ Where `"disable"` is an array of strings selected from the options below.
 
 ## Example
 
+<div class="code-heading">config.php</div>
+
 ```php
-<?php # config.php
 return [
     "disable" => ["editor"]
 ]
 ```
+
+<div class="code-caption">Disabling the WordPress editor</div>

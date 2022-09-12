@@ -53,9 +53,9 @@ A list of possible features to disable using the `"disabled"` key
 
 Here is a custom post type for a TV Show with a genre taxonomy, custom labels, and an options page:
 
-```php
-<?php # config.php
+<div class="code-heading">config.php</div>
 
+```php
 return [
     "custom-post-types" => [
         [
@@ -83,3 +83,5 @@ return [
     ]
 ]
 ```
+
+<div class="code-caption">A new custom post type with the slug "shows"</div>

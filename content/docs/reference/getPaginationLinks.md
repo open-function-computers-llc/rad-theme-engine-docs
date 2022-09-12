@@ -47,15 +47,19 @@ site()->getPaginationLinks();
 
 Passing pagination links into a template is very easy:
 
+<div class="code-heading">archive.php</div>
+
 ```php
 echo site()->view("blog-archive", [
     "pagination" => site()->getPaginationLinks(),
 ]);
 ```
 
-```html
-<!-- tpl/blog-archive.tpl -->
+<div class="code-caption">Rendering the "blog-archive" handlebars view with pagination links</div>
 
+<div class="code-heading">tpl/blog-archive.tpl</div>
+
+```html
 ...
 
 {{#if pagination.older }}
@@ -65,3 +69,5 @@ echo site()->view("blog-archive", [
     <a href="{{ pagination.newer }}">Newer Posts</a>
 {{/if}}
 ```
+
+<div class="code-caption">Handlebars code to display the links</div>

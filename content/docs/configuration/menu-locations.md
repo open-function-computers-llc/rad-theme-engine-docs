@@ -23,8 +23,9 @@ The `key` of the item will act as the identifier (like a slug) and the `value` w
 
 ## Example
 
+<div class="code-heading">config.php</div>
+
 ```
-<?php # config.php
 return [
     "menu-locations" => [
         "main-nav" => "Main Navigation",
@@ -32,3 +33,5 @@ return [
     ],
 ]
 ```
+
+<div class="code-caption">Registering two custom menu locations</div>

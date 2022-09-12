@@ -38,9 +38,9 @@ The [WordPress docs](https://developer.wordpress.org/reference/functions/wp_nav_
 
 First we make sure the menu location <a href="/docs/configuration/menu-locations/">is registered in the theme's config.php</a>:
 
-```php
-<?php # config.php
+<div class="code-heading">config.php</div>
 
+```php
 return [
     "menu-locations" => [
         "main-nav" => "Main Navigation"
@@ -49,11 +49,15 @@ return [
 ]
 ```
 
+<div class="code-caption">Registering a menu location</div>
+
 Then we echo the rendered menu in the theme's header view:
 
 ```php
 <?= site()->renderMenu("main-nav"); ?>
 ```
+
+<div class="code-caption">Rendering a menu via its location</div>
 
 And that's it!
 

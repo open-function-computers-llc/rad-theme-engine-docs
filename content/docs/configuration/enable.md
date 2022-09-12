@@ -33,9 +33,12 @@ Where `"enable"` is an array of strings selected from the options below.
 
 ## Example
 
+<div class="code-heading">config.php</div>
+
 ```php
-<?php # config.php
 return [
-    "enable" => ["post-thumbnails","menus"]
+  "enable" => ["post-thumbnails","menus"]
 ]
 ```
+
+<div class="code-caption">Enabling menus and post thumbnails in your theme</div>

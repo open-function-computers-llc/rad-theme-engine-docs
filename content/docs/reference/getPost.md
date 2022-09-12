@@ -67,6 +67,8 @@ site()->getPost(96, [
 ]
 ```
 
+<div class="code-caption">Grabbing various attributes of a single post</div>
+
 ### Without Fields
 
 ```php
@@ -82,3 +84,6 @@ site()->getPost(96);
   ]
 ]
 ```
+
+<div class="code-caption">Getting the entire WP_Post object</div>
+

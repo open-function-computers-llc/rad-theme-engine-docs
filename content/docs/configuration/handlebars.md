@@ -35,9 +35,9 @@ Organizing your helpers is important, as it's not recommended you write function
 
 In my `helpers/ShowHelpers.php` file, for example, I wrote this function to generate a rating bar html string from a some given parameters ([here's what it will look like](#results)):
 
-```php
-<?php # helpers/ShowHelpers.php
+<div class="code-heading">helpers/ShowHelpers.php</div>
 
+```php
 # All of your helpers across multiple files should use the same namespace.
 namespace ThemeHelpers;
 
@@ -63,6 +63,8 @@ class ShowHelpers
 }
 ```
 
+<div class="code-caption">Writing a custom helper</div>
+
 You'll notice the `ratingBar()` function returns a function instead of a value, this is to prevent caching.
 
 You'll also notice that my `$r` variable is defined using `$context->get(...)` while `$b` and `$c` aren't. This is because the first parameter is the name of a variable, while the second and third are just a number and a string. Using `$context->get(...)` will return the value of the variable.
@@ -70,6 +72,8 @@ You'll also notice that my `$r` variable is defined using `$context->get(...)` w
 ### Importing
 
 Since we're using a custom namespace to declare our functions, we'll use Composer to import these files automagically. In our `composer.json` file:
+
+<div class="code-heading">composer.json</div>
 
 ```json
 {
@@ -83,6 +87,9 @@ Since we're using a custom namespace to declare our functions, we'll use Compose
     }
 }
 ```
+
+<div class="code-caption">Updating Composer's autoload to include our custom helpers</div>
+
 The key is the name of the namespace followed by two backslashes, and the value is the folder it's located in.
 
 To install this new namespace into Composer's `autoload.php` file, execute the following command in the base of your theme.
@@ -95,9 +102,9 @@ composer dump-autoload -o
 
 Now in our `config.php` file we can add the following:
 
-```php
-<?php # config.php
+<div class="code-heading">config.php</div>
 
+```php
 return [
     "handlebars" => [
         "additional-helpers" => [
@@ -108,9 +115,13 @@ return [
 ]
 ```
 
+<div class="code-caption">Registering our custom handlebars helper</div>
+
 ### Implementing
 
 From now onwards, we can use this new helper in any of our templates by calling it with a `#ratingBar`. Here's an example of a list of TV Shows, each with a rating displayed:
+
+<div class="code-heading">tpl/show_list.tpl</div>
 
 ```html
 <div class="four-col-grid">
@@ -129,6 +140,8 @@ From now onwards, we can use this new helper in any of our templates by calling 
     {{/each}}
 </div>
 ```
+
+<div class="code-caption">Using our new helper in a handlebars file</div>
 
 Like I mentioned before, `rating` is a variable, more specifically a member of `show`, that was passed into this template using `$site->view(...)`.
 
@@ -150,9 +163,9 @@ Changing `template-directory` will change where handlebars looks for your templa
 
 This is a theme configuration with a couple additional helpers, a custom `.view` template extension, where template files will live in the `views` folder instead of `tpl`.
 
-```php
-<?php # config.php
+<div class="code-heading">config.php</div>
 
+```php
 return [
 "handlebars" => [
         "additional-helpers" => [
@@ -166,3 +179,5 @@ return [
     ],
 ]
 ```
+
+<div class="code-caption">A theme with several helpers and a custom template extension/directory.</div>

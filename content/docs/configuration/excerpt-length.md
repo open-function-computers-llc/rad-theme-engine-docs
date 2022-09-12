@@ -22,9 +22,12 @@ An excerpt is an optional text associated to a Post, often used as a summary. Th
 
 ## Example
 
+<div class="code-heading">config.php</div>
+
 ```
-<?php # config.php
 return [
-    "excerpt-length" => 100,
+  "excerpt-length" => 100,
 ]
 ```
+
+<div class="code-caption">Setting the excerpt length to 100 characters.</div>

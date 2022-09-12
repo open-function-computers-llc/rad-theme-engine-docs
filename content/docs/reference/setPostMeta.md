@@ -37,3 +37,5 @@ site()->setPostMeta(42, [
     "key2" => "value2",
 ]);
 ```
+
+<div class="code-caption">Setting a post's meta fields</div>

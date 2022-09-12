@@ -69,3 +69,5 @@ site()->getDefaultPosts([
     ... // And more
 ]
 ```
+
+<div class="code-caption">Grabbing the title, id, and price of the default posts for this location.</div>

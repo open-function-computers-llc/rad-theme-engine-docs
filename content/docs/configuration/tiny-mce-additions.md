@@ -44,8 +44,9 @@ These options come from [the WordPress Codex](https://codex.wordpress.org/TinyMC
 
 This custom format will apply the `custom-checkbox-list` class to all `<ul>` elements within the selected HTML.
 
+<div class="code-heading">config.php</div>
+
 ```php
-<?php # config.php
 return [
     "enable" => ["styleselect"],
     "tiny-mce-additions" => [
@@ -57,6 +58,8 @@ return [
     ]
 ]
 ```
+
+<div class="code-caption">Creating a new TinyMCE style, "Checkbox List"</div>
 
 Now in the editor we see our newly defined format:
 

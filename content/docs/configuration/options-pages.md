@@ -27,8 +27,9 @@ To register an options page under a custom post type, see the [`custom-post-type
 
 ## Example
 
+<div class="code-heading">config.php</div>
+
 ```
-<?php # config.php
 return [
     "options-pages" => [
         "general-options",
@@ -36,3 +37,5 @@ return [
     ],
 ]
 ```
+
+<div class="code-caption">Registering two custom ACF Pro options pages</div>

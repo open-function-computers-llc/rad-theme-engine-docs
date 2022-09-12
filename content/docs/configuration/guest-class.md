@@ -25,17 +25,21 @@ To remove this functionality altogether, set to `"null"`
 
 ## Example
 
+<div class="code-heading">config.php</div>
+
 ```
-<?php # config.php
 return [
     "guest-class" => "my-custom-class",
 ]
 ```
 
+<div class="code-caption">Setting a custom guest class</div>
+
 Also note that we must call the `body_class()` (or `get_body_class()`) function to get these classes wherever our body tag is located in the theme.
 
-```html
-<!-- header.php -->
+<div class="code-heading">header.php</div>
+
+```php
 <?php wp_head() ?>
 
 <body <?php body_class() ?>>
