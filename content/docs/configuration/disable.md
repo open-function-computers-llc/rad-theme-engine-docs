@@ -24,9 +24,11 @@ Where `"disable"` is an array of strings selected from the options below.
 
 ## Options
 
-| Key        | Description                                                                                          |
-| ---------- | ---------------------------------------------------------------------------------------------------- |
-| `"editor"` | Disables WordPress's editor on the admin page. Helpful if you don't want people breaking your theme. |
+| Key            | Description                                                                                                              |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `"editor"`     | Disables WordPress's editor on the admin page. Helpful if you don't want people breaking your theme.                     |
+| `"customizer"` | If you aren't enabling fields in the admin customizer, you might as well remove the link and functionality.              |
+| `"gutenberg"`  | This will take you back to the standard WYSIWYG editor instead of the new block editor. Helpful for strict site designs. |
 {.table .table-bordered .col1-nowrap}
 
 ## Example
@@ -35,7 +37,9 @@ Where `"disable"` is an array of strings selected from the options below.
 
 ```php
 return [
-    "disable" => ["editor"]
+    ...
+    "disable" => ["editor", "customizer", "gutenberg"],
+    ...
 ]
 ```
 
