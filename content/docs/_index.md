@@ -1,6 +1,6 @@
 ---
 title : "Docs"
-description: "better-wordpress Documentation"
+description: "RAD Theme Engine Documentation"
 lead: ""
 date: 2020-10-06T08:48:23+00:00
 lastmod: 2020-10-06T08:48:23+00:00

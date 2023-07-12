@@ -1,7 +1,7 @@
 ---
 title: "Configuration"
 description: "Available options to configure"
-lead: "better-wordpress makes theme configuration easy."
+lead: "RAD Theme Engine makes theme configuration easy."
 lastmod: 2020-10-13T15:21:01+02:00
 draft: false
 images: []
@@ -14,9 +14,9 @@ toc: true
 
 ## Getting Started
 
-Unlike the traditional WordPress method of defining your theme options programmatically in the `functions.php` file, better-wordpress opts for a simpler, more centralized approach.
+Unlike the traditional WordPress method of defining your theme options programmatically in the `functions.php` file, RAD Theme Engine opts for a simpler, more centralized approach.
 
-With better-wordpress, options like custom post types, menu locations, options pages, and more can be configured from a single array in the `config.php` file. 
+With RAD Theme Engine, options like custom post types, menu locations, options pages, and more can be configured from a single array in the `config.php` file. 
 
 By default, your `config.php` file will look something like this:
 
@@ -72,13 +72,13 @@ return [
 ];
 ```
 
-<div class="code-caption">The default config.php that comes with better-wordpress.</div>
+<div class="code-caption">The default config.php that comes with rad-theme-engine.</div>
 
 If you ever need to reset your `config.php` file, recall that this example lives in the `vendor/open-function-computers-llc` folder of your project.
 
 ### Custom Post types
 
-One of the most convenient features of better-wordpress is the ability to define custom post types without ever leaving the configuration array.
+One of the most convenient features of RAD Theme Engine is the ability to define custom post types without ever leaving the configuration array.
 
 For example, if I wanted to make a custom "Album" post type for my music blog:
 
@@ -153,7 +153,7 @@ Creating multiple custom post types is simple, just make sure they have unique s
 
 ### Menu Locations
 
-Another common thing that theme developers need to configure are menu locations, and luckily better-wordpress has got that covered too.
+Another common thing that theme developers need to configure are menu locations, and luckily RAD Theme Engine has got that covered too.
 
 <div class="code-heading">config.php</div>
 
@@ -176,7 +176,7 @@ That was easy! See the [menu-locations docs]({{< relref "menu-locations" >}}) fo
 
 *[Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) is required to use this option.*
 
-Adding ACF option pages with better-wordpress is dead simple, all it takes is a string!
+Adding ACF option pages with RAD Theme Engine is dead simple, all it takes is a string!
 
 <div class="code-heading">config.php</div>
 

@@ -1,18 +1,18 @@
 ---
 title : "Roadmap"
-description: "The future of better-wordpress"
-lead: "The future of better-wordpress"
+description: "The future of RAD Theme Engine"
+lead: "The future of RAD Theme Engine"
 date: 2020-10-06T08:47:36+00:00
 lastmod: 2020-10-06T08:47:36+00:00
 draft: false
 images: []
 ---
 
-The future of __better-wordpress__
+The future of __RAD Theme Engine__
 
 ---
 
-Like any piece of software, better-wordpress is constantly evolving to fit the needs of our team. Here are some of our current plans regarding the future of the project:
+Like any piece of software, RAD Theme Engine is constantly evolving to fit the needs of our team. Here are some of our current plans regarding the future of the project:
 
 #### Near Future:
 

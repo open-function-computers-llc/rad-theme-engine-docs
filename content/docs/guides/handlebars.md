@@ -1,7 +1,7 @@
 ---
 title: "Handlebars"
-description: "better-wordpress comes with handlebars-php as a dependancy, here's how to use it."
-lead: "better-wordpress comes with <a href='https://github.com/salesforce/handlebars-php'>handlebars-php</a> as a dependancy, here's how to use and configure it."
+description: "RAD Theme Engine comes with handlebars-php as a dependancy, here's how to use it."
+lead: "RAD Theme Engine comes with <a href='https://github.com/salesforce/handlebars-php'>handlebars-php</a> as a dependancy, here's how to use and configure it."
 date: 2020-10-13T15:21:01+02:00
 lastmod: 2020-10-13T15:21:01+02:00
 draft: false
