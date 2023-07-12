@@ -29,7 +29,7 @@ $products = site()->getPosts([
 ```
 <div class="code-caption">A simple post query</div>
 
-But unlike a normal WP_Query, RAD Theme Engine' comes with an additional option to make working with taxonomies easier. Now if I want to grab products that have the "medium" taxonomy equal to the term with slug "vinyl", I would simply use:
+But unlike a normal WP_Query, RAD Theme Engine comes with an additional option to make working with taxonomies easier. Now if I want to grab products that have the "medium" taxonomy equal to the term with slug "vinyl", I would simply use:
 
 ```php 
 $records = site()->getPosts([
