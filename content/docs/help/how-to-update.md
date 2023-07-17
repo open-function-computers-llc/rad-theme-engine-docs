@@ -18,17 +18,17 @@ toc: true
 The [`composer outdated`](https://getcomposer.org/doc/03-cli.md#outdated) command will check the registry to see if your local installation of the package is outdated:
 
 ```bash
-composer outdated open-function-computers-llc/better-wordpress
+composer outdated open-function-computers-llc/rad-theme-engine
 ```
 
 ## Update packages
 
-The [`composer update`](https://getcomposer.org/doc/03-cli.md#update-u) command can update either all of your packages or just `better-wordpress`:
+The [`composer update`](https://getcomposer.org/doc/03-cli.md#update-u) command can update either all of your packages or just `rad-theme-engine`:
 
 ```bash
 # All Packages
 composer update
 
-# Just better-wordpress
-composer update open-function-computers-llc/better-wordpress
+# Just rad-theme-engine
+composer update open-function-computers-llc/rad-theme-engine
 ```

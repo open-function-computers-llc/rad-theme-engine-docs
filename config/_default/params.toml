@@ -1,10 +1,10 @@
 # Meta Data for SEO
 
 ## Homepage
-title = "better-wordpress"
+title = "RAD Theme Engine"
 titleSeparator = "-"
 titleAddition = "WordPress theme development, expedited"
-description = "A suite of utilities to aide in the development of WordPress themes and make the experience suck a little less."
+description = "A suite of utilities to help you build great WordPress themes, without distractions."
 
 ## Open Graph
 images = ["doks.png"]
@@ -33,7 +33,7 @@ schemaImageWidth = 1280
 schemaImageHeight = 640
 schemaTwitter = "https://twitter.com/ofcopdx"
 schemaLinkedIn = ""
-schemaGitHub = "https://github.com/open-function-computers-llc/better-wordpress"
+schemaGitHub = "https://github.com/open-function-computers-llc/rad-theme-engine"
 schemaSection = "blog"
 
 ## Sitelinks Search Box

@@ -1,7 +1,7 @@
 ---
 title: "Initializing"
-description: "Get better-wordpress up and running in your theme"
-lead: "Get better-wordpress up and running in your theme"
+description: "Get RAD Theme Engine up and running in your theme"
+lead: "Get RAD Theme Engine up and running in your theme"
 date: 2020-10-13T15:21:01+02:00
 lastmod: 2020-10-13T15:21:01+02:00
 draft: true
@@ -17,7 +17,7 @@ toc: true
 
 ### Getting Started
 
-To start using better-wordpress in your theme, add the following code to `functions.php`:
+To start using RAD Theme Engine in your theme, add the following code to `functions.php`:
 
 ```php
 <?php

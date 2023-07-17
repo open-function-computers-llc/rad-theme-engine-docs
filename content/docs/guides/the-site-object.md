@@ -17,7 +17,7 @@ Calling the `site()` function in any of your theme's php files will return the `
 
 ### Post Querying
 
-Developers familiar with the WordPress' [WP_Query](https://developer.wordpress.org/reference/functions/get_posts/) concept of querying for posts will feel right at home with better-wordpress.
+Developers familiar with the WordPress' [WP_Query](https://developer.wordpress.org/reference/functions/get_posts/) concept of querying for posts will feel right at home with RAD Theme Engine.
 
 If you want to quickly fetch 8 posts of type "product", for example:
 
@@ -29,7 +29,7 @@ $products = site()->getPosts([
 ```
 <div class="code-caption">A simple post query</div>
 
-But unlike a normal WP_Query, better-wordpress' comes with an additional option to make working with taxonomies easier. Now if I want to grab products that have the "medium" taxonomy equal to the term with slug "vinyl", I would simply use:
+But unlike a normal WP_Query, RAD Theme Engine comes with an additional option to make working with taxonomies easier. Now if I want to grab products that have the "medium" taxonomy equal to the term with slug "vinyl", I would simply use:
 
 ```php 
 $records = site()->getPosts([
@@ -40,12 +40,12 @@ $records = site()->getPosts([
 ```
 <div class="code-caption">A post query with a term specified</div>
 
-Additionally a number of aliases for commonly used fields are added by better-wordpress, which are defined in the [`getPosts` docs](../../reference/getposts#arguments).
+Additionally a number of aliases for commonly used fields are added by RAD Theme Engine, which are defined in the [`getPosts` docs](../../reference/getposts#arguments).
 
 
 ### Post Fields
 
-One convenient feature of better-wordpress is the ability to define the structure of a returned post object on certain methods.
+One convenient feature of RAD Theme Engine is the ability to define the structure of a returned post object on certain methods.
 
 In practice this simply means creating a string array of [`WP_Post`](https://developer.wordpress.org/reference/classes/wp_post/) members you want returned. For example, if I only want to get the `$post_title` and `$post_author` of a post, my fields would look like this:
 
@@ -67,7 +67,7 @@ The result of getPost is the following:
 
 #### Additional Fields
 
-In addition to any member of the [`WP_Post`](https://developer.wordpress.org/reference/classes/wp_post/) object, better-wordpress comes with a collection of shortcuts for nested properties, meta fields, [Advanced Custom Fields](https://www.advancedcustomfields.com/), and taxonomies. 
+In addition to any member of the [`WP_Post`](https://developer.wordpress.org/reference/classes/wp_post/) object, RAD Theme Engine comes with a collection of shortcuts for nested properties, meta fields, [Advanced Custom Fields](https://www.advancedcustomfields.com/), and taxonomies. 
 
 Check out this [`getPost` example](../../reference/getpost#with-fields) to see some of these fields in action.
 
@@ -96,7 +96,7 @@ Check out this [`getPost` example](../../reference/getpost#with-fields) to see s
 
 ### Putting it Together
 
-Now that we know how to create a post query and define it's structure, the logical next step would be to put them together! Luckily with better-wordpress this is super simple, just use the `getPosts` function with both parameters.
+Now that we know how to create a post query and define it's structure, the logical next step would be to put them together! Luckily with RAD Theme Engine this is super simple, just use the `getPosts` function with both parameters.
 
 If I want to grab the title, url, and thumbnail for all the records I'm selling, for example:
 

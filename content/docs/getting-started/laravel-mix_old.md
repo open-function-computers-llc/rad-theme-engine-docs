@@ -59,7 +59,7 @@ npx mix watch
 
 ## Including Scripts/Styles
 
-better-wordpress will automatically look for Laravel Mix's `mix-manifest.json` in the `dist` folder and register/enqueue any javascript or css it finds there.
+RAD Theme Engine will automatically look for Laravel Mix's `mix-manifest.json` in the `dist` folder and register/enqueue any javascript or css it finds there.
 
 The only requirement on your end is to include the `wp_head()` function in your theme's `<head>` element. For example:
 

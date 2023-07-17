@@ -7,16 +7,17 @@
 }
 
 .title-logo {
-    max-width: 400px;
+    max-width: 350px;
+    width: 100%;
 }
 
 .dark .ofco-title-logo,
 .dark .title-logo {
-    filter: invert(1);
+    // filter: invert(1);
 }
 
 .dark .invert-me {
-    filter: invert(1);
+    // filter: invert(1);
 }
 
 .section-alternate {
@@ -101,4 +102,34 @@
         }
     }
 
+}
+
+
+.title-outrun-bg {
+    position: relative;
+    background: url("https://i.pinimg.com/originals/11/da/17/11da17f139514aa738fea26d9265c4b4.gif");
+    background-position: center;
+    background-size: cover;
+
+    & > * {
+        z-index: 2;
+        position: relative;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: white;
+
+        .dark & {
+            background: radial-gradient(circle, rgba(33, 37, 41,0.5) 0%, rgba(33, 37, 41,1) 50%);
+        }
+
+        background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,1) 50%);
+        z-index: 1;
+    }
 }

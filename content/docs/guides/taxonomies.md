@@ -2,7 +2,7 @@
 title: "Working with Taxonomies"
 date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
-lead: "Creating and querying custom taxonomies is easy with better-wordpress."
+lead: "Creating and querying custom taxonomies is easy with RAD Theme Engine."
 draft: false
 images: []
 menu:
@@ -40,7 +40,7 @@ The display name will automatically be set as a capitalized version of the slug.
 
 ### Getting all the terms
 
-Similar to the way posts are queried in better-wordpress, you can declare the specific attributes of each term that will be returned.
+Similar to the way posts are queried in RAD Theme Engine, you can declare the specific attributes of each term that will be returned.
 
 For example if you want to grab the name, slug, and url for each term in the 'genre' taxonomy:
 
@@ -107,7 +107,7 @@ See more on the [`getPostTaxonomy` page](../../reference/getposttaxonomy).
 
 ### Querying posts by terms
 
-Another common use of taxonomies is grabbing every post that has a certain term. With better-wordpress this has never been easier.
+Another common use of taxonomies is grabbing every post that has a certain term. With RAD Theme Engine this has never been easier.
 
 As seen in the [Site Object Guide](../the-site-object#post-querying), the key is adding `taxonomy.<slug>` to the query:
 
