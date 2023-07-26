@@ -9,7 +9,7 @@ description = "A suite of utilities to help you build great WordPress themes, wi
 ## Open Graph
 images = ["doks.png"]
 ogLocale = "en_US"
-domainTLD = "better-wordpress.ofco.cloud"
+domainTLD = "rad-theme-engine.ofco.cloud"
 titleHome = "Doks Theme"
 
 ## Twitter Cards
