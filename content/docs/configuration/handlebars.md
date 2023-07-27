@@ -78,7 +78,7 @@ Since we're using a custom namespace to declare our functions, we'll use Compose
 ```json
 {
     "require": {
-        "open-function-computers-llc/better-wordpress": "^1.0"
+        "open-function-computers-llc/rad-theme-engine": "^1.0"
     },
     "autoload": {
         "psr-4": {
