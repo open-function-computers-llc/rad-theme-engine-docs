@@ -1,3 +1,6 @@
+const isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+console.log(isDarkMode)
+
 document.getElementById('mode').addEventListener('click', () => {
 
   document.body.classList.toggle('dark');
@@ -9,4 +12,8 @@ if (localStorage.getItem('theme') === 'dark') {
 
   document.body.classList.add('dark');
 
+}
+
+if(isDarkMode === true){
+  document.body.classList.add('dark');
 }
