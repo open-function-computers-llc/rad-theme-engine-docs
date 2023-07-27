@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+
+<div class="row justify-content-center mt-3 mb-5">
+    <div id="" class="col-md-12 col-lg-10 col-xl-8">
+        <h1>RAD Config Generator</h1>
+        <div id="v-config-generator">
+            <p>Hello World: [[ display ]]</p>
+        </div>
+        
+    </div>
+</div>
+
+<script type="module">
+    import { createApp, ref } from 'vue'
+
+    let vueApp = createApp({
+        delimiters: ['[[', ']]'],
+        data() { return { display: 'Salut Lume' } },
+    }).mount('#v-config-generator')
+</script>
+
+{{ end }}
