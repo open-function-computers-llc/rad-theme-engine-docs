@@ -1,13 +1,50 @@
+{{ define "head/script-header" }}
+<script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+</script>
+{{ end }}
+
 {{ define "main" }}
-
-
 <div class="row justify-content-center mt-3 mb-5">
-    <div id="" class="col-md-12 col-lg-10 col-xl-8">
-        <h1>RAD Config Generator</h1>
+    <div id="" class="col-12">
+        <h1 class="d-flex align-items-center gap-2">RAD Config Generator <span
+                class="badge text-bg-primary fs-6 d-inline-block ">New!</span></h1>
+
+        <p style="max-width: 36rem">Quickly generate a <code>config.php</code> for your next rad-theme-engine project!
+            Just enter your project requirements and we'll take care of the rest. </p>
+
+        <hr class="d-block my-4 border-top">
+
         <div id="v-config-generator">
-            <p>Hello World: [[ display ]]</p>
+
+            <form class="row">
+                <div class="mb-3 col">
+                    <label for="excerpt-length" class="form-label">Excerpt Length</label>
+                    <div class="input-group">
+                        <input v-model="excerpt_length" type="number" class="form-control" id="excerpt-length">
+                        <span class="input-group-text">characters</span>
+                    </div>
+                </div>
+                <div class="mb-3 col">
+                    <label for="guest-class" class="form-label">Guest Class</label>
+                    <div class="input-group">
+                        <span class="input-group-text">.</span>
+                        <input type="text" class="form-control font-monospace" v-model="guest_class" id="guest-class">
+                    </div>
+
+                </div>
+                <div class="mb-3 col form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+
+            </form>
         </div>
-        
+
     </div>
 </div>
 
@@ -16,7 +53,10 @@
 
     let vueApp = createApp({
         delimiters: ['[[', ']]'],
-        data() { return { display: 'Salut Lume' } },
+        data() { return { 
+            excerpt_length: 100,
+            guest_class: "guest",
+         } },
     }).mount('#v-config-generator')
 </script>
 
