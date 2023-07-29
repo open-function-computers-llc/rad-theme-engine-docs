@@ -37,9 +37,12 @@
                     </div>
 
                 </div>
-                <div class="mb-3 col form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                <div class="mb-3 col">
+                    <label class="form-label">Enable</label>
+                    <div v-for="(option,key) in enable" class="form-check">
+                        <input type="checkbox" v-model="enable[key]" class="form-check-input" :id="`enable_check_` + key">
+                        <label class="form-check-label" :for="`enable_check_` + key">[[ key ]]</label>
+                    </div>
                 </div>
 
             </form>
@@ -53,10 +56,17 @@
 
     let vueApp = createApp({
         delimiters: ['[[', ']]'],
-        data() { return { 
-            excerpt_length: 100,
-            guest_class: "guest",
-         } },
+        data() {
+            return {
+                excerpt_length: 100,
+                guest_class: "guest",
+                enable: {
+                    "post-thumbnails": false,
+                    "menus": false,
+                    "styleselect": false,
+                }
+            }
+        },
     }).mount('#v-config-generator')
 </script>
 
