@@ -22,26 +22,50 @@
         <div id="v-config-generator">
 
             <form class="row">
-                <div class="mb-3 col">
-                    <label for="excerpt-length" class="form-label">Excerpt Length</label>
-                    <div class="input-group">
-                        <input v-model="excerpt_length" type="number" class="form-control" id="excerpt-length">
-                        <span class="input-group-text">characters</span>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="mb-3 col">
+                            <label for="excerpt-length" class="form-label">Excerpt Length</label>
+                            <div class="input-group">
+                                <input v-model="excerpt_length" type="number" class="form-control" id="excerpt-length">
+                                <span class="input-group-text">characters</span>
+                            </div>
+                        </div>
+                        <div class="mb-3 col">
+                            <label for="guest-class" class="form-label">Guest Class</label>
+                            <div class="input-group">
+                                <span class="input-group-text">.</span>
+                                <input type="text" class="form-control font-monospace" v-model="guest_class"
+                                    id="guest-class">
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="mb-3 col">
-                    <label for="guest-class" class="form-label">Guest Class</label>
-                    <div class="input-group">
-                        <span class="input-group-text">.</span>
-                        <input type="text" class="form-control font-monospace" v-model="guest_class" id="guest-class">
-                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <label for="guest-class" class="form-label">Options Pages</label>
 
+                            {{ partial "config-generator/multiple-input.html" (dict "var" "options_pages" "empty" "No options pages defined" "ph1" "options-page-id") }}
+                        </div>
+                        <div class="col">
+                            <label for="guest-class" class="form-label">Menu Locations</label>
+
+                            {{ partial "config-generator/multiple-input.html" (dict "var" "menu_locations" "empty" "No menu locations defined" "keyed" true "ph1" "menu-id" "ph2" "Menu Name") }}
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3 col">
+                <div class="mb-3 col-4">
                     <label class="form-label">Enable</label>
                     <div v-for="(option,key) in enable" class="form-check">
-                        <input type="checkbox" v-model="enable[key]" class="form-check-input" :id="`enable_check_` + key">
+                        <input type="checkbox" v-model="enable[key]" class="form-check-input"
+                            :id="`enable_check_` + key">
                         <label class="form-check-label" :for="`enable_check_` + key">[[ key ]]</label>
+                    </div>
+
+                    <label class="form-label mt-4">Disable</label>
+                    <div v-for="(option,key) in disable" class="form-check">
+                        <input type="checkbox" v-model="disable[key]" class="form-check-input"
+                            :id="`disable_check_` + key">
+                        <label class="form-check-label" :for="`disable_check_` + key">[[ key ]]</label>
                     </div>
                 </div>
 
@@ -64,7 +88,16 @@
                     "post-thumbnails": false,
                     "menus": false,
                     "styleselect": false,
-                }
+                },
+                disable: {
+                    "editor": false,
+                    "customizer": false,
+                    "gutenberg": false,
+                },
+                options_pages: [],
+                options_pages_field: "",
+                menu_locations: { "main-nav":"Main Nav" },
+                menu_locations_field: ["",""]
             }
         },
     }).mount('#v-config-generator')

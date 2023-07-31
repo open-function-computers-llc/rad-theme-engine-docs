@@ -1,0 +1,35 @@
+<div class="border mb-2 overflow-scroll" style="height:110px">
+    <ul v-if="{{ if .keyed }} Object.keys({{ .var }}).length > 0 {{ else }} {{ .var }}.length > 0 {{ end }}" class="list-group list-group-flush">
+        <li v-for="(option,key) of {{ .var }}" :key="option" class="list-group-item fs-6 d-flex align-items-center">
+            {{ if .keyed }}
+            <div class="flex-grow-1">[[ key ]]
+                <small class="d-block text-secondary">[[ option ]]</small></div>
+            <span @click="delete {{ .var }}[key]" role="button"><i
+                    class="bi bi-dash-circle-fill text-danger"></i></span>
+            {{ else }}
+            <div class="flex-grow-1">[[ option ]]</div>
+            <span @click="{{ .var }}.splice(key, 1)" role="button"><i
+                    class="bi bi-dash-circle-fill text-danger"></i></span>
+            {{ end }}
+        </li>
+    </ul>
+    <div v-else class="p-4 align-items-center fs-6 text-center text-secondary user-select-none">
+        {{ .empty }}
+    </div>
+</div>
+
+{{ if .keyed }}
+<div class="input-group mb-3">
+    <input v-model="{{ .var }}_field[0]" type="text" class="form-control" placeholder="{{ .ph1 }}">
+    <input v-model="{{ .var }}_field[1]" type="text" class="form-control" placeholder="{{ .ph2 }}">
+    <button @click="{{ .var }}[{{ .var }}_field[0]] = {{ .var }}_field[1]; {{ .var }}_field = ['','']"
+        class="btn btn-primary" type="button" id="button-addon2"
+        :disabled="{{ .var }}_field[0] == '' || {{ .var }}_field[1] == ''">Add</button>
+</div>
+{{ else }}
+<div class="input-group mb-3">
+    <input v-model="{{ .var }}_field" type="text" class="form-control" placeholder="{{ .ph1 }}">
+    <button @click="{{ .var }}.push({{ .var }}_field); {{ .var }}_field = ''" class="btn btn-primary" type="button"
+        id="button-addon2" :disabled="{{ .var }}_field == ''">Add</button>
+</div>
+{{ end }}
