@@ -9,6 +9,8 @@
 {{ end }}
 
 {{ define "main" }}
+
+
 <div class="row justify-content-center mt-3 mb-5">
     <div id="" class="col-12">
         <h1 class="d-flex align-items-center gap-2">RAD Config Generator <span
@@ -20,6 +22,8 @@
         <hr class="d-block my-4 border-top">
 
         <div id="v-config-generator">
+
+            {{ partial "config-generator/custom-post-type-modal.html" }}
 
             <form class="row">
                 <div class="col-12">
@@ -40,16 +44,56 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mt-3">
                         <div class="col">
                             <label for="guest-class" class="form-label">Options Pages</label>
 
-                            {{ partial "config-generator/multiple-input.html" (dict "var" "options_pages" "empty" "No options pages defined" "ph1" "options-page-id") }}
+                            {{ partial "config-generator/multiple-input.html"
+                            (dict "var" "options_pages"
+                            "empty" "No options pages defined"
+                            "ph1" "options-page-id")
+                            }}
                         </div>
                         <div class="col">
                             <label for="guest-class" class="form-label">Menu Locations</label>
 
-                            {{ partial "config-generator/multiple-input.html" (dict "var" "menu_locations" "empty" "No menu locations defined" "keyed" true "ph1" "menu-id" "ph2" "Menu Name") }}
+                            {{ partial "config-generator/multiple-input.html"
+                            (dict "var" "menu_locations"
+                            "empty" "Nomenu locations defined"
+                            "keyed" true
+                            "ph1" "menu-id"
+                            "ph2" "Menu Name")
+                            }}
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col">
+                            <label class="form-label mb-2">Custom Post Types</label>
+                            <table class="table table-sm table-striped border m-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Slug</th>
+                                        <th scope="col">Icon</th>
+                                        <th scope="col">Option Pages</th>
+                                        <th scope="col">Taxonomies</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Mark</td>
+                                        <td>Mark</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                        <td>
+                                            <span role="button">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button type="button" @click="createCPT()" class="btn btn-outline-primary w-100 mt-2">New Post Type</button>
                         </div>
                     </div>
                 </div>
@@ -69,14 +113,21 @@
                     </div>
                 </div>
 
+
+
             </form>
         </div>
 
     </div>
 </div>
 
-<script type="module">
-    import { createApp, ref } from 'vue'
+<script type="module" onload>
+    import { createApp, ref } from 'vue';
+
+    // setTimeout(() => {
+    //     const cptModal = new bootstrap.Modal('#cpt_modal', {})
+    //     cptModal.show();
+    // }, 500);
 
     let vueApp = createApp({
         delimiters: ['[[', ']]'],
@@ -84,6 +135,8 @@
             return {
                 excerpt_length: 100,
                 guest_class: "guest",
+                cpt: [],
+                cpt_i: null,
                 enable: {
                     "post-thumbnails": false,
                     "menus": false,
@@ -96,10 +149,37 @@
                 },
                 options_pages: [],
                 options_pages_field: "",
-                menu_locations: { "main-nav":"Main Nav" },
-                menu_locations_field: ["",""]
+                menu_locations: { "main-nav": "Main Nav" },
+                menu_locations_field: ["", ""],
+                
             }
         },
+        mounted() {
+            setTimeout(() => {
+                this.createCPT()
+            }, 500);
+            
+        },
+        methods: {
+            createCPT() {
+                const cptModal = new bootstrap.Modal('#cpt_modal', {})
+
+                this.cpt.push({
+                    "slug": "",
+                    "icon": "",
+                    "options-pages": [],
+                    "taxonomies": [],
+                    "disable": [],
+                    "options": {},
+                })
+
+                this.cpt_i = this.cpt.length - 1;
+
+                console.log(this.cpt, this.cpt_i);
+
+                cptModal.show()
+            }
+        }
     }).mount('#v-config-generator')
 </script>
 
