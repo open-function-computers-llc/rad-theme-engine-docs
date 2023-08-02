@@ -20,7 +20,7 @@
 
 {{ if .keyed }}
 <div class="input-group mb-3">
-    <input v-model="{{ .var }}_field[0]" type="text" class="form-control" placeholder="{{ .ph1 }}">
+    <input v-model="{{ .var }}_field[0]" @input="slugify" type="text" class="form-control" placeholder="{{ .ph1 }}">
     <input v-model="{{ .var }}_field[1]" type="text" class="form-control" placeholder="{{ .ph2 }}">
     <button @click="{{ .var }}[{{ .var }}_field[0]] = {{ .var }}_field[1]; {{ .var }}_field = ['','']"
         class="btn btn-primary" type="button" id="button-addon2"
@@ -28,7 +28,7 @@
 </div>
 {{ else }}
 <div class="input-group mb-3">
-    <input v-model="{{ .var }}_field" type="text" class="form-control" placeholder="{{ .ph1 }}">
+    <input @input="slugify" v-model="{{ .var }}_field" type="text" class="form-control" placeholder="{{ .ph1 }}">
     <button @click="{{ .var }}.push({{ .var }}_field); {{ .var }}_field = ''" class="btn btn-primary" type="button"
         id="button-addon2" :disabled="{{ .var }}_field == ''">Add</button>
 </div>

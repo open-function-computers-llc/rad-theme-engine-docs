@@ -68,32 +68,38 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col">
-                            <label class="form-label mb-2">Custom Post Types</label>
+                            <label class="form-label mb-3">Custom Post Types</label>
                             <table class="table table-sm table-striped border m-0">
                                 <thead>
                                     <tr>
                                         <th scope="col">Slug</th>
-                                        <th scope="col">Icon</th>
-                                        <th scope="col">Option Pages</th>
+                                        <th scope="col">Options Pages</th>
                                         <th scope="col">Taxonomies</th>
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Mark</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                    <tr v-for="(custom_type,idx) of cpt" :key="custom_type['slug']">
+                                        <td><img height="20" width="20" class="me-1"
+                                                :src="`https://raw.githubusercontent.com/WordPress/dashicons/master/svg-min/${custom_type['icon']}.svg`" />
+                                            [[ custom_type['slug'] ]]</td>
+                                        <td>[[ custom_type['options-pages'].length > 0 ?
+                                            custom_type['options-pages'].join(', ') : '-' ]]</td>
+                                        <td>[[ custom_type['taxonomies'].length > 0 ?
+                                            custom_type['taxonomies'].join(', ') : '-' ]]</td>
                                         <td>
-                                            <span role="button">
+                                            <span role="button" @click="editCPT(idx)">
                                                 <i class="bi bi-pencil-fill"></i>
                                             </span>
                                         </td>
                                     </tr>
+                                    <tr v-if="cpt.length == 0">
+                                        <td colspan="4" class="text-muted text-center p-3">None</td>
+                                    </tr>
                                 </tbody>
                             </table>
-                            <button type="button" @click="createCPT()" class="btn btn-outline-primary w-100 mt-2">New Post Type</button>
+                            <button type="button" @click="createCPT()"
+                                class="btn btn-primary w-100 rounded-0"><i class="bi bi-plus-lg me-2"></i>Add</button>
                         </div>
                     </div>
                 </div>
@@ -129,6 +135,8 @@
     //     cptModal.show();
     // }, 500);
 
+    var cptModal;
+
     let vueApp = createApp({
         delimiters: ['[[', ']]'],
         data() {
@@ -151,33 +159,40 @@
                 options_pages_field: "",
                 menu_locations: { "main-nav": "Main Nav" },
                 menu_locations_field: ["", ""],
-                
+                dashicons: [],
             }
         },
-        mounted() {
-            setTimeout(() => {
-                this.createCPT()
-            }, 500);
-            
+        async mounted() {
+            // setTimeout(() => {
+            //     this.createCPT()
+            // }, 500);
+            // Fetch list of dashicons
+            let request = await fetch("https://raw.githubusercontent.com/WordPress/dashicons/master/codepoints.json");
+            let json = await request.text();
+            this.dashicons = Object.keys(JSON.parse(json))
         },
         methods: {
+            slugify(event) {
+                event.target.value = event.target.value.replace(" ", "-")
+            },
+            editCPT(index) {
+                this.cpt_i = index;
+                // Show the modal
+                cptModal.show()
+            },
             createCPT() {
-                const cptModal = new bootstrap.Modal('#cpt_modal', {})
+                cptModal = new bootstrap.Modal('#cpt_modal', {})
 
                 this.cpt.push({
-                    "slug": "",
-                    "icon": "",
+                    "slug": "post-type-" + (this.cpt.length + 1),
+                    "icon": this.dashicons.length > 0 ? this.dashicons[Math.floor(Math.random()*this.dashicons.length)] : "admin-page",
                     "options-pages": [],
                     "taxonomies": [],
-                    "disable": [],
+                    "disable_yoast": false,
                     "options": {},
                 })
 
-                this.cpt_i = this.cpt.length - 1;
-
-                console.log(this.cpt, this.cpt_i);
-
-                cptModal.show()
+                this.editCPT(this.cpt.length - 1)
             }
         }
     }).mount('#v-config-generator')

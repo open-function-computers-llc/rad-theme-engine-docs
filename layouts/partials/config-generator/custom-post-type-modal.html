@@ -1,43 +1,74 @@
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="cpt_delete_modal" tabindex="-1" aria-labelledby="cptConfirmDeleteModal" aria-hidden="true">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 mt-0" id="exampleModalLabel">Are You Sure?</h1>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        This action cannot be undone!
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" @click="cpt.splice(cpt_i,1);cpt_i = null;" class="btn btn-danger" data-bs-dismiss="modal">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Modal -->
-<div class="modal fade" id="cpt_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="cpt_modal" tabindex="-1" aria-labelledby="cptModal" aria-hidden="true">
   <div class="modal-dialog">
     <div v-if="cpt_i != null" class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">New Custom Post Type</h1>
+        <h1 class="modal-title fs-5 mt-0" id="exampleModalLabel">New Custom Post Type</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="row g-2">
+        <div class="row g-2 align-items-center">
           <div class="col-6">
             <label for="cpt-slug" class="col-form-label">Slug</label>
           </div>
           <div class="col-10">
-            <input v-model="cpt[cpt_i]['slug']" type="text" id="cpt-slug" class="form-control">
+            <input v-model="cpt[cpt_i]['slug']" @input="slugify" type="text" id="cpt-slug" class="form-control">
           </div>
           <div class="col-6">
             <label for="cpt-icon" class="col-form-label">Icon</label>
           </div>
-          <div class="col-10">
-            <input v-model="cpt[cpt_i]['icon']" type="text" id="cpt-icon" class="form-control">
+          <div class="col-10 d-flex align-items-center">
+            <img height="24" width="24" class="me-2"
+              :src="`https://raw.githubusercontent.com/WordPress/dashicons/master/svg-min/${cpt[cpt_i]['icon']}.svg`" />
+            <select v-model="cpt[cpt_i]['icon']" id="cpt-icon" class="form-select">
+              <option v-for="icon of dashicons" :selected="cpt[cpt_i]['icon'] == icon" :value="icon">[[ icon ]]</option>
+            </select>
           </div>
           <div class="col-6">
             <label for="cpt-icon" class="col-form-label">Options Pages</label>
           </div>
           <div class="col-10">
-            <div v-if="cpt[cpt_i]['options-pages'].length != 0" class="border p-2 rounded rounded-bottom-0">
-              <span v-for="op of cpt[cpt_i]['options-pages']" class="badge bg-secondary me-2">
-                [[ op ]]<i class="bi bi-x-lg ms-1" style="margin-bottom: -1px;"></i>
-              </span>
-            </div>
-            <input :class="{ 'form-control-sm border-top-0 rounded-top-0': cpt[cpt_i]['options-pages'].length != 0 }"
-              type="text" id="cpt-icon" placeholder="Type and press enter to add" class="form-control"
-              @keyup.enter.native="cpt[cpt_i]['options-pages'].push($event.target.value);$event.target.value = ''">
+            {{ partial "config-generator/multiple-input-small.html" (dict "var" "cpt[cpt_i]['options-pages']" "slugify"
+            true) }}
+          </div>
+          <div class="col-6">
+            <label for="cpt-icon" class="col-form-label">Taxonomies</label>
+          </div>
+          <div class="col-10">
+            {{ partial "config-generator/multiple-input-small.html" (dict "var" "cpt[cpt_i]['taxonomies']" "slugify"
+            true) }}
+          </div>
+          <div class="col-6">
+            <label for="cpt-icon" class="col-form-label">Disable Yoast</label>
+          </div>
+          <div class="col-10">
+            <input v-model="cpt[cpt_i]['disable_yoast']" type="checkbox" id="cpt-icon" class="form-check-input">
           </div>
         </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary">Save</button>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cpt_delete_modal">Delete</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
       </div>
     </div>
   </div>
