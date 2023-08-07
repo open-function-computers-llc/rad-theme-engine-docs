@@ -19,9 +19,8 @@ Firstly, create a new template file in the `tpl/` folder. For this example we'll
 
 <div class="code-heading">tpl/home-title.tpl</div>
 
-```
-Welcome to <span style="color:red">{{title}}</span>!
-```
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="html"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">Welcome to &lt;</span><span style="color: #85E89D;">span</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">style</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;</span><span style="color: #E1E4E8;">color:red&quot;</span><span style="color: #E1E4E8;">&gt;{{title}}&lt;/</span><span style="color: #85E89D;">span</span><span style="color: #E1E4E8;">&gt;!</span></div><textarea data-torchlight-original="true" style="display: none !important;">&lt;xmp&gt;Welcome to &lt;span style="color:red"&gt;{{title}}&lt;/span&gt;!&lt;/xmp&gt;
+</textarea></code></pre>
 
 <div class="code-caption">A simple handlebars template</div>
 
@@ -31,11 +30,10 @@ To render this we need to call the file and supply it with the data it needs. Si
 
 <div class="code-heading">home.php</div>
 
-```
-echo site()->render("home-title",[
-    "title" => get_bloginfo("name")
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #79B8FF;">echo</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">render</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&quot;home-title&quot;</span><span style="color: #E1E4E8;">,[</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;title&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">get_bloginfo</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&quot;name&quot;</span><span style="color: #E1E4E8;">)</span></div><div class='line'><span style="color: #E1E4E8;">]);</span></div><textarea data-torchlight-original="true" style="display: none !important;">echo site()-&gt;render("home-title",[
+    "title" =&gt; get_bloginfo("name")
 ]);
-```
+</textarea></code></pre>
 
 <div class="code-caption">Rendering a block of HTML</div>
 
@@ -53,32 +51,31 @@ Iterating through collections with handlebars is easy, just pass an array into y
 
 <div class="code-heading">home.php</div>
 
-```php
-echo site()->render("people-list.tpl",[
-    "people" => [
+<pre class="torchlight has-focus-lines" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line line-focus'><span style="color: #79B8FF;">echo</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">render</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&quot;people-list.tpl&quot;</span><span style="color: #E1E4E8;">,[ </span></div><div class='line line-focus'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;people&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">        [</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;first&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Gabin&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;last&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Ábel&quot;</span></div><div class='line'><span style="color: #E1E4E8;">        ],</span></div><div class='line line-focus'><span style="color: #E1E4E8;">        [ </span></div><div class='line line-focus'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;first&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Koji&quot;</span><span style="color: #E1E4E8;">, </span></div><div class='line line-focus'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;last&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Hallþóra&quot;</span></div><div class='line line-focus'><span style="color: #E1E4E8;">        ],</span></div><div class='line'><span style="color: #E1E4E8;">        [</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;first&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Carmi&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;last&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Surendra&quot;</span></div><div class='line'><span style="color: #E1E4E8;">        ],</span></div><div class='line'><span style="color: #E1E4E8;">    ]</span></div><div class='line'><span style="color: #E1E4E8;">]);</span></div><textarea data-torchlight-original="true" style="display: none !important;">echo site()-&gt;render("people-list.tpl",[ // [tl! focus:1]
+    "people" =&gt; [
         [
-            "first" => "Gabin",
-            "last" => "Ábel"
+            "first" =&gt; "Gabin",
+            "last" =&gt; "Ábel"
+        ],
+        [ // [tl! focus:3]
+            "first" =&gt; "Koji", 
+            "last" =&gt; "Hallþóra"
         ],
         [
-            "first" => "Koji",
-            "last" => "Hallþóra"
-        ],
-        [
-            "first" => "Carmi",
-            "last" => "Surendra"
+            "first" =&gt; "Carmi",
+            "last" =&gt; "Surendra"
         ],
     ]
 ]);
-```
+</textarea></code></pre>
 
 <div class="code-heading">tpl/people-list.tpl</div>
 
-```html
-{{#each people}}
-    <b>{{first}}</b> {{last}}
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="html"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">{{#each people}}</span></div><div class='line'><span style="color: #E1E4E8;">    &lt;</span><span style="color: #85E89D;">b</span><span style="color: #E1E4E8;">&gt;{{first}}&lt;/</span><span style="color: #85E89D;">b</span><span style="color: #E1E4E8;">&gt; {{last}}</span></div><div class='line'><span style="color: #E1E4E8;">{{/each}}</span></div><textarea data-torchlight-original="true" style="display: none !important;">&lt;xmp&gt;{{#each people}}
+    &lt;b&gt;{{first}}&lt;/b&gt; {{last}}
 {{/each}}
-```
+&lt;/xmp&gt;
+</textarea></code></pre>
 
 <div class="code-caption">A simple loop in handlebars</div>
 
@@ -88,21 +85,19 @@ With handlebars' `#if` helper, blocks will not render if the condition returns `
 
 <div class="code-heading">home.php</div>
 
-```php
-echo site()->render("people-list.tpl",[
-    "people" => []
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #79B8FF;">echo</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">render</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&quot;people-list.tpl&quot;</span><span style="color: #E1E4E8;">,[</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;people&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> []</span></div><div class='line'><span style="color: #E1E4E8;">]);</span></div><textarea data-torchlight-original="true" style="display: none !important;">echo site()-&gt;render("people-list.tpl",[
+    "people" =&gt; []
 ]);
-```
+</textarea></code></pre>
 
 <div class="code-heading">tpl/people-list.tpl</div>
 
-```html
-{{#if people}}
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="html"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">{{#if people}}</span></div><div class='line'><span style="color: #E1E4E8;">    First Person: {{people.0.first}}</span></div><div class='line'><span style="color: #E1E4E8;">{{#else}}</span></div><div class='line'><span style="color: #E1E4E8;">    There are no people!</span></div><div class='line'><span style="color: #E1E4E8;">{{/if}}</span></div><textarea data-torchlight-original="true" style="display: none !important;">{{#if people}}
     First Person: {{people.0.first}}
 {{#else}}
     There are no people!
 {{/if}}
-```
+</textarea></code></pre>
 
 <div class="code-caption">An if/else statement in handlebars</div>
 
@@ -115,8 +110,7 @@ By default Handlebars templates are files that end with `.tpl` and exist inside 
 
 <div class="code-heading">config.php</div>
 
-```php
-"handlebars" => [
-    "template-extension" => "tpl"
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #9ECBFF;">&quot;handlebars&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;template-extension&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;tpl&quot;</span></div><div class='line'><span style="color: #E1E4E8;">]</span></div><textarea data-torchlight-original="true" style="display: none !important;">"handlebars" =&gt; [
+    "template-extension" =&gt; "tpl"
 ]
-```
+</textarea></code></pre>

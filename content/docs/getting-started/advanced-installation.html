@@ -59,8 +59,7 @@ toc: false
     <div class="step-content">
       After that, edit your <code>functions.php</code> file to include the following code:
       <br><span class="code-heading">functions.php</span>
-      <pre><code class="language-php hljs">&lt;?php
-
+      <pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">&lt;?php</span></div><div class='line'><span style="color: #6A737D;"># Imports all Composer packages</span></div><div class='line'><span style="color: #F97583;">require</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">__DIR__</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">.</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;/vendor/autoload.php&#39;</span><span style="color: #E1E4E8;">;</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #F97583;">use</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">ofc\Site</span><span style="color: #E1E4E8;">;</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #6A737D;"># Declare a new Site object</span></div><div class='line'><span style="color: #E1E4E8;">$site </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">new</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">Site</span><span style="color: #E1E4E8;">();</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #6A737D;"># Allow the Site object to be accessed in other files</span></div><div class='line'><span style="color: #F97583;">function</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span></div><div class='line'><span style="color: #E1E4E8;">{</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #F97583;">global</span><span style="color: #E1E4E8;"> $site;</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #F97583;">return</span><span style="color: #E1E4E8;"> $site;</span></div><div class='line'><span style="color: #E1E4E8;">}</span></div><textarea data-torchlight-original="true" style="display: none !important;">&lt;xml&gt;&lt;&lt;/xml&gt;?php
 # Imports all Composer packages
 require __DIR__ . '/vendor/autoload.php';
 
@@ -75,7 +74,7 @@ function site()
     global $site;
     return $site;
 }
-</code></pre>
+</textarea></code></pre>
     </div>
   </div>
 
@@ -123,10 +122,10 @@ function site()
     <div class="step-content">
       Inside <code>webpack.mix.js</code> you can define which files you want compiled. BW will automatically enqueue all scripts and stylesheets processed by Mix, so long as they are outputted to the <code>dist</code> folder.<br>
       <span class="code-heading">webpack.mix.js</span>
-      <pre><code class="language-js hljs">let mix = require('laravel-mix');
+      <pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="js"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #F97583;">let</span><span style="color: #E1E4E8;"> mix </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">require</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;laravel-mix&#39;</span><span style="color: #E1E4E8;">);</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #E1E4E8;">mix.</span><span style="color: #B392F0;">js</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;src/app.js&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;dist&#39;</span><span style="color: #E1E4E8;">).</span><span style="color: #B392F0;">setPublicPath</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;dist&#39;</span><span style="color: #E1E4E8;">).</span><span style="color: #B392F0;">version</span><span style="color: #E1E4E8;">();</span></div><textarea data-torchlight-original="true" style="display: none !important;">let mix = require('laravel-mix');
 
 mix.js('src/app.js', 'dist').setPublicPath('dist').version();
-</code></pre>
+</textarea></code></pre>
 <span class="code-caption">Adding <code>.version()</code> ensures that the browser will always use the most up-to-date assets. See more examples on the <a href="https://laravel-mix.com/docs/main/examples">Laravel Mix docs</a>.</span>
     </div>
   </div>

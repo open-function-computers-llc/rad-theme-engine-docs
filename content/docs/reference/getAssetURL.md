@@ -16,9 +16,8 @@ Generate the URL for any static assets that live in the theme's `assets` directo
 
 ## Usage
 
-```php
-site()->getAssetURL($filename);
-```
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">getAssetURL</span><span style="color: #E1E4E8;">($filename);</span></div><textarea data-torchlight-original="true" style="display: none !important;">site()-&gt;getAssetURL($filename);
+</textarea></code></pre>
 
 ### Parameters
 
