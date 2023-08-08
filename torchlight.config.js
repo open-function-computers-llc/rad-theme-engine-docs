@@ -50,7 +50,8 @@ module.exports = {
         // Globs to include when looking for files to highlight.
         includeGlobs: [
             '**/*.md',
-            'content/docs/getting-started/*.html'
+            'content/docs/getting-started/*.html',
+            'layouts/index.html'
         ],
  
         // String patterns to ignore (not globs). The entire file
