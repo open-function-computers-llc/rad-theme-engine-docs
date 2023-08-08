@@ -76,7 +76,7 @@
             <label class="col-form-label" for="cpt-label">Label</label>
           </div>
           <div class="col-10">
-            <input v-model="cpt[cpt_i]['options']['label']" type="text" id="cpt-label" class="form-control">
+            <input v-model="cpt[cpt_i]['options']['label']" type="text" id="cpt-label" placeholder="Posts" class="form-control">
             <span class="input-desc">Name of the post type shown in the menu. Usually plural.</span>
           </div>
           <div class="col-6">
@@ -165,7 +165,7 @@
           </div>
         </div>
 
-        <h6 class="border-bottom d-block mb-0">Advanced Label Options</h6>
+        <h6 class="border-bottom d-block mb-0 pb-2">Advanced Label Options</h6>
         <table class="table table-sm mt-0">
           <tbody>
             <tr v-for="label in available_labels">
@@ -174,7 +174,7 @@
                   <label class="fs-6" :for="`cpt-labels-${label.key}`">[[ label.key ]]</label>
                 </div>
                 <div class="col-8">
-                  <input v-model="cpt[cpt_i]['options']['labels'][label.key]" :id="`cpt-labels-${label.key}`" type="text" id="cpt-rewrite-slug"
+                  <input v-model="cpt[cpt_i]['options']['labels'][label.key]" :id="`cpt-labels-${label.key}`" type="text" id="cpt-rewrite-slug" :placeholder="label.default"
                   class="form-control form-control-sm">
                 </div>
                 <div class="col-16">

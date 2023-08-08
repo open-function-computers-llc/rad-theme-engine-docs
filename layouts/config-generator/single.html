@@ -27,47 +27,10 @@
 
             <form class="row">
                 <div class="col-12">
-                    <div class="row">
-                        <div class="mb-3 col">
-                            <label for="excerpt-length" class="form-label">Excerpt Length</label>
-                            <div class="input-group">
-                                <input v-model="excerpt_length" type="number" class="form-control" id="excerpt-length">
-                                <span class="input-group-text">characters</span>
-                            </div>
-                        </div>
-                        <div class="mb-3 col">
-                            <label for="guest-class" class="form-label">Guest Class</label>
-                            <div class="input-group">
-                                <span class="input-group-text">.</span>
-                                <input type="text" class="form-control font-monospace" v-model="guest_class"
-                                    id="guest-class">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
+                    <div class="row mb-4">
                         <div class="col">
-                            <label for="guest-class" class="form-label">Options Pages</label>
-
-                            {{ partial "config-generator/multiple-input.html"
-                            (dict "var" "options_pages"
-                            "empty" "No options pages defined"
-                            "ph1" "options-page-id")
-                            }}
-                        </div>
-                        <div class="col">
-                            <label for="guest-class" class="form-label">Menu Locations</label>
-
-                            {{ partial "config-generator/multiple-input.html"
-                            (dict "var" "menu_locations"
-                            "empty" "Nomenu locations defined"
-                            "keyed" true
-                            "ph1" "menu-id"
-                            "ph2" "Menu Name")
-                            }}
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col">
+                            <a href="/docs/configuration/custom-post-types/" target="_blank" class="float-end"><i
+                                    class="bi bi-question-circle"></i></a>
                             <label class="form-label mb-3">Custom Post Types</label>
                             <table class="table table-sm table-striped border m-0">
                                 <thead>
@@ -102,21 +65,80 @@
                                     class="bi bi-plus-lg me-2"></i>Add</button>
                         </div>
                     </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <a href="/docs/configuration/options-pages/" target="_blank" class="float-end"><i
+                                    class="bi bi-question-circle"></i></a>
+                            <label for="guest-class" class="form-label">Options Pages</label>
+
+                            {{ partial "config-generator/multiple-input.html"
+                            (dict "var" "options_pages"
+                            "empty" "No options pages defined"
+                            "ph1" "options-page-id")
+                            }}
+                        </div>
+                        <div class="col">
+                            <a href="/docs/configuration/menu-locations/" target="_blank" class="float-end"><i
+                                    class="bi bi-question-circle"></i></a>
+                            <label for="guest-class" class="form-label">Menu Locations</label>
+
+                            {{ partial "config-generator/multiple-input.html"
+                            (dict "var" "menu_locations"
+                            "empty" "Nomenu locations defined"
+                            "keyed" true
+                            "ph1" "menu-id"
+                            "ph2" "Menu Name")
+                            }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col">
+                            <a href="/docs/configuration/excerpt-length/" target="_blank" class="float-end">
+                                <i class="bi bi-question-circle"></i>
+                            </a>
+                            <label for="excerpt-length" class="form-label">Excerpt Length</label>
+                            <div class="input-group">
+                                <input v-model="excerpt_length" type="number" class="form-control" id="excerpt-length">
+                                <span class="input-group-text">characters</span>
+                            </div>
+                        </div>
+                        <div class="mb-3 col">
+                            <a href="/docs/configuration/guest-class/" target="_blank" class="float-end">
+                                <i class="bi bi-question-circle"></i>
+                            </a>
+                            <label for="guest-class" class="form-label">Guest Class</label>
+                            <div class="input-group">
+                                <span class="input-group-text">.</span>
+                                <input type="text" class="form-control font-monospace" v-model="guest_class"
+                                    id="guest-class">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="mb-3 col-4">
-                    <label class="form-label">Enable</label>
-                    <div v-for="(option,key) in enable" class="form-check">
-                        <input type="checkbox" v-model="enable[key]" class="form-check-input"
-                            :id="`enable_check_` + key">
-                        <label class="form-check-label" :for="`enable_check_` + key">[[ key ]]</label>
+                    <div>
+                        <a href="/docs/configuration/enable/" target="_blank" class="float-end"><i
+                                class="bi bi-question-circle"></i></a>
+                        <label class="form-label">Enable</label>
+                        <div v-for="(option,key) in enable" class="form-check">
+                            <input type="checkbox" v-model="enable[key]" class="form-check-input"
+                                :id="`enable_check_` + key">
+                            <label class="form-check-label" :for="`enable_check_` + key">[[ key ]]</label>
+                        </div>
                     </div>
 
-                    <label class="form-label mt-4">Disable</label>
-                    <div v-for="(option,key) in disable" class="form-check">
-                        <input type="checkbox" v-model="disable[key]" class="form-check-input"
-                            :id="`disable_check_` + key">
-                        <label class="form-check-label" :for="`disable_check_` + key">[[ key ]]</label>
+                    <div class="mt-4">
+                        <a href="/docs/configuration/disable/" target="_blank" class="float-end"><i
+                                class="bi bi-question-circle"></i></a>
+                        <label class="form-label  d-block">Disable</label>
+
+                        <div v-for="(option,key) in disable" class="form-check">
+                            <input type="checkbox" v-model="disable[key]" class="form-check-input"
+                                :id="`disable_check_` + key">
+                            <label class="form-check-label" :for="`disable_check_` + key">[[ key ]]</label>
+                        </div>
                     </div>
+
                 </div>
 
 
@@ -170,142 +192,175 @@
                 available_labels: [
                     {
                         "key": "name",
-                        "desc": "General name for the post type, usually plural. The same and overridden by $post_type_object->label."
+                        "desc": "General name for the post type, usually plural. The same and overridden by $post_type_object->label.",
+                        "default": "Posts"
                     },
                     {
                         "key": "singular_name",
-                        "desc": "Name for one object of this post type."
+                        "desc": "Name for one object of this post type.",
+                        "default": "Post"
                     },
                     {
                         "key": "add_new",
-                        "desc": "Default is ‘Add New’ for both hierarchical and non-hierarchical types."
+                        "desc": "Default is ‘Add New’ for both hierarchical and non-hierarchical types.",
+                        "default": "Add New"
                     },
                     {
                         "key": "add_new_item",
-                        "desc": "Label for adding a new singular item."
+                        "desc": "Label for adding a new singular item.",
+                        "default": "Add New Post"
                     },
                     {
                         "key": "edit_item",
-                        "desc": "Label for editing a singular item."
+                        "desc": "Label for editing a singular item.",
+                        "default": "Edit Post"
                     },
                     {
                         "key": "new_item",
-                        "desc": "Label for the new item page title."
+                        "desc": "Label for the new item page title.",
+                        "default": "New Post"
                     },
                     {
                         "key": "view_item",
-                        "desc": "Label for viewing a singular item."
+                        "desc": "Label for viewing a singular item.",
+                        "default": "View Post"
                     },
                     {
                         "key": "view_items",
-                        "desc": "Label for viewing post type archives."
+                        "desc": "Label for viewing post type archives.",
+                        "default": "View Posts"
                     },
                     {
                         "key": "search_items",
-                        "desc": "Label for searching plural items."
+                        "desc": "Label for searching plural items.",
+                        "default": "Search Posts"
                     },
                     {
                         "key": "not_found",
-                        "desc": "Label used when no items are found."
+                        "desc": "Label used when no items are found.",
+                        "default": "No posts found"
                     },
                     {
                         "key": "not_found_in_trash",
-                        "desc": "Label used when no items are in the Trash."
+                        "desc": "Label used when no items are in the Trash.",
+                        "default": "No posts found in Trash"
                     },
                     {
                         "key": "parent_item_colon",
-                        "desc": "Label used to prefix parents of hierarchical items. Not used on non-hierarchical post types."
+                        "desc": "Label used to prefix parents of hierarchical items. Not used on non-hierarchical post types.",
+                        "default": "Parent Page:"
                     },
                     {
                         "key": "all_items",
-                        "desc": "Label to signify all items in a submenu link."
+                        "desc": "Label to signify all items in a submenu link.",
+                        "default": "All Posts"
                     },
                     {
                         "key": "archives",
-                        "desc": "Label for archives in nav menus."
+                        "desc": "Label for archives in nav menus.",
+                        "default": "Post Archives"
                     },
                     {
                         "key": "attributes",
-                        "desc": "Label for the attributes meta box."
+                        "desc": "Label for the attributes meta box.",
+                        "default": "Post Attributes"
                     },
                     {
                         "key": "insert_into_item",
-                        "desc": "Label for the media frame button."
+                        "desc": "Label for the media frame button.",
+                        "default": "Insert into post"
                     },
                     {
                         "key": "uploaded_to_this_item",
-                        "desc": "Label for the media frame filter."
+                        "desc": "Label for the media frame filter.",
+                        "default": "Uploaded to this post"
                     },
                     {
                         "key": "featured_image",
-                        "desc": "Label for the featured image meta box title."
+                        "desc": "Label for the featured image meta box title.",
+                        "default": "Featured image"
                     },
                     {
                         "key": "set_featured_image",
-                        "desc": "Label for setting the featured image."
+                        "desc": "Label for setting the featured image.",
+                        "default": "Set featured image"
                     },
                     {
                         "key": "remove_featured_image",
-                        "desc": "Label for removing the featured image."
+                        "desc": "Label for removing the featured image.",
+                        "default": "Remove featured image"
                     },
                     {
                         "key": "use_featured_image",
-                        "desc": "Label in the media frame for using a featured image."
+                        "desc": "Label in the media frame for using a featured image.",
+                        "default": "Use as featured image"
                     },
                     {
                         "key": "menu_name",
-                        "desc": "Label for the menu name."
+                        "desc": "Label for the menu name. Default is same as name.",
+                        "default": null
                     },
                     {
                         "key": "filter_items_list",
-                        "desc": "Label for the table views hidden heading."
+                        "desc": "Label for the table views hidden heading.",
+                        "default": "Filter posts list"
                     },
                     {
                         "key": "filter_by_date",
-                        "desc": "Label for the date filter in list tables."
+                        "desc": "Label for the date filter in list tables.",
+                        "default": "Filter by date"
                     },
                     {
                         "key": "items_list_navigation",
-                        "desc": "Label for the table pagination hidden heading."
+                        "desc": "Label for the table pagination hidden heading.",
+                        "default": "Posts list navigation"
                     },
                     {
                         "key": "items_list",
-                        "desc": "Label for the table hidden heading."
+                        "desc": "Label for the table hidden heading.",
+                        "default": "Posts list"
                     },
                     {
                         "key": "item_published",
-                        "desc": "Label used when an item is published."
+                        "desc": "Label used when an item is published.",
+                        "default": "Post published."
                     },
                     {
                         "key": "item_published_privately",
-                        "desc": "Label used when an item is published with private visibility."
+                        "desc": "Label used when an item is published with private visibility.\nDefault is ‘Post published privately.’ / ‘Page published privately.’",
+                        "default": "Post published privately."
                     },
                     {
                         "key": "item_reverted_to_draft",
-                        "desc": "Label used when an item is switched to a draft."
+                        "desc": "Label used when an item is switched to a draft.\nDefault is ‘Post reverted to draft.’ / ‘Page reverted to draft.’",
+                        "default": "Post reverted to draft."
                     },
                     {
                         "key": "item_scheduled",
-                        "desc": "Label used when an item is scheduled for publishing."
+                        "desc": "Label used when an item is scheduled for publishing.",
+                        "default": "Post scheduled."
                     },
                     {
                         "key": "item_updated",
-                        "desc": "Label used when an item is updated."
+                        "desc": "Label used when an item is updated.",
+                        "default": "Post updated."
                     },
                     {
                         "key": "item_link",
-                        "desc": "Title for a navigation link block variation."
+                        "desc": "Title for a navigation link block variation.",
+                        "default": "Post Link"
                     },
                     {
                         "key": "item_link_description",
-                        "desc": "Description for a navigation link block variation."
+                        "desc": "Description for a navigation link block variation.",
+                        "default": "A link to a post."
                     }
                 ]
             }
         },
         async mounted() {
             setTimeout(() => {
-                this.createCPT()
+                // this.createCPT()
             }, 500);
             // Fetch list of dashicons
             let request = await fetch("https://raw.githubusercontent.com/WordPress/dashicons/master/codepoints.json");
