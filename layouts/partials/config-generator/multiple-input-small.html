@@ -4,6 +4,6 @@
         [[ op ]]<i class="bi bi-x-lg ms-1" style="margin-bottom: -1px;"></i>
     </span>
 </div>
-<input :class="{ 'form-control-sm border-top-0 rounded-top-0': {{ .var }}.length != 0 }" type="text" id="cpt-icon"
+<input :class="{ 'form-control-sm border-top-0 rounded-top-0': {{ .var }}.length != 0 }" type="text"
     placeholder="Type and press enter to add" {{ if .slugify }} @input="slugify" {{ end }} class="form-control"
     @keyup.enter.native="{{ .var }}.push($event.target.value);$event.target.value = ''">
