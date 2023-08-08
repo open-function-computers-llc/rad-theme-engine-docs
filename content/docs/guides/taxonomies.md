@@ -18,15 +18,14 @@ As shown in the [configuration guide](../configuration#custom-post-types), regis
 
 <div class="code-heading">config.php</div>
 
-```php
-"custom-post-types" => [
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #9ECBFF;">&quot;custom-post-types&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">    [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;album&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;icon&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;dashicons-album&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;taxonomies&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&#39;genre&#39;</span><span style="color: #E1E4E8;">],</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">],</span></div><textarea data-torchlight-original="true" style="display: none !important;">"custom-post-types" =&gt; [
     [
-        "slug" => "album",
-        "icon" => "dashicons-album",
-        "taxonomies" => ['genre'],
+        "slug" =&gt; "album",
+        "icon" =&gt; "dashicons-album",
+        "taxonomies" =&gt; ['genre'],
     ],
 ],
-```
+</textarea></code></pre>
 
 <div class="code-caption">Registering a custom taxonomy.</div>
 
@@ -44,33 +43,31 @@ Similar to the way posts are queried in RAD Theme Engine, you can declare the sp
 
 For example if you want to grab the name, slug, and url for each term in the 'genre' taxonomy:
 
-```php
-$genres = site()->getTerm('genre', ['name','slug','url']);
-```
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">$genres </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">getTerm</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;genre&#39;</span><span style="color: #E1E4E8;">, [</span><span style="color: #9ECBFF;">&#39;name&#39;</span><span style="color: #E1E4E8;">,</span><span style="color: #9ECBFF;">&#39;slug&#39;</span><span style="color: #E1E4E8;">,</span><span style="color: #9ECBFF;">&#39;url&#39;</span><span style="color: #E1E4E8;">]);</span></div><textarea data-torchlight-original="true" style="display: none !important;">$genres = site()-&gt;getTerm('genre', ['name','slug','url']);
+</textarea></code></pre>
 
 <div class="code-caption">Getting the name, slug, and url for each term in the "genre" taxonomy.</div>
 
 Which would result in `$genres` looking like this:
 
-```php
-[
+<pre class="torchlight has-focus-lines" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">[</span></div><div class='line'><span style="color: #E1E4E8;">    [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;name&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Synth Pop&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;synth_pop&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;url&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;https://my.music.site/genre/synth_pop&quot;</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">    [</span></div><div class='line line-focus'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;name&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Jazz&quot;</span><span style="color: #E1E4E8;">, </span></div><div class='line line-focus'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;jazz&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line line-focus'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;url&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;https://my.music.site/genre/jazz&quot;</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">    [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;name&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Electronica&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;electronica&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;url&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;https://my.music.site/genre/electronica&quot;</span></div><div class='line'><span style="color: #E1E4E8;">    ],   </span></div><div class='line'><span style="color: #E1E4E8;">]</span></div><textarea data-torchlight-original="true" style="display: none !important;">[
     [
-        "name" => "Synth Pop",
-        "slug" => "synth_pop",
-        "url" => "https://my.music.site/genre/synth_pop"
+        "name" =&gt; "Synth Pop",
+        "slug" =&gt; "synth_pop",
+        "url" =&gt; "https://my.music.site/genre/synth_pop"
     ],
     [
-        "name" => "Jazz",
-        "slug" => "jazz",
-        "url" => "https://my.music.site/genre/jazz"
+        "name" =&gt; "Jazz", // [tl! focus:2]
+        "slug" =&gt; "jazz",
+        "url" =&gt; "https://my.music.site/genre/jazz"
     ],
     [
-        "name" => "Electronica",
-        "slug" => "electronica",
-        "url" => "https://my.music.site/genre/electronica"
+        "name" =&gt; "Electronica",
+        "slug" =&gt; "electronica",
+        "url" =&gt; "https://my.music.site/genre/electronica"
     ],   
 ]
-```
+</textarea></code></pre>
 
 See more on the [`getTerm` page](../../reference/getterm).
 
@@ -78,30 +75,28 @@ See more on the [`getTerm` page](../../reference/getterm).
 
 Using the `getPostTaxonomy` function we can easily find out which terms of a given taxonomy a post has. Simply supply a `WP_Post` and a taxonomy slug:
 
-```php
-$post_genres = site()->getPostTaxonomy(get_post(), 'genre');
-```
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">$post_genres </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">getPostTaxonomy</span><span style="color: #E1E4E8;">(</span><span style="color: #B392F0;">get_post</span><span style="color: #E1E4E8;">(), </span><span style="color: #9ECBFF;">&#39;genre&#39;</span><span style="color: #E1E4E8;">);</span></div><textarea data-torchlight-original="true" style="display: none !important;">$post_genres = site()-&gt;getPostTaxonomy(get_post(), 'genre');
+</textarea></code></pre>
 
 <div class="code-caption">Get all the "genre" terms of the current post.</div>
 
 And just like that, `$post_genres` is a list of `WP_Term` objects:
 
-```
-[
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">[</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #F97583;">object</span><span style="color: #E1E4E8;">(</span><span style="color: #79B8FF;">WP_Term</span><span style="color: #E1E4E8;">) [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;term_id&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">1</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;name&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Synth Pop&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;synth_pop&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #F97583;">...</span><span style="color: #E1E4E8;"> </span><span style="color: #6A737D;">// Other WP_Term attributes</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #F97583;">object</span><span style="color: #E1E4E8;">(</span><span style="color: #79B8FF;">WP_Term</span><span style="color: #E1E4E8;">) [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;term_id&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">3</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;name&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Electronica&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;electronica&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #F97583;">...</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">]</span></div><textarea data-torchlight-original="true" style="display: none !important;">[
     object(WP_Term) [
-        "term_id" => 1,
-        "name" => "Synth Pop",
-        "slug" => "synth_pop",
+        "term_id" =&gt; 1,
+        "name" =&gt; "Synth Pop",
+        "slug" =&gt; "synth_pop",
         ... // Other WP_Term attributes
     ],
     object(WP_Term) [
-        "term_id" => 3,
-        "name" => "Electronica",
-        "slug" => "electronica",
+        "term_id" =&gt; 3,
+        "name" =&gt; "Electronica",
+        "slug" =&gt; "electronica",
         ...
     ],
 ]
-```
+</textarea></code></pre>
 
 See more on the [`getPostTaxonomy` page](../../reference/getposttaxonomy).
 
@@ -111,13 +106,12 @@ Another common use of taxonomies is grabbing every post that has a certain term.
 
 As seen in the [Site Object Guide](../the-site-object#post-querying), the key is adding `taxonomy.<slug>` to the query:
 
-```php
-$jazz_albums = site()->getPosts([
-  "post_type" => "album",
-  "taxonomy.genre" => "jazz"
-  "numberposts" => -1, // Get every post
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">$jazz_albums </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">getPosts</span><span style="color: #E1E4E8;">([</span></div><div class='line'><span style="color: #E1E4E8;">  </span><span style="color: #9ECBFF;">&quot;post_type&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;album&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">  </span><span style="color: #9ECBFF;">&quot;taxonomy.genre&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;jazz&quot;</span></div><div class='line'><span style="color: #E1E4E8;">  </span><span style="color: #9ECBFF;">&quot;numberposts&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">-</span><span style="color: #79B8FF;">1</span><span style="color: #E1E4E8;">, </span><span style="color: #6A737D;">// Get every post</span></div><div class='line'><span style="color: #E1E4E8;">]);</span></div><textarea data-torchlight-original="true" style="display: none !important;">$jazz_albums = site()-&gt;getPosts([
+  "post_type" =&gt; "album",
+  "taxonomy.genre" =&gt; "jazz"
+  "numberposts" =&gt; -1, // Get every post
 ]);
-```
+</textarea></code></pre>
 
 <div class="code-caption">Get every album post where the genre is "jazz".</div>
 
@@ -125,13 +119,12 @@ Since we only set the first parameter of `getPosts`, `$jazz_albums` will simply 
 
 Additionally if you want to grab posts for multiple terms, just comma-seperate your string:
 
-```
-$jazz_and_electronica_albums = site()->getPosts([
-  "post_type" => "album",
-  "taxonomy.genre" => "jazz,electronica"
-  "numberposts" => -1, // Get every post
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'>&nbsp;</div><div class='line'><span style="color: #E1E4E8;">$jazz_and_electronica_albums </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">getPosts</span><span style="color: #E1E4E8;">([</span></div><div class='line'><span style="color: #E1E4E8;">  </span><span style="color: #9ECBFF;">&quot;post_type&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;album&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">  </span><span style="color: #9ECBFF;">&quot;taxonomy.genre&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;jazz,electronica&quot;</span></div><div class='line'><span style="color: #E1E4E8;">  </span><span style="color: #9ECBFF;">&quot;numberposts&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">-</span><span style="color: #79B8FF;">1</span><span style="color: #E1E4E8;">, </span><span style="color: #6A737D;">// Get every post</span></div><div class='line'><span style="color: #E1E4E8;">]);</span></div><textarea data-torchlight-original="true" style="display: none !important;">$jazz_and_electronica_albums = site()-&gt;getPosts([
+  "post_type" =&gt; "album",
+  "taxonomy.genre" =&gt; "jazz,electronica"
+  "numberposts" =&gt; -1, // Get every post
 ]);
-```
+</textarea></code></pre>
 <div class="code-caption">Get every album post where the genre is either "jazz" or "electronica".</div>
 
 More about querying posts:

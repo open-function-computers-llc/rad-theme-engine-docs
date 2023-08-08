@@ -37,8 +37,7 @@ In my `helpers/ShowHelpers.php` file, for example, I wrote this function to gene
 
 <div class="code-heading">helpers/ShowHelpers.php</div>
 
-```php
-# All of your helpers across multiple files should use the same namespace.
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #6A737D;"># All of your helpers across multiple files should use the same namespace.</span></div><div class='line'><span style="color: #F97583;">namespace</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">ThemeHelpers</span><span style="color: #E1E4E8;">;</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #F97583;">class</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">ShowHelpers</span></div><div class='line'><span style="color: #E1E4E8;">{</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #F97583;">public</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">static</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">function</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">ratingBar</span><span style="color: #E1E4E8;">()</span></div><div class='line'><span style="color: #E1E4E8;">    {</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #F97583;">return</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">function</span><span style="color: #E1E4E8;"> ($template, $context, $args, $source) {</span></div><div class='line'><span style="color: #E1E4E8;">            $params </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">explode</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&quot; &quot;</span><span style="color: #E1E4E8;">, $args);</span></div><div class='line'><span style="color: #E1E4E8;">            $r </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">floatval</span><span style="color: #E1E4E8;">($context</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">get</span><span style="color: #E1E4E8;">($params[</span><span style="color: #79B8FF;">0</span><span style="color: #E1E4E8;">]));</span></div><div class='line'><span style="color: #E1E4E8;">            $b </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> $params[</span><span style="color: #79B8FF;">1</span><span style="color: #E1E4E8;">];</span></div><div class='line'><span style="color: #E1E4E8;">            $c </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> $params[</span><span style="color: #79B8FF;">2</span><span style="color: #E1E4E8;">];</span></div><div class='line'><span style="color: #E1E4E8;">            $str </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;&quot;</span><span style="color: #E1E4E8;">;</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #F97583;">foreach</span><span style="color: #E1E4E8;"> (</span><span style="color: #79B8FF;">range</span><span style="color: #E1E4E8;">(</span><span style="color: #79B8FF;">1</span><span style="color: #E1E4E8;">, </span><span style="color: #79B8FF;">floor</span><span style="color: #E1E4E8;">($r </span><span style="color: #F97583;">*</span><span style="color: #E1E4E8;"> $b)) </span><span style="color: #F97583;">as</span><span style="color: #E1E4E8;"> $number) {</span></div><div class='line'><span style="color: #E1E4E8;">                $str </span><span style="color: #F97583;">.=</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;</span><span style="color: #E1E4E8;">$c</span><span style="color: #9ECBFF;">&quot;</span><span style="color: #E1E4E8;">;</span></div><div class='line'><span style="color: #E1E4E8;">            }</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #F97583;">foreach</span><span style="color: #E1E4E8;"> (</span><span style="color: #79B8FF;">range</span><span style="color: #E1E4E8;">(</span><span style="color: #79B8FF;">ceil</span><span style="color: #E1E4E8;">($r </span><span style="color: #F97583;">*</span><span style="color: #E1E4E8;"> $b), ($b </span><span style="color: #F97583;">*</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">5</span><span style="color: #E1E4E8;">)) </span><span style="color: #F97583;">as</span><span style="color: #E1E4E8;"> $number) {</span></div><div class='line'><span style="color: #E1E4E8;">                $str </span><span style="color: #F97583;">.=</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;</span><span style="color: #E1E4E8;">$c</span><span style="color: #9ECBFF;">&quot;</span><span style="color: #E1E4E8;">;</span></div><div class='line'><span style="color: #E1E4E8;">            }</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #F97583;">return</span><span style="color: #E1E4E8;"> $str;</span></div><div class='line'><span style="color: #E1E4E8;">        };</span></div><div class='line'><span style="color: #E1E4E8;">    }</span></div><div class='line'><span style="color: #E1E4E8;">}</span></div><textarea data-torchlight-original="true" style="display: none !important;"># All of your helpers across multiple files should use the same namespace.
 namespace ThemeHelpers;
 
 class ShowHelpers
@@ -47,21 +46,21 @@ class ShowHelpers
     {
         return function ($template, $context, $args, $source) {
             $params = explode(" ", $args);
-            $r = floatval($context->get($params[0]));
+            $r = floatval($context-&gt;get($params[0]));
             $b = $params[1];
             $c = $params[2];
             $str = "";
             foreach (range(1, floor($r * $b)) as $number) {
-                $str .= "<a style='color:gold'>$c</a>";
+                $str .= "$c";
             }
             foreach (range(ceil($r * $b), ($b * 5)) as $number) {
-                $str .= "<a style='color:grey'>$c</a>";
+                $str .= "$c";
             }
             return $str;
         };
     }
 }
-```
+</textarea></code></pre>
 
 <div class="code-caption">Writing a custom helper</div>
 
@@ -75,8 +74,7 @@ Since we're using a custom namespace to declare our functions, we'll use Compose
 
 <div class="code-heading">composer.json</div>
 
-```json
-{
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="json"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">{</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #79B8FF;">&quot;require&quot;</span><span style="color: #E1E4E8;">: {</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #79B8FF;">&quot;open-function-computers-llc/rad-theme-engine&quot;</span><span style="color: #E1E4E8;">: </span><span style="color: #9ECBFF;">&quot;^1.0&quot;</span></div><div class='line'><span style="color: #E1E4E8;">    },</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #79B8FF;">&quot;autoload&quot;</span><span style="color: #E1E4E8;">: {</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #79B8FF;">&quot;psr-4&quot;</span><span style="color: #E1E4E8;">: {</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #79B8FF;">&quot;ThemeHelpers\\&quot;</span><span style="color: #E1E4E8;">: </span><span style="color: #9ECBFF;">&quot;helpers/&quot;</span></div><div class='line'><span style="color: #E1E4E8;">        }</span></div><div class='line'><span style="color: #E1E4E8;">    }</span></div><div class='line'><span style="color: #E1E4E8;">}</span></div><textarea data-torchlight-original="true" style="display: none !important;">{
     "require": {
         "open-function-computers-llc/rad-theme-engine": "^1.0"
     },
@@ -86,7 +84,7 @@ Since we're using a custom namespace to declare our functions, we'll use Compose
         }
     }
 }
-```
+</textarea></code></pre>
 
 <div class="code-caption">Updating Composer's autoload to include our custom helpers</div>
 
@@ -104,16 +102,15 @@ Now in our `config.php` file we can add the following:
 
 <div class="code-heading">config.php</div>
 
-```php
-return [
-    "handlebars" => [
-        "additional-helpers" => [
-            "ratingBar" => ThemeHelpers\ShowHelpers::ratingBar(),
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #F97583;">return</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;handlebars&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;additional-helpers&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;ratingBar&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">ThemeHelpers\ShowHelpers</span><span style="color: #F97583;">::</span><span style="color: #B392F0;">ratingBar</span><span style="color: #E1E4E8;">(),</span></div><div class='line'><span style="color: #E1E4E8;">        ],</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #F97583;">...</span></div><div class='line'><span style="color: #E1E4E8;">]</span></div><textarea data-torchlight-original="true" style="display: none !important;">return [
+    "handlebars" =&gt; [
+        "additional-helpers" =&gt; [
+            "ratingBar" =&gt; ThemeHelpers\ShowHelpers::ratingBar(),
         ],
     ],
     ...
 ]
-```
+</textarea></code></pre>
 
 <div class="code-caption">Registering our custom handlebars helper</div>
 
@@ -123,23 +120,23 @@ From now onwards, we can use this new helper in any of our templates by calling 
 
 <div class="code-heading">tpl/show_list.tpl</div>
 
-```html
-<div class="four-col-grid">
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="html"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">&lt;</span><span style="color: #85E89D;">div</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">class</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;four-col-grid&quot;</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">    {{#each shows}}</span></div><div class='line'><span style="color: #E1E4E8;">    &lt;</span><span style="color: #85E89D;">div</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">        &lt;</span><span style="color: #85E89D;">a</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">href</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;{{url}}&quot;</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">            &lt;</span><span style="color: #85E89D;">img</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">class</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;full-image&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">src</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;{{img}}&quot;</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">            &lt;</span><span style="color: #85E89D;">span</span><span style="color: #E1E4E8;">&gt;{{title}}&lt;/</span><span style="color: #85E89D;">span</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">        &lt;/</span><span style="color: #85E89D;">a</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">        &lt;</span><span style="color: #85E89D;">span</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">class</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;show-item-sub-title&quot;</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">            {{rating}}/5</span><span style="color: #79B8FF;">&amp;nbsp;</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #6A737D;">&lt;!-- Implement my helper --&gt;</span></div><div class='line'><span style="color: #E1E4E8;">            {{#ratingBar rating 2 ▰}}</span></div><div class='line'><span style="color: #E1E4E8;">        &lt;/</span><span style="color: #85E89D;">span</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">    &lt;/</span><span style="color: #85E89D;">div</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">    {{/each}}</span></div><div class='line'><span style="color: #E1E4E8;">&lt;/</span><span style="color: #85E89D;">div</span><span style="color: #E1E4E8;">&gt;</span></div><textarea data-torchlight-original="true" style="display: none !important;">&lt;xmp&gt;
+&lt;div class="four-col-grid"&gt;
     {{#each shows}}
-    <div>
-        <a href="{{url}}">
-            <img class="full-image" src="{{img}}">
-            <span>{{title}}</span>
-        </a>
-        <span class="show-item-sub-title">
+    &lt;div&gt;
+        &lt;a href="{{url}}"&gt;
+            &lt;img class="full-image" src="{{img}}"&gt;
+            &lt;span&gt;{{title}}&lt;/span&gt;
+        &lt;/a&gt;
+        &lt;span class="show-item-sub-title"&gt;
             {{rating}}/5&nbsp;
-            <!-- Implement my helper -->
+            &lt;!-- Implement my helper --&gt;
             {{#ratingBar rating 2 ▰}}
-        </span>
-    </div>
+        &lt;/span&gt;
+    &lt;/div&gt;
     {{/each}}
-</div>
-```
+&lt;/div&gt;&lt;/xmp&gt;
+</textarea></code></pre>
 
 <div class="code-caption">Using our new helper in a handlebars file</div>
 
@@ -165,19 +162,18 @@ This is a theme configuration with a couple additional helpers, a custom `.view`
 
 <div class="code-heading">config.php</div>
 
-```php
-return [
-"handlebars" => [
-        "additional-helpers" => [
-            "ratingBar" => ThemeHelpers\ShowHelpers::ratingBar(),
-            "breadcrumbs" => ThemeHelpers\GlobalHelpers::breadcrumbs(),
-            "num" => ThemeHelpers\GlobalHelpers::num(),
-            "asset" => ThemeHelpers\GlobalHelpers::asset(),
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #F97583;">return</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #9ECBFF;">&quot;handlebars&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;additional-helpers&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;ratingBar&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">ThemeHelpers\ShowHelpers</span><span style="color: #F97583;">::</span><span style="color: #B392F0;">ratingBar</span><span style="color: #E1E4E8;">(),</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;breadcrumbs&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">ThemeHelpers\GlobalHelpers</span><span style="color: #F97583;">::</span><span style="color: #B392F0;">breadcrumbs</span><span style="color: #E1E4E8;">(),</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;num&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">ThemeHelpers\GlobalHelpers</span><span style="color: #F97583;">::</span><span style="color: #B392F0;">num</span><span style="color: #E1E4E8;">(),</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;asset&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">ThemeHelpers\GlobalHelpers</span><span style="color: #F97583;">::</span><span style="color: #B392F0;">asset</span><span style="color: #E1E4E8;">(),</span></div><div class='line'><span style="color: #E1E4E8;">        ],</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;template-extension&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;view&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;template-directory&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;views&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">]</span></div><textarea data-torchlight-original="true" style="display: none !important;">return [
+"handlebars" =&gt; [
+        "additional-helpers" =&gt; [
+            "ratingBar" =&gt; ThemeHelpers\ShowHelpers::ratingBar(),
+            "breadcrumbs" =&gt; ThemeHelpers\GlobalHelpers::breadcrumbs(),
+            "num" =&gt; ThemeHelpers\GlobalHelpers::num(),
+            "asset" =&gt; ThemeHelpers\GlobalHelpers::asset(),
         ],
-        "template-extension" => "view",
-        "template-directory" => "views",
+        "template-extension" =&gt; "view",
+        "template-directory" =&gt; "views",
     ],
 ]
-```
+</textarea></code></pre>
 
 <div class="code-caption">A theme with several helpers and a custom template extension/directory.</div>
