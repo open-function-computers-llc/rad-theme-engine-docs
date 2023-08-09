@@ -8,3 +8,4 @@ TODO
 .vscode/settings.json
 .DS_Store
 cache
+.env
