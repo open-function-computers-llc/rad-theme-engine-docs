@@ -37,6 +37,7 @@
   {{ partial "footer/alert.html" . }}
   {{ end }}
   {{ partial "footer/script-footer.html" . }}
+  {{ block "footer/script-footer" . }}{{ end }}
 </body>
 
 </html>
