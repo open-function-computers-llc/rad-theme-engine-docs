@@ -55,33 +55,30 @@ Here is a custom post type for a TV Show with a genre taxonomy, custom labels, a
 
 <div class="code-heading">config.php</div>
 
-```php
-return [
-    "custom-post-types" => [
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #F97583;">return</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;custom-post-types&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">        [</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;shows&#39;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;icon&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;dashicons-format-video&#39;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;options-pages&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&#39;show-archive-settings&#39;</span><span style="color: #E1E4E8;">],</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;taxonomies&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&#39;genre&#39;</span><span style="color: #E1E4E8;">],</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;disable&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&#39;yoast&#39;</span><span style="color: #E1E4E8;">],</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;options&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">                </span><span style="color: #9ECBFF;">&quot;has_archive&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;shows&#39;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">                </span><span style="color: #9ECBFF;">&quot;show_in_nav_menus&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">true</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">                </span><span style="color: #9ECBFF;">&quot;supports&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&#39;title&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;editor&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;thumbnail&#39;</span><span style="color: #E1E4E8;">],</span></div><div class='line'><span style="color: #E1E4E8;">                </span><span style="color: #9ECBFF;">&quot;rewrite&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">                    </span><span style="color: #9ECBFF;">&#39;slug&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;shows&#39;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">                    </span><span style="color: #9ECBFF;">&#39;with_front&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">true</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">                    </span><span style="color: #9ECBFF;">&#39;pages&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">true</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">                    </span><span style="color: #9ECBFF;">&#39;feeds&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">true</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">                ],</span></div><div class='line'><span style="color: #E1E4E8;">                </span><span style="color: #9ECBFF;">&quot;labels&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">                    </span><span style="color: #9ECBFF;">&#39;name&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">_x</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;TV Shows&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;Post Type General Name&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;text_domain&#39;</span><span style="color: #E1E4E8;">),</span></div><div class='line'><span style="color: #E1E4E8;">                    </span><span style="color: #9ECBFF;">&#39;singular_name&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">_x</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;TV Show&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;Post Type Singular Name&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;text_domain&#39;</span><span style="color: #E1E4E8;">),</span></div><div class='line'><span style="color: #E1E4E8;">                ]</span></div><div class='line'><span style="color: #E1E4E8;">            ]</span></div><div class='line'><span style="color: #E1E4E8;">        ],</span></div><div class='line'><span style="color: #E1E4E8;">    ]</span></div><div class='line'><span style="color: #E1E4E8;">]</span></div><textarea data-torchlight-original="true" style="display: none !important;">return [
+    "custom-post-types" =&gt; [
         [
-            "slug" => 'shows',
-            "icon" => 'dashicons-format-video',
-            "options-pages" => ['show-archive-settings'],
-            "taxonomies" => ['genre'],
-            "disable" => ['yoast'],
-            "options" => [
-                "has_archive" => 'shows',
-                "show_in_nav_menus" => true,
-                "supports" => ['title', 'editor', 'thumbnail'],
-                "rewrite" => [
-                    'slug' => 'shows',
-                    'with_front' => true,
-                    'pages' => true,
-                    'feeds' => true,
+            "slug" =&gt; 'shows',
+            "icon" =&gt; 'dashicons-format-video',
+            "options-pages" =&gt; ['show-archive-settings'],
+            "taxonomies" =&gt; ['genre'],
+            "disable" =&gt; ['yoast'],
+            "options" =&gt; [
+                "has_archive" =&gt; 'shows',
+                "show_in_nav_menus" =&gt; true,
+                "supports" =&gt; ['title', 'editor', 'thumbnail'],
+                "rewrite" =&gt; [
+                    'slug' =&gt; 'shows',
+                    'with_front' =&gt; true,
+                    'pages' =&gt; true,
+                    'feeds' =&gt; true,
                 ],
-                "labels" => [
-                    'name' => _x('TV Shows', 'Post Type General Name', 'text_domain'),
-                    'singular_name' => _x('TV Show', 'Post Type Singular Name', 'text_domain'),
+                "labels" =&gt; [
+                    'name' =&gt; _x('TV Shows', 'Post Type General Name', 'text_domain'),
+                    'singular_name' =&gt; _x('TV Show', 'Post Type Singular Name', 'text_domain'),
                 ]
             ]
         ],
     ]
 ]
-```
-
-<div class="code-caption">A new custom post type with the slug "shows"</div>
+</textarea></code></pre>A new custom post type with the slug "shows"</div>

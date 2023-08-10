@@ -35,10 +35,9 @@ Where `"enable"` is an array of strings selected from the options below.
 
 <div class="code-heading">config.php</div>
 
-```php
-return [
-  "enable" => ["post-thumbnails","menus"]
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #F97583;">return</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">  </span><span style="color: #9ECBFF;">&quot;enable&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&quot;post-thumbnails&quot;</span><span style="color: #E1E4E8;">,</span><span style="color: #9ECBFF;">&quot;menus&quot;</span><span style="color: #E1E4E8;">]</span></div><div class='line'><span style="color: #E1E4E8;">]</span></div><textarea data-torchlight-original="true" style="display: none !important;">return [
+  "enable" =&gt; ["post-thumbnails","menus"]
 ]
-```
+</textarea></code></pre>
 
 <div class="code-caption">Enabling menus and post thumbnails in your theme</div>

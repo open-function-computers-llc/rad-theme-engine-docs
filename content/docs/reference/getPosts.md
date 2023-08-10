@@ -16,9 +16,8 @@ Get specific fields or WP_Post objects for multiple posts.
 
 ## Usage
 
-```php
-site()->getPosts($args, $fields);
-```
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">getPosts</span><span style="color: #E1E4E8;">($args, $fields);</span></div><textarea data-torchlight-original="true" style="display: none !important;">site()-&gt;getPosts($args, $fields);
+</textarea></code></pre>
 
 ### Parameters
 
@@ -57,63 +56,60 @@ In this example we get the name, mileage and country for vehicles from France or
 
 <div class="code-heading">config.php</div>
 
-```php
-return [
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #F97583;">return</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #6A737D;">// ...</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;custom-post-types&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">        [</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;vehicles&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;taxonomies&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&quot;country&quot;</span><span style="color: #E1E4E8;">],</span></div><div class='line'><span style="color: #E1E4E8;">        ]</span></div><div class='line'><span style="color: #E1E4E8;">    ]</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #6A737D;">// ...</span></div><div class='line'><span style="color: #E1E4E8;">];</span></div><textarea data-torchlight-original="true" style="display: none !important;">return [
     // ...
-    "custom-post-types" => [
+    "custom-post-types" =&gt; [
         [
-            "slug" => "vehicles",
-            "taxonomies" => ["country"],
+            "slug" =&gt; "vehicles",
+            "taxonomies" =&gt; ["country"],
         ]
     ]
     // ...
 ];
-```
+</textarea></code></pre>
 
 <div class="code-caption">Registering a custom post type and taxonomy</div>
 
-```php
-// Where you call your lookup
-site()->getPosts([
-    "type" => "vehicles",
-    "taxonomy.country" => "france,italy"
+<pre class="torchlight has-focus-lines" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line line-focus'><span style="color: #6A737D;">// Where you call your lookup </span></div><div class='line line-focus'><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">getPosts</span><span style="color: #E1E4E8;">([</span></div><div class='line line-focus'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;type&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;vehicles&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line line-focus'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;taxonomy.country&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;france,italy&quot;</span></div><div class='line line-focus'><span style="color: #E1E4E8;">], [</span></div><div class='line line-focus'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;title&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line line-focus'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;acf.miles&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line line-focus'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;taxonomy.country.name&quot;</span></div><div class='line line-focus'><span style="color: #E1E4E8;">]);</span></div><div class='line line-focus'><span style="color: #6A737D;">// Returns</span></div><div class='line'><span style="color: #E1E4E8;">[</span></div><div class='line'><span style="color: #E1E4E8;">    [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;title&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;2010 Ferrari 458 Italia&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;miles&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">13802</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;country&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">            [</span></div><div class='line'><span style="color: #E1E4E8;">                </span><span style="color: #9ECBFF;">&quot;name&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Italy&quot;</span></div><div class='line'><span style="color: #E1E4E8;">            ]</span></div><div class='line'><span style="color: #E1E4E8;">        ]</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line line-focus'><span style="color: #E1E4E8;">    [ </span></div><div class='line line-focus'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;title&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;2019 Renault Alpine A110 Légende GT&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line line-focus'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;miles&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">3211</span><span style="color: #E1E4E8;">,</span></div><div class='line line-focus'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;country&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line line-focus'><span style="color: #E1E4E8;">            [</span></div><div class='line line-focus'><span style="color: #E1E4E8;">                </span><span style="color: #9ECBFF;">&quot;name&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;France&quot;</span></div><div class='line line-focus'><span style="color: #E1E4E8;">            ]</span></div><div class='line line-focus'><span style="color: #E1E4E8;">        ]</span></div><div class='line line-focus'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">    [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;title&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;2019 FIAT 124 Spider Abarth&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;miles&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">9304</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;country&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">            [</span></div><div class='line'><span style="color: #E1E4E8;">                </span><span style="color: #9ECBFF;">&quot;name&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Italy&quot;</span></div><div class='line'><span style="color: #E1E4E8;">            ]</span></div><div class='line'><span style="color: #E1E4E8;">        ]</span></div><div class='line'><span style="color: #E1E4E8;">    ]</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #F97583;">...</span></div><div class='line'><span style="color: #E1E4E8;">]</span></div><textarea data-torchlight-original="true" style="display: none !important;">// Where you call your lookup [tl! focus:9]
+site()-&gt;getPosts([
+    "type" =&gt; "vehicles",
+    "taxonomy.country" =&gt; "france,italy"
 ], [
     "title",
     "acf.miles",
     "taxonomy.country.name"
 ]);
-
 // Returns
 [
     [
-        "title" => "2010 Ferrari 458 Italia",
-        "miles" => 13802,
-        "country" => [
+        "title" =&gt; "2010 Ferrari 458 Italia",
+        "miles" =&gt; 13802,
+        "country" =&gt; [
             [
-                "name" => "Italy"
+                "name" =&gt; "Italy"
+            ]
+        ]
+    ],
+    [ // [tl! focus:8]
+        "title" =&gt; "2019 Renault Alpine A110 Légende GT",
+        "miles" =&gt; 3211,
+        "country" =&gt; [
+            [
+                "name" =&gt; "France"
             ]
         ]
     ],
     [
-        "title" => "2019 Renault Alpine A110 Légende GT",
-        "miles" => 3211,
-        "country" => [
+        "title" =&gt; "2019 FIAT 124 Spider Abarth",
+        "miles" =&gt; 9304,
+        "country" =&gt; [
             [
-                "name" => "France"
-            ]
-        ]
-    ],
-    [
-        "title" => "2019 FIAT 124 Spider Abarth",
-        "miles" => 9304,
-        "country" => [
-            [
-                "name" => "Italy"
+                "name" =&gt; "Italy"
             ]
         ]
     ]
     ...
 ]
-```
+</textarea></code></pre>
 
 <div class="code-caption">Grabbing posts based on post type and taxonomy, only returning certain fields.</div>
