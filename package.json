@@ -45,7 +45,6 @@
     "eslint": "^7.29",
     "exec-bin": "^1.0.0",
     "flexsearch": "^0.7.11",
-    "highlight.js": "^11.0",
     "hugo-installer": "^3.0.1",
     "instant.page": "^5.1",
     "katex": "^0.13",
@@ -62,5 +61,7 @@
   "otherDependencies": {
     "hugo": "0.84.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@torchlight-api/torchlight-cli": "^0.1.7"
+  }
 }

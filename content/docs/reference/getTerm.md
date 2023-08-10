@@ -16,9 +16,8 @@ Get all the registered terms for a given taxonomy.
 
 ## Usage
 
-```php
-site()->getTerm($slug, $termFields);
-```
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">getTerm</span><span style="color: #E1E4E8;">($slug, $termFields);</span></div><textarea data-torchlight-original="true" style="display: none !important;">site()-&gt;getTerm($slug, $termFields);
+</textarea></code></pre>
 
 ### Parameters
 
@@ -54,23 +53,21 @@ Any member of [WP_Term](https://developer.wordpress.org/reference/classes/wp_ter
 Getting the name and slug for all the terms within the `car_type` taxonomy.
 
 
-```php
-site()->getTerm('car_type', ['name','slug']);
-
+<pre class="torchlight has-focus-lines" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line line-focus'><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">getTerm</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;car_type&#39;</span><span style="color: #E1E4E8;">, [</span><span style="color: #9ECBFF;">&#39;name&#39;</span><span style="color: #E1E4E8;">,</span><span style="color: #9ECBFF;">&#39;slug&#39;</span><span style="color: #E1E4E8;">]); </span></div><div class='line line-focus'><span style="color: #6A737D;">// Returns</span></div><div class='line'><span style="color: #E1E4E8;">[</span></div><div class='line'><span style="color: #E1E4E8;">    [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;name&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Hatchback&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;hatchback&quot;</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line line-focus'><span style="color: #E1E4E8;">    [ </span></div><div class='line line-focus'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;name&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Hyper Car&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line line-focus'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;hypercar&quot;</span></div><div class='line line-focus'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">    [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;name&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Sports Car&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;sportscar&quot;</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #F97583;">...</span><span style="color: #E1E4E8;"> </span><span style="color: #6A737D;">// And more</span></div><div class='line'><span style="color: #E1E4E8;">]</span></div><textarea data-torchlight-original="true" style="display: none !important;">site()-&gt;getTerm('car_type', ['name','slug']); // [tl! focus:1]
 // Returns
 [
     [
-        "name" => "Hatchback",
-        "slug" => "hatchback"
+        "name" =&gt; "Hatchback",
+        "slug" =&gt; "hatchback"
+    ],
+    [ // [tl! focus:3]
+        "name" =&gt; "Hyper Car",
+        "slug" =&gt; "hypercar"
     ],
     [
-        "name" => "Hyper Car",
-        "slug" => "hypercar"
-    ],
-    [
-        "name" => "Sports Car",
-        "slug" => "sportscar"
+        "name" =&gt; "Sports Car",
+        "slug" =&gt; "sportscar"
     ],
     ... // And more
 ]
-```
+</textarea></code></pre>
