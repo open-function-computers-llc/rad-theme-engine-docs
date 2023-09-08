@@ -1,4 +1,7 @@
+.config-generator-wrapper {
+    transition: opacity 0.5s ease;
 
+}
 
 .input-desc {
     font-size: 9pt;
@@ -10,5 +13,12 @@
 .config-generator-col-form {
     input.form-check-input {
         margin-top: 0.75rem;
+    }
+}
+
+// Dark mode styles
+body.dark {
+    .dashicon {
+        filter: invert(1);
     }
 }

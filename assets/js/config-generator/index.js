@@ -3,6 +3,8 @@ import hljs from 'highlight.js';
 
 var cptModal;
 
+var has_mounted = false;
+
 let vueApp = createApp({
     delimiters: ['[[', ']]'],
     data() {
@@ -11,13 +13,14 @@ let vueApp = createApp({
             guest_class: "guest",
             cpt: [],
             cpt_i: null,
+            cpt_show_advanced: false,
             enable: {
-                "post-thumbnails": false,
-                "menus": false,
+                "post-thumbnails": true,
+                "menus": true,
                 "styleselect": false,
             },
             disable: {
-                "editor": false,
+                "editor": true,
                 "customizer": false,
                 "gutenberg": false,
             },
@@ -204,22 +207,62 @@ let vueApp = createApp({
         }
     },
     async mounted() {
+        // Check for saved state
+        let save = window.localStorage.getItem("config-generator-data")
+        if (save) {
+            let parsed = JSON.parse(save)
+            for (let key in parsed) {
+                console.log(parsed[key])
+                this[key] = parsed[key]
+            }
+        }
         // Fetch list of dashicons
         let request = await fetch("https://raw.githubusercontent.com/WordPress/dashicons/master/codepoints.json");
         let json = await request.text();
         this.dashicons = Object.keys(JSON.parse(json))
+        // Has mounted
+        has_mounted = true;
+        document.getElementById('v-config-generator').classList.remove("opacity-0")
+        document.getElementById('config-generator-loader').remove()
+        cptModal = new bootstrap.Modal('#cpt_modal', {})
     },
     computed: {
         code() {
+            // Also take this opportunity to save data to localStorage
+            if (has_mounted)
+                window.localStorage.setItem("config-generator-data", JSON.stringify({
+                    excerpt_length: this.excerpt_length,
+                    guest_class: this.guest_class,
+                    cpt: this.cpt,
+                    cpt_i: this.cpt_i,
+                    enable: this.enable,
+                    disable: this.disable,
+                    options_pages: this.options_pages,
+                    menu_locations: this.menu_locations
+                }))
+
+            // Use highlight.js to highlight php code
             return hljs.highlight(`<?php
             
 return [
+
+    // How many words the WordPress excerpt should be
     "excerpt-length" => ${this.excerpt_length},
+
+    // Append this class to the \`body_class\` list for unauthenticated users
     "guest-class" => "${this.guest_class}",
+
+    // Enable/disable individual WordPress features
     "enable" => ${this.code_list_from_bools(this.enable, 1)},
     "disable" => ${this.code_list_from_bools(this.disable, 1)},
+
+    // Register new menu locations by their name and id
     "menu-locations" => ${this.code_object(this.menu_locations, 1)},
+
+    // Register new options pages by their id
     "options-pages" => ${this.code_list(this.options_pages, 1)},
+
+    // Register new custom post types plus their associated taxonomies and options pages
     "custom-post-types" => ${this.code_list(this.clean_cpts(), 1)},
 ];
                 `, { language: 'php' }).value
