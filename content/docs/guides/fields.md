@@ -16,7 +16,7 @@ RAD allows you to create your own fields in a pages Admin area. This allows you 
 
 In your `fields.php` file you can add custom fields for any template. All you need to do is return an array of each templates fields. 
 
-For each template you wish to add fields to, start by specifying the template, and type like this:
+For each template you wish to add fields to, start by specifying the template, and its type like this:
 
 <div class="code-heading">fields.php</div>
 
@@ -97,25 +97,27 @@ The following field types are supported:
 * Textarea
 * Number
 * Image
-    * Can be store as URL or JSON
+    * Can be stored as URL or JSON
+    * URL will just store the image, whereas JSON will store all of its details
 * File
-* WYSIWYG
+* WYSIWYG Editor
+
+Once these steps are complete, the fields you added will show up to the "Edit Page" area for each post using the specified template. 
+
 
 ## Implementing Into Templates
 
-Now that we have our fields in the admin area, we need to actually get them onto a page. To do this, we will need to create two files, a `.tpl` file and a `.php` file. The `.php` file will grab all of the fields and send them to the `.tpl` file which will use handlebars to render a page based on the fields.
+Now that we have our fields in the admin area, we need to actually get them onto each post. To do this, we will need to create two files, a `.tpl` file and a `.php` file. The `.php` file will grab all of the fields and send them to the `.tpl` file which will use handlebars to render a page based on the fields.
 
-The specifc name of the `.php` file does not matter, but let's keep using a home page template as an example, and call the file `tpl-home.php`. This file should live in the themes root directory. This file is very simple. All it needs is a name, the fields to send to a template, and the template name. It should look something like this:
+The specifc name of the `.php` file does not matter, but let's keep using a home page template as an example, and call the file `tpl-home.php`. This file should live in the themes root directory (`your-theme-name/tpl-home.php`). This file is very simple. All it needs is a name, the fields to send to a template, and the template name. It should look something like this:
 
-<div class="code-heading">fields.php</div>
+<div class="code-heading">tpl-home.php</div>
 
-<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #B392F0;">render</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&quot;home&quot;</span><span style="color: #E1E4E8;">, </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">getPost</span><span style="color: #E1E4E8;">($post, </span></div><div class='line'><span style="color: #E1E4E8;">    [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;rad.header1&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;rad.headerImage&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;rad.description&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    ]  </span></div><div class='line'><span style="color: #E1E4E8;">));</span></div><textarea data-torchlight-original="true" style="display: none !important;">&lt;!--?php
-/**
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #6A737D;">/**</span></div><div class='line'><span style="color: #6A737D;"> * Template Name:Home Template</span></div><div class='line'><span style="color: #6A737D;"> */</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">echo</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">render</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&quot;home&quot;</span><span style="color: #E1E4E8;">, </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">getPost</span><span style="color: #E1E4E8;">($post, </span></div><div class='line'><span style="color: #E1E4E8;">    [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;rad.header1&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;rad.headerImage&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;rad.description&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    ]  </span></div><div class='line'><span style="color: #E1E4E8;">));</span></div><textarea data-torchlight-original="true" style="display: none !important;">/**
  * Template Name:Home Template
  */
 
-
- echo site()---&gt;render("home", site()-&gt;getPost($post, 
+ echo site()-&gt;render("home", site()-&gt;getPost($post, 
     [
         "rad.header1",
         "rad.headerImage",
@@ -123,9 +125,9 @@ The specifc name of the `.php` file does not matter, but let's keep using a home
     ]  
 ));</textarea></code></pre>
 
-That is all you need! "home" is the name of the template to be renderded, "header1", "headerImage", and "description" are the names of the fields that were defined earlier in the `fields.php` file. These must be prefaced with "rad." to work properly. Additionally, you can add things like a header or footer partial template.
+That is all you need! "home" is the name of the template to be renderded, "header1", "headerImage", and "description" are the names of the fields that were defined earlier in the `fields.php` file. These must be prefaced with "rad." to work properly. Additionally, you can add things like a header or footer partial template above or below the `echo site()` block depending on where you want it.
 
-Finally, we must make the template itself. In the `tpl` folder create a file with <i>the same name</i> as specified in the `fields.php` folder. For this example, we would create a file named `home.tpl`. This file should be the HTML for the page, and to use our variables we should wrap their name in two curly braces. So this:
+Finally, we must make the template itself. In the `your-theme-name/tpl` folder create a file with <i>the same name</i> as specified in the `fields.php` folder. For this example, we would create a file named `home.tpl`. This file should be the HTML for the page, and to use our variables we should wrap their name in two curly braces. So this:
 
 <div class="code-heading">home.tpl</div>
 
@@ -137,4 +139,4 @@ and..
 
 <pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="html"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">&lt;</span><span style="color: #85E89D;">h1</span><span style="color: #E1E4E8;">&gt;{{ header1 }}&lt;/</span><span style="color: #85E89D;">h1</span><span style="color: #E1E4E8;">&gt;</span></div><textarea data-torchlight-original="true" style="display: none !important;">&lt;xmp&gt;&lt;h1&gt;{{ header1 }}&lt;/h1&gt;&lt;/xmp&gt;</textarea></code></pre>
 
-will populate those fields with whatever was input into the admin area. That's it! You can keep adding fields for new or existing templates, and they're that easy to set up!
+will populate those fields with whatever was input into the admin area for `headerImage` and `header1`. That's it! You can keep adding fields for new or existing templates, and they're that easy to set up!
