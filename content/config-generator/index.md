@@ -8,5 +8,3 @@ draft: false
 images: []
 type: "config-generator"
 ---
-
-this is the config generator markdown

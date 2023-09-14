@@ -1,0 +1,40 @@
+.generator-wrapper {
+    transition: opacity 0.5s ease;
+}
+
+.capitalize-placeholder::placeholder {
+    text-transform: capitalize;
+}
+
+.input-desc {
+    font-size: 9pt;
+    display: block;
+    color: $secondary;
+    margin-top: 0.25rem;
+}
+
+.generator-col-form {
+    input.form-check-input {
+        margin-top: 0.75rem;
+    }
+}
+
+.generator-tr-expand-button {
+    border-radius: 99;
+    border: 1px solid var(--bs-border-color);
+    
+    .bi::before {
+        transition: transform 150ms linear;
+    }
+
+    &.open .bi::before {
+        transform: rotate(90deg);
+    }
+}
+
+// Dark mode styles
+body.dark {
+    .dashicon {
+        filter: invert(1);
+    }
+}

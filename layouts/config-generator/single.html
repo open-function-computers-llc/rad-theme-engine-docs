@@ -3,13 +3,20 @@
 <div class="row justify-content-center mt-3 mb-5">
     <div id="" class="col-12">
 
-        
+        <div class="tabs">
+            <div class="tab current">
+              Config Generator
+            </div>
+            <a href="/fields-generator" class="tab">
+              Fields Generator
+            </a>
+          </div>
 
         <h1 class="d-flex align-items-center gap-2">
             RAD Config Generator 
             <span class="badge text-bg-primary fs-6 d-inline-block ">New!</span>
             <div class="flex-grow-1"></div>
-            <button onclick="localStorage.removeItem('config-generator-data');location.reload()" class="float-end btn btn-outline-primary"><i class="bi bi-arrow-clockwise"></i> Reset</button>
+            <button onclick="if (confirm('Are you sure? All saved data will be deleted.')) { localStorage.removeItem('config-generator-data');location.reload() }" class="float-end btn btn-outline-primary"><i class="bi bi-arrow-clockwise"></i> Reset</button>
         </h1>
 
                 
@@ -26,7 +33,7 @@
             <span class="visually-hidden">Loading...</span>
         </div>
 
-        <div class="opacity-0 config-generator-wrapper" id="v-config-generator">
+        <div class="opacity-0 generator-wrapper" id="v-config-generator">
 
 
             {{ partial "config-generator/custom-post-type-modal.html" }}
@@ -165,8 +172,8 @@
 
 {{ define "footer/script-footer" }}
 
-<!-- js/config-generator/index.js is where the Vue component creation happens -->
-{{ $vue := resources.Get "js/config-generator/index.js" -}}
+<!-- js/generators/config.js is where the Vue component creation happens -->
+{{ $vue := resources.Get "js/generators/config.js" -}}
 {{ $vue := $vue | js.Build -}}
 <script src="{{ $vue.RelPermalink }}" defer></script>
 

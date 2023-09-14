@@ -1,0 +1,199 @@
+{{ define "main" }}
+
+<div class="row justify-content-center mt-3 mb-5">
+    <div class="col-12">
+
+        <!-- Tab Menu -->
+        <div class="tabs">
+            <a href="/config-generator" class="tab">
+                Config Generator
+            </a>
+            <div class="tab current">
+                Fields Generator
+            </div>
+        </div>
+
+        <!-- Page Title -->
+        <h1 class="d-flex align-items-center gap-2">
+            RAD Fields Generator
+            <span class="badge text-bg-primary fs-6 d-inline-block ">New!</span>
+            <div class="flex-grow-1"></div>
+            <button onclick="if (confirm('Are you sure? All saved data will be deleted.')) { localStorage.removeItem('fields-generator-data');location.reload() }"
+                class="float-end btn btn-outline-primary"><i class="bi bi-arrow-clockwise"></i> Reset</button>
+        </h1>
+
+        <p style="max-width: 36rem">Need some custom fields for your WordPress theme? Create an organize them here, then
+            simply paste the generated code into your <code>fields.php</code> file.</p>
+
+        <hr class="d-block my-4 border-top">
+
+        <div id="fields-generator-loader" class="spinner-border position-absolute mx-auto start-0 end-0" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+
+        <div class="opacity-0 generator-wrapper" id="v-fields-generator">
+
+            <form class="row">
+                <div class="col-16">
+                    <table class="table table-sm border m-0">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th scope="col">Template</th>
+                                <th scope="col">Title</th>
+                                <th scope="col">Post Type</th>
+                                <th scope="col">Fields</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template v-for="tmpl,idx in templates">
+                                <tr>
+                                    <td style="width: 40px;"><button
+                                            @click.prevent="idx_open = idx_open == idx ? -1 : idx"
+                                            class="generator-tr-expand-button btn btn-link"
+                                            :class="{ 'open': idx_open == idx }">
+                                            <i class="bi bi-caret-right-fill"></i>
+                                        </button></td>
+                                    <td>[[ tmpl.template ?? '-' ]]</td>
+                                    <td>[[ tmpl.name ?? '-' ]]</td>
+                                    <td>[[ tmpl.for == '__custom' ? (tmpl.for_custom ?? '-') : (tmpl.for ?? '-') ]]</td>
+                                    <td>[[ tmpl.fields.length ]]</td>
+                                </tr>
+                                <tr v-if="idx_open == idx">
+                                    <td colspan="5" class="p-0">
+                                        <div class="w-100 py-3 row align-items-start mx-0 bg-body-tertiary">
+                                            <div class="col">
+                                                <table class="table border my-0">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">Type</th>
+                                                            <th scope="col">Label</th>
+                                                            <th scope="col">Key</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr v-for="field,f_idx in tmpl.fields">
+                                                            <td>
+                                                                <select class="form-select form-select-sm"
+                                                                    v-model="field.type">
+                                                                    <option value="text">Text</option>
+                                                                    <option value="textarea">Textarea</option>
+                                                                    <option value="number">Number</option>
+                                                                    <option value="image (url)">Image (URL)</option>
+                                                                    <option value="image (json)">Image (JSON)</option>
+                                                                    <option value="file">File</option>
+                                                                    <option value="wysiwyg">WYSIWYG</option>
+                                                                </select>
+                                                            </td>
+                                                            <td>
+                                                                <input
+                                                                    class="form-control form-control-sm capitalize-placeholder"
+                                                                    type="text" v-model="field.label"
+                                                                    :placeholder="`${field.type.replace(/( \((json|url)\))/gm,'')} content`">
+                                                            </td>
+                                                            <td>
+                                                                <input class="form-control form-control-sm" type="text"
+                                                                    v-model="field.name"
+                                                                    :placeholder="`user_${field.type.replace(/( \((json|url)\))/gm,'')}`">
+                                                            </td>
+                                                            <td>
+                                                                <span @click="tmpl.fields.splice(f_idx, 1)" role="button"><i
+                                                                    class="bi bi-dash-circle-fill text-danger"></i></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr v-if="tmpl.fields.length == 0">
+                                                            <td colspan="4" class="text-muted text-center p-4">No Fields
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <button type="button" class="btn btn-primary w-100 rounded-0"
+                                                    @click="createField(idx)">
+                                                    <i class="bi bi-plus-lg me-2"></i>Add Field
+                                                </button>
+                                            </div>
+                                            <div class="col-5">
+                                                <label for="template-name" class="form-label fs-6">Template Name</label>
+                                                <input type="text" class="form-control" id="template-name"
+                                                    placeholder="Home Template" v-model="tmpl.template">
+
+                                                <span class="input-desc">
+                                                    A unique name to identify this template by
+                                                </span>
+
+                                                <label for="template-title" class="form-label fs-6 mt-4">Title</label>
+                                                <input type="text" class="form-control" id="template-title"
+                                                    placeholder="Home Content" v-model="tmpl.name">
+
+                                                <span class="input-desc">
+                                                    The header displayed on the admin page.
+                                                </span>
+
+                                                <label for="template-for" class="form-label fs-6 mt-4">Post Type</label>
+                                                <select class="form-select" id="template-for" v-model="tmpl.for">
+                                                    <option v-for="pt in available_post_types" :value="pt">[[ pt ]]
+                                                    </option>
+                                                    <option disabled>—</option>
+                                                    <option value="__custom">Custom</option>
+                                                </select>
+
+                                                <input v-if="tmpl.for == '__custom'" type="text"
+                                                    class="form-control mt-2" id="template-for-custom"
+                                                    placeholder="my-custom-post-type" v-model="tmpl.for_custom">
+
+                                                <span class="input-desc">
+                                                    Auto-populated from the <a href="/config-generator">config
+                                                        generator</a>.
+                                                </span>
+
+
+                                                <div class="form-check mt-4">
+                                                    <input type="checkbox" class="form-check-input"
+                                                        id="template-disable" placeholder="page"
+                                                        @change="e => tmpl.hidden = e.target.checked ? ['WYSIWYG'] : []">
+
+                                                    <label for="template-disable" class="form-check-label fs-6">Disable
+                                                        WYSIWYG</label>
+                                                </div>
+
+                                                <button type="button" @click="delTemplate(idx)" class="btn d-block w-100 btn-danger mt-4">Delete</button>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                            <tr v-if="templates.length == 0">
+                                <td colspan="5" class="text-muted text-center p-4">None</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" @click="createTemplate()" class="btn btn-primary w-100 rounded-0"><i
+                            class="bi bi-plus-lg me-2"></i>Add</button>
+                </div>
+            </form>
+
+            <!-- Results -->
+            <h3>Output</h3>
+
+            <div>
+                <span class="code-heading">fields.php</span>
+                <pre style="margin: 0;"><code v-html="code"></code></pre>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{{ end }}
+
+{{ define "footer/script-footer" }}
+
+<!-- js/generators/fields.js is where the Vue component creation happens -->
+{{ $vue := resources.Get "js/generators/fields.js" -}}
+{{ $vue := $vue | js.Build -}}
+<script src="{{ $vue.RelPermalink }}" defer></script>
+
+{{ end }}
