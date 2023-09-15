@@ -139,4 +139,13 @@ and..
 
 <pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="html"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">&lt;</span><span style="color: #85E89D;">h1</span><span style="color: #E1E4E8;">&gt;{{ header1 }}&lt;/</span><span style="color: #85E89D;">h1</span><span style="color: #E1E4E8;">&gt;</span></div><textarea data-torchlight-original="true" style="display: none !important;">&lt;xmp&gt;&lt;h1&gt;{{ header1 }}&lt;/h1&gt;&lt;/xmp&gt;</textarea></code></pre>
 
-will populate those fields with whatever was input into the admin area for `headerImage` and `header1`. That's it! You can keep adding fields for new or existing templates, and they're that easy to set up!
+will populate those fields with whatever was input into the admin area for `headerImage` and `header1`. 
+
+If you are using the WYSIWYG Editor, you will need to use three curly braces instead of two. This makes sure the HTML gets rendered. If you just use two, you will see HTML tags on the page, so somehthing like this:
+
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="html"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">&lt;</span><span style="color: #85E89D;">div</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">class</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;wysiwyg-content&quot;</span><span style="color: #E1E4E8;">&gt;{{{ yourWYSIWYGField }}}&lt;/</span><span style="color: #85E89D;">div</span><span style="color: #E1E4E8;">&gt;</span></div><textarea data-torchlight-original="true" style="display: none !important;">&lt;xmp&gt;&lt;div class="wysiwyg-content"&gt;{{{ yourWYSIWYGField }}}&lt;/div&gt;&lt;/xmp&gt;</textarea></code></pre>
+
+
+
+
+That's it! You can keep adding fields for new or existing templates, and they're that easy to set up!
