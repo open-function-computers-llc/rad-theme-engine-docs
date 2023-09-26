@@ -43,3 +43,24 @@ export function capitalize(sentence) {
         return word[0].toUpperCase() + word.substring(1);
     }).join(" ");
 }
+
+
+/** @param {string} content */
+export function parsePhp(content) {
+    content = content
+        .replace('<?php', '') // remove php tag and return
+        .replace('?>', '')
+        .replace('return [', '[') // remove first return
+        .replace('];',']') // remove extra semicolon
+        .replace(/(\/\/.+\n)/gm, '') // remove comments
+        .replace(/(\n([ \t]+|)\n)/gm, '\n') // remove extra line breaks
+        .replace(/\[/gm,'{') // preemptively transform into json syntax
+        .replace(/\]/gm, '}')
+        .replace(/\{([^\=\>]*)\}/gm, `[$1]`) // change arrays back to square brackets
+        .replace(/{[\s]*{([\s\S]*)}[\s]*}/gm, `[{$1}]`) // same for object arrays
+        .replace(/\s?\=\>/gm,':') // change arrows to colons
+        .replace(/,([\s}\]]+$)/gm, `$1`) // remove trailing comma
+
+    return JSON.parse(content);
+
+}

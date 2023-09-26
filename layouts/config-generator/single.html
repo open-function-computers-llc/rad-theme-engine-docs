@@ -5,22 +5,26 @@
 
         <div class="tabs">
             <div class="tab current">
-              Config Generator
+                Config Generator
             </div>
             <a href="/fields-generator" class="tab">
-              Fields Generator
+                Fields Generator
             </a>
-          </div>
+        </div>
 
         <h1 class="d-flex align-items-center gap-2">
-            RAD Config Generator 
+            RAD Config Generator
             <span class="badge text-bg-primary fs-6 d-inline-block ">New!</span>
             <div class="flex-grow-1"></div>
-            <button onclick="if (confirm('Are you sure? All saved data will be deleted.')) { localStorage.removeItem('config-generator-data');location.reload() }" class="float-end btn btn-outline-primary"><i class="bi bi-arrow-clockwise"></i> Reset</button>
+            <div class="float-end">
+                <button
+                    onclick="if (confirm('Are you sure? All saved data will be deleted.')) { localStorage.removeItem('config-generator-data');location.reload() }"
+                    class="btn btn-outline-primary"><i class="bi bi-arrow-clockwise"></i> Reset</button>
+            </div>
         </h1>
 
-                
-        
+
+
 
         <p style="max-width: 36rem">Quickly generate a <code>config.php</code> for your next rad-theme-engine project!
             Just enter your project requirements and we'll take care of the rest. </p>
@@ -37,6 +41,18 @@
 
 
             {{ partial "config-generator/custom-post-type-modal.html" }}
+
+            <div class="row mb-4">
+                <div class="col-16">
+                    <div type="file" @dragover="(e) => e.target.setAttribute('drop-active', true)"
+                        @dragleave="(e) => e.target.removeAttribute('drop-active')"
+                        class="upload-file-area position-relative">
+                        <input @change="uploaded($event)" class="hidden-input" id="file-input" type="file"
+                            name="name" />
+                        drop your existing config file here
+                    </div>
+                </div>
+            </div>
 
             <form class="row">
                 <div class="col-16 col-lg-12">
