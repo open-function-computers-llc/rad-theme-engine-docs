@@ -16,9 +16,8 @@ Render a menu from a previously defined location
 
 ## Usage
 
-```php
-site()->renderMenu($menuLocation);
-```
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">renderMenu</span><span style="color: #E1E4E8;">($menuLocation);</span></div><textarea data-torchlight-original="true" style="display: none !important;">site()-&gt;renderMenu($menuLocation);
+</textarea></code></pre>
 
 ### Parameters
 
@@ -40,22 +39,20 @@ First we make sure the menu location <a href="/docs/configuration/menu-locations
 
 <div class="code-heading">config.php</div>
 
-```php
-return [
-    "menu-locations" => [
-        "main-nav" => "Main Navigation"
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #F97583;">return</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;menu-locations&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;main-nav&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Main Navigation&quot;</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #F97583;">...</span><span style="color: #E1E4E8;"> </span><span style="color: #6A737D;">// More menu locations</span></div><div class='line'><span style="color: #E1E4E8;">    ]</span></div><div class='line'><span style="color: #E1E4E8;">]</span></div><textarea data-torchlight-original="true" style="display: none !important;">return [
+    "menu-locations" =&gt; [
+        "main-nav" =&gt; "Main Navigation"
         ... // More menu locations
     ]
 ]
-```
+</textarea></code></pre>
 
 <div class="code-caption">Registering a menu location</div>
 
 Then we echo the rendered menu in the theme's header view:
 
-```php
-<?= site()->renderMenu("main-nav"); ?>
-```
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">&lt;?= </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">renderMenu</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&quot;main-nav&quot;</span><span style="color: #E1E4E8;">); ?&gt;</span></div><textarea data-torchlight-original="true" style="display: none !important;">&lt;xmp&gt;&lt;&lt;/xmp&gt;?= site()-&gt;renderMenu("main-nav"); ?&gt;
+</textarea></code></pre>
 
 <div class="code-caption">Rendering a menu via its location</div>
 

@@ -22,55 +22,52 @@ By default, your `config.php` file will look something like this:
 
 <div class="code-heading">config.php</div>
 
-```php
-<?php
-
-return [
+<pre class="torchlight torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'>&nbsp;</div><div class='line'><span style="color: #F97583;">return</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #6A737D;">// how many words should the wordpress excerpt be</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;excerpt-length&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">100</span><span style="color: #E1E4E8;">,</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #6A737D;">// optionally append this css classname to the body_class for guests</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;guest-class&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;null&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #6A737D;">// register your individual menu locations</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;menu-locations&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;main-nav&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Main Navigation&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;footer-nav&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Footer Navigation&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #6A737D;">// here is where you can define your custom post types</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;custom-post-types&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">        [</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;thing&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;icon&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;dashicons-tide&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;options&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">                </span><span style="color: #9ECBFF;">&quot;supports&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&#39;title&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;editor&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;thumbnail&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;comments&#39;</span><span style="color: #E1E4E8;">]</span></div><div class='line'><span style="color: #E1E4E8;">            ]</span></div><div class='line'><span style="color: #E1E4E8;">        ],</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #6A737D;">// optionally adjust a couple of attributes for handlebars here</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;handlebars&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #6A737D;">// if you need to register additional Handlebars Helpers, register them here</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;additional-helpers&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [],</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #6A737D;">// adjust the extension for your handlebars template files, .tpl by default</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #6A737D;">// &quot;template-extension&quot; =&gt; &quot;tpl&quot;,</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #6A737D;">// enable individual wordpress features here</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;enable&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;post-thumbnails&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;menus&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #6A737D;">// disable individual wordpress features here</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;disable&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;editor&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">];</span></div><textarea data-torchlight-original="true" style="display: none !important;">return [
     // how many words should the wordpress excerpt be
-    "excerpt-length" => 100,
+    "excerpt-length" =&gt; 100,
 
     // optionally append this css classname to the body_class for guests
-    "guest-class" => "null",
+    "guest-class" =&gt; "null",
 
     // register your individual menu locations
-    "menu-locations" => [
-        "main-nav" => "Main Navigation",
-        "footer-nav" => "Footer Navigation",
+    "menu-locations" =&gt; [
+        "main-nav" =&gt; "Main Navigation",
+        "footer-nav" =&gt; "Footer Navigation",
     ],
 
     // here is where you can define your custom post types
-    "custom-post-types" => [
+    "custom-post-types" =&gt; [
         [
-            "slug" => "thing",
-            "icon" => "dashicons-tide",
-            "options" => [
-                "supports" => ['title', 'editor', 'thumbnail', 'comments']
+            "slug" =&gt; "thing",
+            "icon" =&gt; "dashicons-tide",
+            "options" =&gt; [
+                "supports" =&gt; ['title', 'editor', 'thumbnail', 'comments']
             ]
         ],
     ],
 
     // optionally adjust a couple of attributes for handlebars here
-    "handlebars" => [
+    "handlebars" =&gt; [
 
         // if you need to register additional Handlebars Helpers, register them here
-        "additional-helpers" => [],
+        "additional-helpers" =&gt; [],
 
         // adjust the extension for your handlebars template files, .tpl by default
-        // "template-extension" => "tpl",
+        // "template-extension" =&gt; "tpl",
     ],
 
     // enable individual wordpress features here
-    "enable" => [
+    "enable" =&gt; [
         "post-thumbnails",
         "menus",
     ],
 
     // disable individual wordpress features here
-    "disable" => [
+    "disable" =&gt; [
         "editor",
     ],
 ];
-```
+</textarea></code></pre>
 
 <div class="code-caption">The default config.php that comes with rad-theme-engine.</div>
 
@@ -84,15 +81,14 @@ For example, if I wanted to make a custom "Album" post type for my music blog:
 
 <div class="code-heading">config.php</div>
 
-```php
-"custom-post-types" => [
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'>&nbsp;</div><div class='line'><span style="color: #9ECBFF;">&quot;custom-post-types&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">    [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;album&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;icon&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;dashicons-album&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;taxonomies&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&#39;genre&#39;</span><span style="color: #E1E4E8;">],</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">],</span></div><textarea data-torchlight-original="true" style="display: none !important;">"custom-post-types" =&gt; [
     [
-        "slug" => "album",
-        "icon" => "dashicons-album",
-        "taxonomies" => ['genre'],
+        "slug" =&gt; "album",
+        "icon" =&gt; "dashicons-album",
+        "taxonomies" =&gt; ['genre'],
     ],
 ],
-```
+</textarea></code></pre>
 
 <div class="code-caption">Declaring a simple custom post type. <a href="https://developer.wordpress.org/resource/dashicons">List of Dashicons.</a></div>
 
@@ -102,24 +98,23 @@ A more in-depth configuration would look like this, wherein custom labels are sp
 
 <div class="code-heading">config.php</div>
 
-```php
-"custom-post-types" => [
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'>&nbsp;</div><div class='line'><span style="color: #9ECBFF;">&quot;custom-post-types&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">    [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;album&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;icon&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;dashicons-album&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;taxonomies&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&#39;genre&#39;</span><span style="color: #E1E4E8;">],</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;options&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;has_archive&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;albums&#39;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;show_in_nav_menus&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">true</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;supports&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&#39;title&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;editor&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;thumbnail&#39;</span><span style="color: #E1E4E8;">],</span></div><div class='line'><span style="color: #E1E4E8;">            </span><span style="color: #9ECBFF;">&quot;labels&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">                </span><span style="color: #9ECBFF;">&#39;name&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">_x</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;Albums&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;Post Type General Name&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;text_domain&#39;</span><span style="color: #E1E4E8;">),</span></div><div class='line'><span style="color: #E1E4E8;">                </span><span style="color: #9ECBFF;">&#39;singular_name&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">_x</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;Albums&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;Post Type Singular Name&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;text_domain&#39;</span><span style="color: #E1E4E8;">),</span></div><div class='line'><span style="color: #E1E4E8;">            ]</span></div><div class='line'><span style="color: #E1E4E8;">        ]</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">],</span></div><textarea data-torchlight-original="true" style="display: none !important;">"custom-post-types" =&gt; [
     [
-        "slug" => "album",
-        "icon" => "dashicons-album",
-        "taxonomies" => ['genre'],
-        "options" => [
-            "has_archive" => 'albums',
-            "show_in_nav_menus" => true,
-            "supports" => ['title', 'editor', 'thumbnail'],
-            "labels" => [
-                'name' => _x('Albums', 'Post Type General Name', 'text_domain'),
-                'singular_name' => _x('Albums', 'Post Type Singular Name', 'text_domain'),
+        "slug" =&gt; "album",
+        "icon" =&gt; "dashicons-album",
+        "taxonomies" =&gt; ['genre'],
+        "options" =&gt; [
+            "has_archive" =&gt; 'albums',
+            "show_in_nav_menus" =&gt; true,
+            "supports" =&gt; ['title', 'editor', 'thumbnail'],
+            "labels" =&gt; [
+                'name' =&gt; _x('Albums', 'Post Type General Name', 'text_domain'),
+                'singular_name' =&gt; _x('Albums', 'Post Type Singular Name', 'text_domain'),
             ]
         ]
     ],
 ],
-```
+</textarea></code></pre>
 
 <div class="code-caption">A more advanced custom post type.</div>
 
@@ -133,21 +128,20 @@ Creating multiple custom post types is simple, just make sure they have unique s
 
 <div class="code-heading">config.php</div>
 
-```php
-"custom-post-types" => [
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'>&nbsp;</div><div class='line'><span style="color: #9ECBFF;">&quot;custom-post-types&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">    [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;album&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;icon&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;dashicons-album&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;taxonomies&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&#39;genre&#39;</span><span style="color: #E1E4E8;">],</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;options&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #F97583;">...</span><span style="color: #E1E4E8;">]</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">    [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;event&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;icon&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;dashicons-megaphone&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;options&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #F97583;">...</span><span style="color: #E1E4E8;">]</span></div><div class='line'><span style="color: #E1E4E8;">    ],</span></div><div class='line'><span style="color: #E1E4E8;">],</span></div><textarea data-torchlight-original="true" style="display: none !important;">"custom-post-types" =&gt; [
     [
-        "slug" => "album",
-        "icon" => "dashicons-album",
-        "taxonomies" => ['genre'],
-        "options" => [...]
+        "slug" =&gt; "album",
+        "icon" =&gt; "dashicons-album",
+        "taxonomies" =&gt; ['genre'],
+        "options" =&gt; [...]
     ],
     [
-        "slug" => "event",
-        "icon" => "dashicons-megaphone",
-        "options" => [...]
+        "slug" =&gt; "event",
+        "icon" =&gt; "dashicons-megaphone",
+        "options" =&gt; [...]
     ],
 ],
-```
+</textarea></code></pre>
 
 <div class="code-caption">Declaring multiple custom post types</div>
 
@@ -157,12 +151,11 @@ Another common thing that theme developers need to configure are menu locations,
 
 <div class="code-heading">config.php</div>
 
-```php
-"menu-locations" => [
-    "main-nav" => "Main Navigation",
-    "footer-nav" => "Footer Navigation",
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'>&nbsp;</div><div class='line'><span style="color: #9ECBFF;">&quot;menu-locations&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;main-nav&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Main Navigation&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;footer-nav&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Footer Navigation&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">],</span></div><textarea data-torchlight-original="true" style="display: none !important;">"menu-locations" =&gt; [
+    "main-nav" =&gt; "Main Navigation",
+    "footer-nav" =&gt; "Footer Navigation",
 ],
-```
+</textarea></code></pre>
 
 <div class="code-caption">Declaring menu locations</div>
 
@@ -180,12 +173,11 @@ Adding ACF option pages with RAD Theme Engine is dead simple, all it takes is a 
 
 <div class="code-heading">config.php</div>
 
-```php
-"options-pages" => [
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'>&nbsp;</div><div class='line'><span style="color: #9ECBFF;">&quot;options-pages&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;Home Page&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;Nav / Footer&quot;</span></div><div class='line'><span style="color: #E1E4E8;">],</span></div><textarea data-torchlight-original="true" style="display: none !important;">"options-pages" =&gt; [
     "Home Page",
     "Nav / Footer"
 ],
-```
+</textarea></code></pre>
 
 <div class="code-caption">Declaring options pages</div>
 
