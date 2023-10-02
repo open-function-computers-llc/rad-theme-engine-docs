@@ -1,6 +1,6 @@
 import { createApp } from 'vue/dist/vue.esm-browser.prod.js';
 import hljs from 'highlight.js';
-import { capitalize, code_list, parsePhp } from './shared';
+import { capitalize, code_list } from './shared';
 
 var has_mounted = false;
 
@@ -71,7 +71,7 @@ createApp({
 
             return hljs.highlight(`<?php
             
-return ${code_list(fixed, 0)};
+return ${code_list(fixed, 0, "No templates")}
             `, { language: 'php' }).value
         }
     },
@@ -97,52 +97,6 @@ return ${code_list(fixed, 0)};
             if (!confirm("Are you sure you want to delete this template?")) return;
             this.idx_open = null;
             this.templates.splice(idx, 1);
-        },
-        uploaded(event) {
-
-            // Unhighlight
-            event.target.removeAttribute('drop-active')
-
-            let file = event.target.files[0]
-
-            if (!file) return
-
-            var reader = new FileReader();
-            reader.readAsText(file);
-
-            // Wait for the file to be read
-            reader.onload = (readerEvent) => {
-                var content = readerEvent.target.result.replace('<?php', '');
-
-                try {
-
-                    let obj = parsePhp(content);
-
-                    // Adjust the object
-                    this.templates = obj.map((template) => {
-                        template = { ...template } // prevent editing original
-                        // Just make the type custom
-                        template['for_custom'] = template['for'];
-                        template['for'] = '__custom'
-                        // Transform fields
-                        template.fields = template.fields.map((field) => {
-                            field = { ...field } // prevent editing original
-                            // Transform image options
-                            if (field['type'] == 'image' && field['store'] == 'json') {
-                                field['type'] = 'image (json)'
-                            } else if (field['type'] == 'image' && field['store'] == 'url') {
-                                field['type'] = 'image (url)'
-                            }
-                            return field
-
-                        })
-                        return template;
-                    });
-
-                } catch (err) {
-                    window.alert("Failed to parse the file. Please ensure it follows the format outlined in the documentation.")
-                }
-            }
         }
     },
 }).mount('#v-fields-generator');
