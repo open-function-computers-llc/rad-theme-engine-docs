@@ -383,45 +383,53 @@ return [
             // Wait for the file to be read
             reader.onload = (readerEvent) => {
                 var content = readerEvent.target.result.replace('<?php', '');
-                let obj = parsePhp(content);
-                console.log(JSON.stringify(obj));
-                this.excerpt_length = obj["excerpt-length"] ?? 100;
-                this.guest_class = obj["guest-class"] ?? 'guest-class';
 
-                for (const key in this.enable) {
-                    this.enable[key] = obj["enable"].includes(key);
-                }
-                for (const key in this.disable) {
-                    this.disable[key] = obj["disable"].includes(key);
-                }
+                try {
+                    let obj = parsePhp(content);
+                    console.log(JSON.stringify(obj));
+                    this.excerpt_length = obj["excerpt-length"] ?? 100;
+                    this.guest_class = obj["guest-class"] ?? 'guest-class';
 
-                this.menu_locations = obj["menu-locations"] ?? [];
-                this.options_pages = obj["options-pages"] ?? [];
-                this.cpt_i = null;
-
-                for (var pt of obj["custom-post-types"]) {
-                    if (pt["options"]["rewrite"] != false) {
-                        pt["options"]["rewrite_opt"] = pt["options"]["rewrite"]
-                        pt["options"]["rewrite"] = true
-                    } else {
-                        pt["options"]["rewrite_opt"] = {
-                            'pages': true,
-                            'with_front': true,
-                        }
+                    for (const key in this.enable) {
+                        this.enable[key] = obj["enable"].includes(key);
                     }
-                    if (!pt["options"]["labels"])
-                        pt["options"]["labels"] = {}
+                    for (const key in this.disable) {
+                        this.disable[key] = obj["disable"].includes(key);
+                    }
 
-                    // Merge other values in case they're blank
-                    pt = {...{
-                        "icon": "admin-post",
-                        "options-pages": [],
-                        "taxonomies": [],
-                        "disable_yoast": false,
-                    }, ...pt};
+                    this.menu_locations = obj["menu-locations"] ?? [];
+                    this.options_pages = obj["options-pages"] ?? [];
+                    this.cpt_i = null;
+
+                    for (var pt of obj["custom-post-types"]) {
+                        if (pt["options"]["rewrite"] != false) {
+                            pt["options"]["rewrite_opt"] = pt["options"]["rewrite"]
+                            pt["options"]["rewrite"] = true
+                        } else {
+                            pt["options"]["rewrite_opt"] = {
+                                'pages': true,
+                                'with_front': true,
+                            }
+                        }
+                        if (!pt["options"]["labels"])
+                            pt["options"]["labels"] = {}
+
+                        // Merge other values in case they're blank
+                        pt = {
+                            ...{
+                                "icon": "admin-post",
+                                "options-pages": [],
+                                "taxonomies": [],
+                                "disable_yoast": false,
+                            }, ...pt
+                        };
+                    }
+
+                    this.cpt = obj["custom-post-types"]
+
+                } catch (err) {
+                    window.alert("Failed to parse the file. Please ensure it follows the format outlined in the documentation.")
                 }
-
-                this.cpt = obj["custom-post-types"]
             }
         }
     }

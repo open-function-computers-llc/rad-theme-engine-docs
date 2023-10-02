@@ -33,6 +33,18 @@
 
         <div class="opacity-0 generator-wrapper" id="v-fields-generator">
 
+            <div class="row mb-4">
+                <div class="col-16">
+                    <div type="file" @dragover="(e) => e.target.setAttribute('drop-active', true)"
+                        @dragleave="(e) => e.target.removeAttribute('drop-active')"
+                        class="upload-file-area position-relative">
+                        <input @change="uploaded($event)" class="hidden-input" id="file-input" type="file"
+                            name="name" />
+                        drop your existing fields file here
+                    </div>
+                </div>
+            </div>
+
             <form class="row">
                 <div class="col-16">
                     <table class="table table-sm border m-0">

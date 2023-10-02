@@ -47,18 +47,29 @@ export function capitalize(sentence) {
 
 /** @param {string} content */
 export function parsePhp(content) {
+
+    // extremely tempermental
+
     content = content
-        .replace('<?php', '') // remove php tag and return
+        .replace('<?php', '') // remove php tag
         .replace('?>', '')
         .replace('return [', '[') // remove first return
-        .replace('];',']') // remove extra semicolon
+        .replace('];', ']') // remove extra semicolon
         .replace(/(\/\/.+\n)/gm, '') // remove comments
+        .replace(/(#.+\n)/gm, '') // # comments too
         .replace(/(\n([ \t]+|)\n)/gm, '\n') // remove extra line breaks
-        .replace(/\[/gm,'{') // preemptively transform into json syntax
+        .replace(/\[/gm, '{') // preemptively transform into json syntax
         .replace(/\]/gm, '}')
-        .replace(/\{([^\=\>]*)\}/gm, `[$1]`) // change arrays back to square brackets
-        .replace(/{[\s]*{([\s\S]*)}[\s]*}/gm, `[{$1}]`) // same for object arrays
-        .replace(/\s?\=\>/gm,':') // change arrows to colons
+        .replace(/\{([^\=\>]*?)\}/gm, `[$1]`) // change arrays back to square brackets
+        .replace(/{([\s]*({[^{]*?}[,|\s]+)+[\s]*)}/gm, `[$1]`) // replace innermost object arrays
+
+    // find nested arrays up to five layers deep
+    for (let i = 0; i < 5; i++) {
+        content = content.replace(/{[\s]*{([\s\S]*)}[\s]*}/gm, `[{$1}]`) // wrap object arrays with square brackets
+    }
+
+    content = content
+        .replace(/\s?\=\>/gm, ':') // change arrows to colons
         .replace(/,([\s}\]]+$)/gm, `$1`) // remove trailing comma
 
     return JSON.parse(content);
