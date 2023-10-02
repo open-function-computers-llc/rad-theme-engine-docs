@@ -63,6 +63,7 @@
     "hugo": "0.84.4"
   },
   "dependencies": {
-    "@torchlight-api/torchlight-cli": "^0.1.7"
+    "@torchlight-api/torchlight-cli": "^0.1.7",
+    "highlight.js": "^11.8.0"
   }
 }
