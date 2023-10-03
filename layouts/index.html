@@ -65,32 +65,22 @@
       <div>
         <h4>With RAD Theme Engine</h4>
         <span class="code-heading">index.php</span>
-        <pre style="margin: 0;"><code class="language-php hljs">echo site()->render('my-hero',[
-  'title' => 'My Cool Site',
-  'subtitle' => 'Welcome to my website!',
-  'posts' => site()->getDefaultPosts(['title','url']),
-  'background_image' => site()->getAssetURL('hero-bg.jpg')
-]);</code></pre>
+        <pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #79B8FF;">echo</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">render</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;my-hero&#39;</span><span style="color: #E1E4E8;">,[</span></div><div class='line'><span style="color: #E1E4E8;">  </span><span style="color: #9ECBFF;">&#39;title&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;My Cool Site&#39;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">  </span><span style="color: #9ECBFF;">&#39;subtitle&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;Welcome to my website!&#39;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">  </span><span style="color: #9ECBFF;">&#39;posts&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">getDefaultPosts</span><span style="color: #E1E4E8;">([</span><span style="color: #9ECBFF;">&#39;title&#39;</span><span style="color: #E1E4E8;">,</span><span style="color: #9ECBFF;">&#39;url&#39;</span><span style="color: #E1E4E8;">]),</span></div><div class='line'><span style="color: #E1E4E8;">  </span><span style="color: #9ECBFF;">&#39;background_image&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">getAssetURL</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;hero-bg.jpg&#39;</span><span style="color: #E1E4E8;">)</span></div><div class='line'><span style="color: #E1E4E8;">]);</span></div><textarea data-torchlight-original="true" style="display: none !important;">echo site()-&gt;render('my-hero',[
+  'title' =&gt; 'My Cool Site',
+  'subtitle' =&gt; 'Welcome to my website!',
+  'posts' =&gt; site()-&gt;getDefaultPosts(['title','url']),
+  'background_image' =&gt; site()-&gt;getAssetURL('hero-bg.jpg')
+]);</textarea></code></pre>
 
         <span class="code-heading">tpl/my-hero.tpl</span>
-        <pre style="margin: 0;"><code class="language-html hljs">&lt;div class="hero" style="background: url(&lcub;{background_image}&rcub;)">
-  &lt;h1>&lcub;{title}&rcub;&lt;/h1>
-  &lt;p class="subtitle">
-    &lcub;{subtitle}&rcub;
-  &lt;/p>
-  &lt;ul class="posts">
-    &lcub;{#each posts}&rcub;
-    &lt;li>
-      &lt;a href="&lcub;{url}&rcub;">&lcub;{title}&rcub;&lt;/a>
-    &lt;/li>
-    &lcub;{/each}&rcub;
-  &lt;/ul>
-&lt;/div></code></pre>
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="html"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">&lt;</span><span style="color: #85E89D;">div</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">class</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;hero&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">style</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;</span><span style="color: #E1E4E8;">background: url(&lcub;{background_image}&rcub;)&quot;</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">  &lt;</span><span style="color: #85E89D;">h1</span><span style="color: #E1E4E8;">&gt;&lcub;{title}&rcub;&lt;/</span><span style="color: #85E89D;">h1</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">  &lt;</span><span style="color: #85E89D;">p</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">class</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;subtitle&quot;</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">    &lcub;{subtitle}&rcub;</span></div><div class='line'><span style="color: #E1E4E8;">  &lt;/</span><span style="color: #85E89D;">p</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">  &lt;</span><span style="color: #85E89D;">ul</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">class</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;posts&quot;</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">    &lcub;{#each posts}&rcub;</span></div><div class='line'><span style="color: #E1E4E8;">    &lt;</span><span style="color: #85E89D;">li</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">      &lt;</span><span style="color: #85E89D;">a</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">href</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;&lcub;{url}&rcub;&quot;</span><span style="color: #E1E4E8;">&gt;&lcub;{title}&rcub;&lt;/</span><span style="color: #85E89D;">a</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">    &lt;/</span><span style="color: #85E89D;">li</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">    &lcub;{/each}&rcub;</span></div><div class='line'><span style="color: #E1E4E8;">  &lt;/</span><span style="color: #85E89D;">ul</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">&lt;/</span><span style="color: #85E89D;">div</span><span style="color: #E1E4E8;">&gt;</span></div><textarea data-torchlight-original="true" style="display: none !important;">&lt;div class="hero" style="background: url(&lcub;{background_image}&rcub;)"&gt;
+
+</textarea></code></pre>
       </div>
       <div>
         <h4>Without RAD Theme Engine</h4>
         <span class="code-heading">index.php</span>
-        <pre style="margin: 0;"><code class="language-html hljs"><?php
+<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">&lt;?php</span></div><div class='line'><span style="color: #E1E4E8;">  $hero_title </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;My Cool Site&#39;</span><span style="color: #E1E4E8;">;</span></div><div class='line'><span style="color: #E1E4E8;">  $hero_subtitle </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;Welcome to my website!&#39;</span><span style="color: #E1E4E8;">;</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #E1E4E8;">  $hero_bg_file </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;hero-bg.jpg&#39;</span><span style="color: #E1E4E8;">;</span></div><div class='line'><span style="color: #E1E4E8;">  $hero_bg_url;</span></div><div class='line'><span style="color: #E1E4E8;">  </span><span style="color: #F97583;">if</span><span style="color: #E1E4E8;"> (</span><span style="color: #79B8FF;">file_exists</span><span style="color: #E1E4E8;">(</span><span style="color: #B392F0;">get_template_directory</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">.</span><span style="color: #9ECBFF;">&quot;/assets/</span><span style="color: #E1E4E8;">$hero_bg_file</span><span style="color: #9ECBFF;">&quot;</span><span style="color: #E1E4E8;">)) {</span></div><div class='line'><span style="color: #E1E4E8;">    $hero_bg_url </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">get_template_directory_uri</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">.</span><span style="color: #9ECBFF;">&quot;/assets/</span><span style="color: #E1E4E8;">$hero_bg_file</span><span style="color: #9ECBFF;">&quot;</span><span style="color: #E1E4E8;">;</span></div><div class='line'><span style="color: #E1E4E8;">  }</span></div><div class='line'><span style="color: #E1E4E8;">?&gt;</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #E1E4E8;">&lt;</span><span style="color: #85E89D;">div</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">class</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;hero&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">style</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;</span><span style="color: #E1E4E8;">background: url(</span><span style="color: #E1E4E8;">&lt;?= $hero_bg_url </span><span style="color: #9ECBFF;">?</span><span style="color: #E1E4E8;">&gt;</span><span style="color: #E1E4E8;">)&quot;</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">  &lt;</span><span style="color: #85E89D;">h1</span><span style="color: #E1E4E8;">&gt;&lt;?= $hero_title ?&gt;&lt;/</span><span style="color: #85E89D;">h1</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">  &lt;</span><span style="color: #85E89D;">p</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">class</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;subtitle&quot;</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">  &lt;?= $hero_subtitle ?&gt;</span></div><div class='line'><span style="color: #E1E4E8;">  &lt;/</span><span style="color: #85E89D;">p</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">  &lt;</span><span style="color: #85E89D;">ul</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">class</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;posts&quot;</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">&lt;?php </span><span style="color: #F97583;">if</span><span style="color: #E1E4E8;"> ( </span><span style="color: #B392F0;">have_posts</span><span style="color: #E1E4E8;">() ) : </span><span style="color: #F97583;">while</span><span style="color: #E1E4E8;"> ( </span><span style="color: #B392F0;">have_posts</span><span style="color: #E1E4E8;">() ) : </span><span style="color: #B392F0;">the_post</span><span style="color: #E1E4E8;">(); ?&gt;</span></div><div class='line'><span style="color: #E1E4E8;">&lt;</span><span style="color: #85E89D;">li</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">  &lt;</span><span style="color: #85E89D;">a</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">href</span><span style="color: #E1E4E8;">=</span><span style="color: #9ECBFF;">&quot;</span><span style="color: #9ECBFF;">&lt;?=</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">get_the_title</span><span style="color: #E1E4E8;">() </span><span style="color: #9ECBFF;">?&gt;</span><span style="color: #9ECBFF;">&quot;</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">  &lt;?= </span><span style="color: #B392F0;">get_permalink</span><span style="color: #E1E4E8;">(</span><span style="color: #B392F0;">get_the_ID</span><span style="color: #E1E4E8;">()) ?&gt;</span></div><div class='line'><span style="color: #E1E4E8;">  &lt;/</span><span style="color: #85E89D;">a</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">&lt;/</span><span style="color: #85E89D;">li</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">&lt;?php </span><span style="color: #F97583;">endwhile</span><span style="color: #E1E4E8;">; </span><span style="color: #F97583;">else</span><span style="color: #E1E4E8;"> : ?&gt;</span></div><div class='line'><span style="color: #E1E4E8;">&lt;</span><span style="color: #85E89D;">p</span><span style="color: #E1E4E8;">&gt;&lt;?php </span><span style="color: #B392F0;">esc_html_e</span><span style="color: #E1E4E8;">( </span><span style="color: #9ECBFF;">&#39;Sorry, no posts matched your criteria.&#39;</span><span style="color: #E1E4E8;"> ); ?&gt;&lt;/</span><span style="color: #85E89D;">p</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">&lt;?php </span><span style="color: #F97583;">endif</span><span style="color: #E1E4E8;">; ?&gt;</span></div><div class='line'><span style="color: #E1E4E8;">  &lt;/</span><span style="color: #85E89D;">ul</span><span style="color: #E1E4E8;">&gt;</span></div><div class='line'><span style="color: #E1E4E8;">&lt;/</span><span style="color: #85E89D;">div</span><span style="color: #E1E4E8;">&gt;</span></div><textarea data-torchlight-original="true" style="display: none !important;">&lt;?php
   $hero_title = 'My Cool Site';
   $hero_subtitle = 'Welcome to my website!';
 
@@ -99,26 +89,26 @@
   if (file_exists(get_template_directory()."/assets/$hero_bg_file")) {
     $hero_bg_url = get_template_directory_uri()."/assets/$hero_bg_file";
   }
-?>
+?&gt;
 
-&lt;div class="hero" style="background: url(<?= $hero_bg_url ?>)">
-  &lt;h1><?= $hero_title ?>&lt;/h1>
-  &lt;p class="subtitle">
-    <?= $hero_subtitle ?>
-  &lt;/p>
-  &lt;ul class="posts">
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-&lt;li>
-  &lt;a href="<?= get_the_title() ?>">
-    <?= get_permalink(get_the_ID()) ?>
-  &lt;/a>
-&lt;/li>
-<?php endwhile; else : ?>
-&lt;p><?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?>&lt;/p>
-<?php endif; ?>
-  &lt;/ul>
-&lt;/div>
-</code></pre>
+&lt;div class="hero" style="background: url(&lt;?= $hero_bg_url ?&gt;)"&gt;
+  &lt;h1&gt;&lt;?= $hero_title ?&gt;&lt;/h1&gt;
+  &lt;p class="subtitle"&gt;
+  &lt;?= $hero_subtitle ?&gt;
+  &lt;/p&gt;
+  &lt;ul class="posts"&gt;
+&lt;?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?&gt;
+&lt;li&gt;
+  &lt;a href="&lt;?= get_the_title() ?&gt;"&gt;
+  &lt;?= get_permalink(get_the_ID()) ?&gt;
+  &lt;/a&gt;
+&lt;/li&gt;
+&lt;?php endwhile; else : ?&gt;
+&lt;p&gt;&lt;?php esc_html_e( 'Sorry, no posts matched your criteria.' ); ?&gt;&lt;/p&gt;
+&lt;?php endif; ?&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+</textarea></code></pre>
       </div>
     </div>
   </div>
@@ -132,33 +122,33 @@
     <div class="content-block-compare screenshot-overlay">
       <div>
         <span class="code-heading">config.php</span>
-        <pre style="margin: 0;"><code class="language-php hljs">...
+        <pre style="margin: 0; background-color: #24292e; --theme-selection-background: #39414a;" class="torchlight" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code class="language-php hljs"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #F97583;">...</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #9ECBFF;">&quot;custom-post-types&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">  [</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;slug&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;shirts&#39;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;icon&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;dashicons-cart&#39;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;taxonomies&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&#39;color&#39;</span><span style="color: #E1E4E8;">],</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;options&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">      </span><span style="color: #9ECBFF;">&quot;has_archive&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;shirts&#39;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">      </span><span style="color: #9ECBFF;">&quot;show_in_nav_menus&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">true</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">      </span><span style="color: #9ECBFF;">&quot;supports&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&#39;title&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;editor&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;thumbnail&#39;</span><span style="color: #E1E4E8;">],</span></div><div class='line'><span style="color: #E1E4E8;">      </span><span style="color: #9ECBFF;">&quot;has_archive&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">true</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">      </span><span style="color: #9ECBFF;">&quot;rewrite&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&#39;slug&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;shirts&#39;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&#39;with_front&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">true</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&#39;pages&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">true</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&#39;feeds&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">true</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">      ],</span></div><div class='line'><span style="color: #E1E4E8;">      </span><span style="color: #9ECBFF;">&quot;labels&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&#39;name&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">_x</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;Shirts&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;Post Type General Name&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;text_domain&#39;</span><span style="color: #E1E4E8;">),</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&#39;singular_name&#39;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">_x</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;Shirt&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;Post Type Singular Name&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;text_domain&#39;</span><span style="color: #E1E4E8;">),</span></div><div class='line'><span style="color: #E1E4E8;">      ]</span></div><div class='line'><span style="color: #E1E4E8;">    ]</span></div><div class='line'><span style="color: #E1E4E8;">  ],</span></div><div class='line'><span style="color: #E1E4E8;">],</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #F97583;">...</span></div><textarea data-torchlight-original="true" style="display: none !important;">...
 
-"custom-post-types" => [
+"custom-post-types" =&gt; [
   [
-    "slug" => 'shirts',
-    "icon" => 'dashicons-cart',
-    "taxonomies" => ['color'],
-    "options" => [
-      "has_archive" => 'shirts',
-      "show_in_nav_menus" => true,
-      "supports" => ['title', 'editor', 'thumbnail'],
-      "has_archive" => true,
-      "rewrite" => [
-        'slug' => 'shirts',
-        'with_front' => true,
-        'pages' => true,
-        'feeds' => true,
+    "slug" =&gt; 'shirts',
+    "icon" =&gt; 'dashicons-cart',
+    "taxonomies" =&gt; ['color'],
+    "options" =&gt; [
+      "has_archive" =&gt; 'shirts',
+      "show_in_nav_menus" =&gt; true,
+      "supports" =&gt; ['title', 'editor', 'thumbnail'],
+      "has_archive" =&gt; true,
+      "rewrite" =&gt; [
+        'slug' =&gt; 'shirts',
+        'with_front' =&gt; true,
+        'pages' =&gt; true,
+        'feeds' =&gt; true,
       ],
-      "labels" => [
-        'name' => _x('Shirts', 'Post Type General Name', 'text_domain'),
-        'singular_name' => _x('Shirt', 'Post Type Singular Name', 'text_domain'),
+      "labels" =&gt; [
+        'name' =&gt; _x('Shirts', 'Post Type General Name', 'text_domain'),
+        'singular_name' =&gt; _x('Shirt', 'Post Type Singular Name', 'text_domain'),
       ]
     ]
   ],
 ],
 
-...</code></pre>
+...</textarea></code></pre>
         <span class="code-caption">Creating a custom post type</span>
       </div>
       <div class="screenshot">
@@ -179,39 +169,39 @@
         <img src="./images/icons/home-grid-arrow.png" alt="">
       </div>
       <div>
-        <pre style="margin: 0;"><code class="language-php hljs">$posts = site()->getPosts([
-    "type" => "vehicles",
-    "taxonomy.country" => "france,italy"
+        <pre style="margin: 0; background-color: #24292e; --theme-selection-background: #39414a;" class="torchlight" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code class="language-php hljs"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">$posts </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span><span style="color: #F97583;">-&gt;</span><span style="color: #B392F0;">getPosts</span><span style="color: #E1E4E8;">([</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;type&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;vehicles&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;taxonomy.country&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;france,italy&quot;</span></div><div class='line'><span style="color: #E1E4E8;">], [</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;title&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;acf.miles&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;taxonomy.country.name&quot;</span></div><div class='line'><span style="color: #E1E4E8;">]);</span></div><textarea data-torchlight-original="true" style="display: none !important;">$posts = site()-&gt;getPosts([
+    "type" =&gt; "vehicles",
+    "taxonomy.country" =&gt; "france,italy"
 ], [
     "title",
     "acf.miles",
     "taxonomy.country.name"
-]);</code></pre>
+]);</textarea></code></pre>
         <span class="code-caption">Get posts of type 'vehicles' that have the term 'france' or 'italy' as their country
           taxonomy, only returning the post title, number of miles, and country name(s).</span>
       </div>
       <div>
-        <pre style="margin: 0;"><code class="language-php hljs">[
+        <pre style="margin: 0; background-color: #24292e; --theme-selection-background: #39414a;" class="torchlight" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code class="language-php hljs"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">[</span></div><div class='line'><span style="color: #E1E4E8;">  [</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;title&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;2010 Ferrari 458 Italia&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;miles&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">13802</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;country&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">      [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;name&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;Italy&quot;</span></div><div class='line'><span style="color: #E1E4E8;">      ]</span></div><div class='line'><span style="color: #E1E4E8;">    ]</span></div><div class='line'><span style="color: #E1E4E8;">  ],</span></div><div class='line'><span style="color: #E1E4E8;">  [</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;title&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;2019 Renault Alpine A110 Légende GT&quot;</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;miles&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">3211</span><span style="color: #E1E4E8;">,</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;country&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">      [</span></div><div class='line'><span style="color: #E1E4E8;">        </span><span style="color: #9ECBFF;">&quot;name&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&quot;France&quot;</span></div><div class='line'><span style="color: #E1E4E8;">      ]</span></div><div class='line'><span style="color: #E1E4E8;">    ]</span></div><div class='line'><span style="color: #E1E4E8;">  ],</span></div><div class='line'><span style="color: #E1E4E8;">  </span><span style="color: #F97583;">...</span></div><div class='line'><span style="color: #E1E4E8;">]</span></div><textarea data-torchlight-original="true" style="display: none !important;">[
   [
-    "title" => "2010 Ferrari 458 Italia",
-    "miles" => 13802,
-    "country" => [
+    "title" =&gt; "2010 Ferrari 458 Italia",
+    "miles" =&gt; 13802,
+    "country" =&gt; [
       [
-        "name" => "Italy"
+        "name" =&gt; "Italy"
       ]
     ]
   ],
   [
-    "title" => "2019 Renault Alpine A110 Légende GT",
-    "miles" => 3211,
-    "country" => [
+    "title" =&gt; "2019 Renault Alpine A110 Légende GT",
+    "miles" =&gt; 3211,
+    "country" =&gt; [
       [
-        "name" => "France"
+        "name" =&gt; "France"
       ]
     ]
   ],
   ...
-]</code></pre>
+]</textarea></code></pre>
       </div>
     </div>
 </section>

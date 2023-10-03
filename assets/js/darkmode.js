@@ -17,6 +17,11 @@ if (localStorage.getItem('theme') === 'dark') {
 
 }
 
-if(isDarkMode === true){
-  document.body.classList.add('dark');
+if (!localStorage.getItem('darkModeCheck')) {
+  if(isDarkMode === true){
+    document.body.classList.add('dark');
+    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+  }
+
+  localStorage.setItem('darkModeCheck', 'true');
 }

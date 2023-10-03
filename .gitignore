@@ -10,3 +10,4 @@ TODO
 yarn.lock
 .gitignore
 cache
+.env

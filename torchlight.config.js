@@ -1,6 +1,6 @@
 module.exports = {
     // Your token from https://torchlight.dev 
-    token: 'torch_UWshq5etBdssiwqeg4NRLZn26Kn1BVAfK8z8HpQL',
+    token: process.env.TORCHLIGHT_TOKEN,
  
     // The Torchlight client caches highlighted code blocks. Here you
     // can define which directory you'd like to use. You'll likely
@@ -50,7 +50,8 @@ module.exports = {
         // Globs to include when looking for files to highlight.
         includeGlobs: [
             '**/*.md',
-            'content/docs/getting-started/*.html'
+            'content/docs/getting-started/*.html',
+            'layouts/index.html'
         ],
  
         // String patterns to ignore (not globs). The entire file
