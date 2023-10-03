@@ -1,0 +1,9 @@
+<div v-if="{{ .var }}.length != 0" class="border p-2 rounded rounded-bottom-0">
+    <span v-for="(op,idx) of {{ .var }}" title="click to delete" role="button" @click="{{ .var }}.splice(idx,1)"
+        class="badge bg-secondary me-2">
+        [[ op ]]<i class="bi bi-x-lg ms-1" style="margin-bottom: -1px;"></i>
+    </span>
+</div>
+<input :class="{ 'form-control-sm border-top-0 rounded-top-0': {{ .var }}.length != 0 }" type="text"
+    placeholder="Type and press enter to add" {{ if .slugify }} @input="slugify" {{ end }} class="form-control"
+    @keyup.enter.native="{{ .var }}.push($event.target.value);$event.target.value = ''">

@@ -38,10 +38,15 @@
   url = "/docs/getting-started/installation/"
   weight = 10
 
-  [[main]]
+[[main]]
   name = "Roadmap"
   url = "/roadmap"
   weight = 20
+
+[[main]]
+  name = "Config Generator"
+  url = "/config-generator"
+  weight = 30
 
 [[social]]
   name = "Twitter"
