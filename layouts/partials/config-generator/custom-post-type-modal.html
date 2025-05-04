@@ -1,0 +1,214 @@
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="cpt_delete_modal" tabindex="-1" aria-labelledby="cptConfirmDeleteModal" aria-hidden="true">
+
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 mt-0" id="exampleModalLabel">Are You Sure?</h1>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        This action cannot be undone!
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" @click="cpt.splice(cpt_i,1);cpt_i = null;" class="btn btn-danger"
+          data-bs-dismiss="modal">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="cpt_modal" tabindex="-1" aria-labelledby="cptModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable generator-col-form">
+    <div v-if="cpt_i != null" class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5 mt-0" id="exampleModalLabel">New Custom Post Type</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row g-3 align-items-top">
+          <div class="col-6">
+            <label class="col-form-label" for="cpt-slug">Key</label>
+          </div>
+          <div class="col-10">
+            <input v-model="cpt[cpt_i]['slug']" @input="slugify" type="text" id="cpt-slug" class="form-control">
+            <span class="input-desc">Unique identifier for this post type. Must not exceed 20 characters.</span>
+          </div>
+          <div class="col-6">
+            <label class="col-form-label" for="cpt-icon">Icon</label>
+          </div>
+          <div class="col-10 d-flex align-items-center">
+            <img height="24" width="24" class="me-3 dashicon"
+              :src="`https://raw.githubusercontent.com/WordPress/dashicons/master/svg-min/${cpt[cpt_i]['icon']}.svg`" />
+            <select v-model="cpt[cpt_i]['icon']" id="cpt-icon" class="form-select">
+              <option v-for="icon of dashicons" :selected="cpt[cpt_i]['icon'] == icon" :value="icon">[[ icon ]]</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label class="col-form-label" for="cpt-options-pages">Options Pages</label>
+          </div>
+          <div class="col-10">
+            {{ partial "config-generator/multiple-input-small.html" (dict "var" "cpt[cpt_i]['options-pages']" "slugify"
+            true) }}
+            <span class="input-desc">A list of options page slugs to be registered for this post type. Ex: [[
+              cpt[cpt_i]['slug'] ]]-options</span>
+          </div>
+          <div class="col-6">
+            <label class="col-form-label" for="cpt-taxonomies">Taxonomies</label>
+          </div>
+          <div class="col-10">
+            {{ partial "config-generator/multiple-input-small.html" (dict "var" "cpt[cpt_i]['taxonomies']" "slugify"
+            true) }}
+            <span class="input-desc">A list of taxonomy slugs to be registered for this post type.</span>
+          </div>
+          <div class="col-6">
+            <label class="col-form-label" for="cpt-disable">Disable Yoast</label>
+          </div>
+          <div class="col-10">
+            <input v-model="cpt[cpt_i]['disable_yoast']" type="checkbox" id="cpt-disable" class="form-check-input">
+          </div>
+        </div>
+        <div class="d-flex">
+          <button type="button" @click="cpt_show_advanced = !cpt_show_advanced" class="btn btn-link mt-4 mb-3 text-center mx-auto">
+            <span class="me-1">
+              <i v-if="cpt_show_advanced" class="bi bi-caret-down-fill"></i>
+              <i v-else class="bi bi-caret-right-fill"></i>
+            </span>
+            Advanced Options
+          </button>
+        </div>
+
+        <section :class="{ 'd-none': !cpt_show_advanced }">
+          <h6 class="border-bottom d-block pb-2">WordPress Arguments</h6>
+          <div class="row g-3 align-items-top">
+            <div class="col-6">
+              <label class="col-form-label" for="cpt-label">Label</label>
+            </div>
+            <div class="col-10">
+              <input v-model="cpt[cpt_i]['options']['label']" type="text" id="cpt-label" placeholder="Posts"
+                class="form-control">
+              <span class="input-desc">Name of the post type shown in the menu. Usually plural.</span>
+            </div>
+            <div class="col-6">
+              <label class="col-form-label" for="cpt-description">Description</label>
+            </div>
+            <div class="col-10">
+              <textarea v-model="cpt[cpt_i]['options']['description']" id="cpt-description"
+                class="form-control"></textarea>
+            </div>
+            <div class="col-6">
+              <label class="col-form-label" for="cpt-archive">Archive</label>
+            </div>
+            <div class="col-10">
+              <input v-model="cpt[cpt_i]['options']['has_archive']" @input="slugify" type="text" id="cpt-archive"
+                class="form-control">
+              <span class="input-desc">Archive page slug. Leave blank to disable archive.</span>
+            </div>
+            <div class="col-6">
+              <label class="col-form-label">Supported Features</label>
+            </div>
+            <div class="col-10 pt-1">
+              <span
+                v-for="feature in ['title', 'editor', 'comments', 'revisions', 'trackbacks', 'author', 'excerpt', 'page-attributes', 'thumbnail', 'custom-fields', 'post-formats']"
+                class="badge bg-light d-inline-block me-2">
+                <input @change="toggle(cpt[cpt_i]['options']['supports'], $event.target.checked, feature)"
+                  type="checkbox" :checked="cpt[cpt_i]['options']['supports'].includes(feature)"
+                  :id="`cpt-supports-${feature}`" class="form-check-input mt-0">
+                <label :for="`cpt-supports-${feature}`" style="margin-top: 0px;"
+                  class="d-inline-block text-body fw-normal ms-2">[[ feature ]]</label>
+              </span>
+
+              <span class="input-desc">Core feature(s) the post type supports.</span>
+            </div>
+            <div class="col-6">
+              <label class="col-form-label" for="cpt-public">Public</label>
+            </div>
+            <div class="col-10">
+              <input v-model="cpt[cpt_i]['options']['public']" type="checkbox" id="cpt-public" class="form-check-input">
+              <span class="input-desc">Whether a post type is intended for use publicly either via the admin interface
+                or
+                by front-end users.</span>
+            </div>
+            <div class="col-6">
+              <label class="col-form-label" for="cpt-rewrite">Rewrite</label>
+            </div>
+            <div class="col-10">
+              <input v-model="cpt[cpt_i]['options']['rewrite']" type="checkbox" id="cpt-rewrite"
+                class="form-check-input">
+              <span class="input-desc">Enable to manually specify rewrite rules, disable to prevent rewrites
+                (default).</span>
+            </div>
+          </div>
+          <div v-if="cpt[cpt_i]['options']['rewrite']">
+            <h6 class="border-bottom d-block pb-2">Rewrite Options</h6>
+            <div class="row g-3 align-items-top">
+              <div class="col-6">
+                <label class="col-form-label" for="cpt-rewrite-slug">Slug</label>
+              </div>
+              <div class="col-10">
+                <input v-model="cpt[cpt_i]['options']['rewrite_opt']['slug']" type="text" id="cpt-rewrite-slug"
+                  class="form-control" @input="slugify" :placeholder="cpt[cpt_i]['slug']">
+                <span class="input-desc">Customize the permastruct slug. Defaults to $post_type key.</span>
+              </div>
+              <div class="col-6">
+                <label class="col-form-label" for="cpt-rewrite-with-front">With Front</label>
+              </div>
+              <div class="col-10">
+                <input v-model="cpt[cpt_i]['options']['rewrite_opt']['with_front']" type="checkbox"
+                  id="cpt-rewrite-with-front" class="form-check-input">
+                <span class="input-desc">Whether the permastruct should be prepended with WP_Rewrite::$front.</span>
+              </div>
+              <div class="col-6">
+                <label class="col-form-label" for="cpt-rewrite-feeds">Feeds</label>
+              </div>
+              <div class="col-10">
+                <input v-model="cpt[cpt_i]['options']['rewrite_opt']['feeds']" type="checkbox" id="cpt-rewrite-feeds"
+                  class="form-check-input">
+                <span class="input-desc">Whether the feed permastruct should be built for this post type.</span>
+              </div>
+              <div class="col-6">
+                <label class="col-form-label" for="cpt-rewrite-pages">Pages</label>
+              </div>
+              <div class="col-10">
+                <input v-model="cpt[cpt_i]['options']['rewrite_opt']['pages']" type="checkbox" id="cpt-rewrite-pages"
+                  class="form-check-input">
+                <span class="input-desc">Whether the permastruct should provide for pagination.</span>
+              </div>
+            </div>
+          </div>
+
+          <h6 class="border-bottom d-block mb-0 pb-2">Advanced Label Options</h6>
+          <table class="table table-sm mt-0">
+            <tbody>
+              <tr v-for="label in available_labels">
+                <td class="row w-100 mx-0 px-0 g-0 align-items-center">
+                  <div class="col-8">
+                    <label class="fs-6" :for="`cpt-labels-${label.key}`">[[ label.key ]]</label>
+                  </div>
+                  <div class="col-8">
+                    <input v-model="cpt[cpt_i]['options']['labels'][label.key]" :id="`cpt-labels-${label.key}`"
+                      type="text" id="cpt-rewrite-slug" :placeholder="label.default"
+                      class="form-control form-control-sm">
+                  </div>
+                  <div class="col-16">
+                    <span class="input-desc">[[ label.desc ]]</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+
+
+      </div>
+      <div class="modal-footer d-flex justify-content-between">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+          data-bs-target="#cpt_delete_modal">Delete</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>

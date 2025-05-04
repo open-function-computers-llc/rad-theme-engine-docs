@@ -1,30 +1,43 @@
 <!doctype html>
-<html lang="{{ .Site.LanguageCode | default "en" }}">
+<html lang="{{ .Site.LanguageCode | default " en" }}">
+
+<head>
   {{ partial "head/head.html" . }}
-  {{ if eq .Kind "home" -}}
-    {{ .Scratch.Set "class" "home" -}}
-  {{ else if eq .Kind "404" -}}
-    {{ .Scratch.Set "class" "error404" -}}
-  {{ else if eq .Kind "page" -}}
-    {{ .Scratch.Set "class" .Type -}}
-    {{ .Scratch.Add "class" " single" -}}
-  {{ else -}}
-    {{ .Scratch.Set "class" .Type -}}
-    {{ .Scratch.Add "class" " list" -}}
-  {{ end -}}
-  <body class="{{ .Scratch.Get "class" }}">
-    {{ partial "header/header.html" . }}
-    <div class="wrap container" role="document">
-      <div class="content">
-        {{ block "main" . }}{{ end }}
-      </div>
+  <!-- blocks can't be used in partials for some reason so they had to be moved here :/ -->
+  {{ block "head/script-header" . }}{{ partial "head/script-header.html" . }}{{ end }}
+  {{ block "head/resource-hints" . }}{{ partial "head/resource-hints.html" . }}{{ end }}
+  {{ block "head/stylesheet" . }}{{ partial "head/stylesheet.html" . }}{{ end }}
+  {{ block "head/seo" . }}{{ partial "head/seo.html" . }}{{ end }}
+  {{ block "head/favicons" . }}{{ partial "head/favicons.html" . }}{{ end }}
+</head>
+
+{{ if eq .Kind "home" -}}
+{{ .Scratch.Set "class" "home" -}}
+{{ else if eq .Kind "404" -}}
+{{ .Scratch.Set "class" "error404" -}}
+{{ else if eq .Kind "page" -}}
+{{ .Scratch.Set "class" .Type -}}
+{{ .Scratch.Add "class" " single" -}}
+{{ else -}}
+{{ .Scratch.Set "class" .Type -}}
+{{ .Scratch.Add "class" " list" -}}
+{{ end -}}
+
+<body class="{{ .Scratch.Get " class" }}">
+  {{ partial "header/header.html" . }}
+  <div class="wrap container" role="document">
+    <div class="content">
+      {{ block "main" . }}{{ end }}
     </div>
-    {{ block "sidebar-prefooter" . }}{{ end }}
-    {{ block "sidebar-footer" . }}{{ end }}
-    {{ partial "footer/footer.html" . }}
-    {{ if and .IsHome .Site.Params.alert }}
-      {{ partial "footer/alert.html" . }}
-    {{ end }}
-    {{ partial "footer/script-footer.html" . }}
-  </body>
+  </div>
+  {{ block "sidebar-prefooter" . }}{{ end }}
+  {{ block "sidebar-footer" . }}{{ end }}
+  {{ partial "footer/footer.html" . }}
+  {{ if and .IsHome .Site.Params.alert }}
+  {{ partial "footer/alert.html" . }}
+  {{ end }}
+  {{ partial "footer/script-footer.html" . }}
+  {{ block "footer/script-footer" . }}{{ end }}
+</body>
+
 </html>

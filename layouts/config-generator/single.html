@@ -1,0 +1,196 @@
+{{ define "main" }}
+
+<div class="row justify-content-center mt-3 mb-5">
+    <div id="" class="col-12">
+
+        <div class="tabs">
+            <div class="tab current">
+                Config Generator
+            </div>
+            <a href="/fields-generator" class="tab">
+                Fields Generator
+            </a>
+        </div>
+
+        <h1 class="d-flex align-items-center gap-2">
+            RAD Config Generator
+            <span class="badge text-bg-primary fs-6 d-inline-block ">New!</span>
+            <div class="flex-grow-1"></div>
+            <div class="float-end">
+                <button
+                    onclick="if (confirm('Are you sure? All saved data will be deleted.')) { localStorage.removeItem('config-generator-data');location.reload() }"
+                    class="btn btn-outline-primary"><i class="bi bi-arrow-clockwise"></i> Reset</button>
+            </div>
+        </h1>
+
+
+
+
+        <p style="max-width: 36rem">Quickly generate a <code>config.php</code> for your next rad-theme-engine project!
+            Just enter your project requirements and we'll take care of the rest. </p>
+
+
+
+        <hr class="d-block my-4 border-top">
+
+        <div id="config-generator-loader" class="spinner-border position-absolute mx-auto start-0 end-0" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+
+        <div class="opacity-0 generator-wrapper" id="v-config-generator">
+
+
+            {{ partial "config-generator/custom-post-type-modal.html" }}
+
+            <div class="row mb-4">
+                <div class="col-16">
+                    <div type="file" @dragover="(e) => e.target.setAttribute('drop-active', true)"
+                        @dragleave="(e) => e.target.removeAttribute('drop-active')"
+                        class="upload-file-area position-relative">
+                        <input @change="uploaded($event)" class="hidden-input" id="file-input" type="file"
+                            name="name" />
+                        drop your existing config file here
+                    </div>
+                </div>
+            </div>
+
+            <form class="row">
+                <div class="col-16 col-lg-12">
+                    <div class="row mb-4">
+                        <div class="col">
+                            <a href="/docs/configuration/custom-post-types/" target="_blank" class="float-end"><i
+                                    class="bi bi-question-circle"></i></a>
+                            <label class="form-label mb-3">Custom Post Types</label>
+                            <table class="table table-sm table-striped border m-0">
+                                <thead>
+                                    <tr>
+                                        <th style="padding-left: calc(20px + 0.75rem)" scope="col">Key</th>
+                                        <th scope="col">Options Pages</th>
+                                        <th scope="col">Taxonomies</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="(custom_type,idx) of cpt" :key="custom_type['slug']">
+                                        <td><img class="dashicon" height="20" width="20" class="me-2"
+                                                :src="`https://raw.githubusercontent.com/WordPress/dashicons/master/svg-min/${custom_type['icon']}.svg`" />
+                                            [[ custom_type['slug'] ]]</td>
+                                        <td>[[ custom_type['options-pages'].length > 0 ?
+                                            custom_type['options-pages'].join(', ') : '-' ]]</td>
+                                        <td>[[ custom_type['taxonomies'].length > 0 ?
+                                            custom_type['taxonomies'].join(', ') : '-' ]]</td>
+                                        <td>
+                                            <span role="button" @click="editCPT(idx)">
+                                                <i class="bi bi-pencil-fill"></i>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    <tr v-if="cpt.length == 0">
+                                        <td colspan="4" class="text-muted text-center p-3">None</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button type="button" @click="createCPT()" class="btn btn-primary w-100 rounded-0"><i
+                                    class="bi bi-plus-lg me-2"></i>Add</button>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <a href="/docs/configuration/options-pages/" target="_blank" class="float-end"><i
+                                    class="bi bi-question-circle"></i></a>
+                            <label for="guest-class" class="form-label">Options Pages</label>
+
+                            {{ partial "config-generator/multiple-input.html"
+                            (dict "var" "options_pages"
+                            "empty" "No options pages defined"
+                            "ph1" "options-page-id")
+                            }}
+                        </div>
+                        <div class="col">
+                            <a href="/docs/configuration/menu-locations/" target="_blank" class="float-end"><i
+                                    class="bi bi-question-circle"></i></a>
+                            <label for="guest-class" class="form-label">Menu Locations</label>
+
+                            {{ partial "config-generator/multiple-input.html"
+                            (dict "var" "menu_locations"
+                            "empty" "Nomenu locations defined"
+                            "keyed" true
+                            "ph1" "menu-id"
+                            "ph2" "Menu Name")
+                            }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col">
+                            <a href="/docs/configuration/excerpt-length/" target="_blank" class="float-end">
+                                <i class="bi bi-question-circle"></i>
+                            </a>
+                            <label for="excerpt-length" class="form-label">Excerpt Length</label>
+                            <div class="input-group">
+                                <input v-model="excerpt_length" type="number" class="form-control" id="excerpt-length">
+                                <span class="input-group-text">characters</span>
+                            </div>
+                        </div>
+                        <div class="mb-3 col">
+                            <a href="/docs/configuration/guest-class/" target="_blank" class="float-end">
+                                <i class="bi bi-question-circle"></i>
+                            </a>
+                            <label for="guest-class" class="form-label">Guest Class</label>
+                            <div class="input-group">
+                                <span class="input-group-text">.</span>
+                                <input type="text" class="form-control font-monospace" v-model="guest_class"
+                                    id="guest-class">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3 col-16 col-lg-4">
+                    <div>
+                        <a href="/docs/configuration/enable/" target="_blank" class="float-end"><i
+                                class="bi bi-question-circle"></i></a>
+                        <label class="form-label">Enable</label>
+                        <div v-for="(option,key) in enable" class="form-check">
+                            <input type="checkbox" v-model="enable[key]" class="form-check-input"
+                                :id="`enable_check_` + key">
+                            <label class="form-check-label" :for="`enable_check_` + key">[[ key ]]</label>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <a href="/docs/configuration/disable/" target="_blank" class="float-end"><i
+                                class="bi bi-question-circle"></i></a>
+                        <label class="form-label  d-block">Disable</label>
+
+                        <div v-for="(option,key) in disable" class="form-check">
+                            <input type="checkbox" v-model="disable[key]" class="form-check-input"
+                                :id="`disable_check_` + key">
+                            <label class="form-check-label" :for="`disable_check_` + key">[[ key ]]</label>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+            <!-- Results -->
+            <h3>Output</h3>
+
+            <div class="dark">
+                <span class="code-heading">config.php</span>
+                <pre style="margin: 0;background: #1b1f22;color: gainsboro"><code v-html="code"></code></pre>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{{ end }}
+
+{{ define "footer/script-footer" }}
+
+<!-- js/generators/config.js is where the Vue component creation happens -->
+{{ $vue := resources.Get "js/generators/config.js" -}}
+{{ $vue := $vue | js.Build -}}
+<script src="{{ $vue.RelPermalink }}" defer></script>
+
+{{ end }}

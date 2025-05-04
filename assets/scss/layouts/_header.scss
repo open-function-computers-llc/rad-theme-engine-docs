@@ -41,6 +41,7 @@
 
 .nav-item {
   margin-left: 1.25rem;
+  white-space: nowrap;
 }
 
 @include media-breakpoint-up(md) {
@@ -109,20 +110,20 @@
 
   .navbar-form {
     margin-top: 0;
-    margin-left: 6rem;
+    margin-left: 1.5rem;
     margin-right: 1.5rem;
   }
 }
 
 @include media-breakpoint-up(lg) {
   .navbar-form {
-    margin-left: 15rem;
+    margin-left: 10rem;
   }
 }
 
 @include media-breakpoint-up(xl) {
   .navbar-form {
-    margin-left: 30rem;
+    margin-left: 25rem;
   }
 }
 
