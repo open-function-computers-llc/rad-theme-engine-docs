@@ -62,6 +62,7 @@
     "hugo": "0.84.4"
   },
   "dependencies": {
+    "@highlightjs/cdn-assets": "^11.11.1",
     "@torchlight-api/torchlight-cli": "^0.1.7"
   }
 }

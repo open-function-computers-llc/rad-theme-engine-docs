@@ -35,11 +35,12 @@ Where `"disable"` is an array of strings selected from the options below.
 
 <div class="code-heading">config.php</div>
 
-<pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #F97583;">return</span><span style="color: #E1E4E8;"> [</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #F97583;">...</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #9ECBFF;">&quot;disable&quot;</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">=&gt;</span><span style="color: #E1E4E8;"> [</span><span style="color: #9ECBFF;">&quot;editor&quot;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&quot;customizer&quot;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&quot;gutenberg&quot;</span><span style="color: #E1E4E8;">],</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #F97583;">...</span></div><div class='line'><span style="color: #E1E4E8;">]</span></div><textarea data-torchlight-original="true" style="display: none !important;">return [
+```php
+return [
     ...
-    "disable" =&gt; ["editor", "customizer", "gutenberg"],
+    "disable" => ["editor", "customizer", "gutenberg"],
     ...
 ]
-</textarea></code></pre>
+```
 
 <div class="code-caption">Disabling the WordPress editor</div>

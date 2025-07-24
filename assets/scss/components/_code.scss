@@ -27,10 +27,6 @@ pre code {
   scrollbar-color: transparent transparent;
 }
 
-.hljs {
-  padding: 1.25rem 1.5rem;
-}
-
 @include media-breakpoint-down(sm) {
   pre,
   code,

@@ -1,0 +1,35 @@
+<!-- <link rel="stylesheet" href="/assets/js/vendor/hljs/styles/agate.min.css">
+<script src="/assets/js/vendor/hljs/lib/index.js"></script>
+<script src="/assets/js/vendor/hljs/lib/languages/bash.js"></script>
+<script src="/assets/js/vendor/hljs/lib/languages/php.js"></script>
+<script src="/assets/js/vendor/hljs/lib/languages/css.js"></script>
+<script src="/assets/js/vendor/hljs/lib/languages/html.js"></script>
+<script src="/assets/js/vendor/hljs/lib/languages/javascript.js"></script>
+<script>hljs.highlightAll();</script> -->
+
+<!-- <script type="importmap">
+{
+	"imports": {
+		"@highlightjs": "/assets/js/vendor/hljs/es/"
+	}
+}
+</script> -->
+<link rel="stylesheet" href="/assets/js/vendor/hljs/styles/a11y-dark.min.css">
+<script defer type="module">
+
+    import hljs from '/assets/js/vendor/hljs/es/core.min.js';
+    import php from '/assets/js/vendor/hljs/es/languages/php.min.js';
+    import javascript from '/assets/js/vendor/hljs/es/languages/javascript.min.js';
+    import bash from '/assets/js/vendor/hljs/es/languages/bash.min.js';
+    import handlebars from '/assets/js/vendor/hljs/es/languages/handlebars.min.js';
+    import json from '/assets/js/vendor/hljs/es/languages/json.min.js';
+
+
+    hljs.registerLanguage('php', php);
+    hljs.registerLanguage('javascript', javascript);
+    hljs.registerLanguage('bash', bash);
+    hljs.registerLanguage('handlebars', handlebars);
+    hljs.registerLanguage('json', json);
+
+    hljs.highlightAll();
+</script>

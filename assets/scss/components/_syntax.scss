@@ -7,8 +7,8 @@ Based on Ascetic by (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
 .hljs {
   display: block;
   overflow-x: auto;
-  padding: 1.25rem 1.5rem;
-  background: $body-overlay-dark;
+  padding: 1.25rem 1.5rem !important;
+  background: $body-bg-dark !important;
   color: $body-color-dark;
 }
 
