@@ -10,6 +10,10 @@ Based on Ascetic by (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
   padding: 1.25rem 1.5rem !important;
   background: $body-bg-dark !important;
   color: $body-color-dark;
+
+  .dark & {
+    background: $body-overlay-dark !important;
+  }
 }
 
 .hljs-string,
@@ -59,4 +63,8 @@ body.dark .hljs-addition,
 body.dark .hljs-attribute,
 body.dark .hljs-link {
   color: $blue-300;
+}
+
+code {
+  background: $gray-100;
 }

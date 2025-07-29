@@ -8,7 +8,7 @@ images: []
 menu:
   docs:
     parent: "configuration"
-weight: 180
+weight: 130
 toc: true
 ---
 
@@ -28,7 +28,8 @@ Where `"enable"` is an array of strings selected from the options below.
 | ------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | `"post-thumbnails"` | Enables [post thumbnails](https://codex.wordpress.org/Post_Thumbnails)                                              |
 | `"menus"`           | Enables WordPress menus. Individual menus can be registered using the [`menu-locations`](../menu-locations) option. |
-| `"styleselect"`     | Enables custom tinyMCE styles, declared [here](../tinyMCEAdditions) |
+| `"styleselect"`     | Enables custom tinyMCE styles, declared [here](../tinyMCEAdditions)                                                 |
+| `"svg"`             | Enables uploading SVGs in WordPress Admin                                                                           |
 {.table .table-bordered .col1-nowrap}
 
 ## Example
