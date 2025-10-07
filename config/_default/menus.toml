@@ -20,11 +20,19 @@
   url = "/docs/configuration/"
 
 [[docs]]
+  name = "Templating"
+  pre = "bi-braces-asterisk"
+  weight = 30
+  identifier = "templating"
+  url = "/docs/templating/"
+
+[[docs]]
   name = "Reference"
   pre = "bi-circle-square"
-  weight = 30
+  weight = 40
   identifier = "reference"
   url = "/docs/reference/"
+
 
 [[docs]]
   name = "Help"

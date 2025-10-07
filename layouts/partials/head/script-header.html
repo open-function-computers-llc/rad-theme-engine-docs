@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/assets/js/vendor/hljs/styles/github-dark.min.css">
+<script defer type="module">
+
+    import hljs from '/assets/js/vendor/hljs/es/core.min.js';
+    import php from '/assets/js/vendor/hljs/es/languages/php.min.js';
+    import javascript from '/assets/js/vendor/hljs/es/languages/javascript.min.js';
+    import bash from '/assets/js/vendor/hljs/es/languages/bash.min.js';
+    import handlebars from '/assets/js/vendor/hljs/es/languages/handlebars.min.js';
+    import json from '/assets/js/vendor/hljs/es/languages/json.min.js';
+    import xml from '/assets/js/vendor/hljs/es/languages/xml.min.js';
+
+    hljs.registerLanguage('php', php);
+    hljs.registerLanguage('javascript', javascript);
+    hljs.registerLanguage('bash', bash);
+    hljs.registerLanguage('handlebars', handlebars);
+    hljs.registerLanguage('json', json);
+    hljs.registerLanguage('xml', xml);
+
+    hljs.highlightAll();
+</script>

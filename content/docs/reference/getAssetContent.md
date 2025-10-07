@@ -1,5 +1,5 @@
 ---
-title: "getAssetURL($filename)"
+title: "getAssetContents($filename)"
 member: true
 date: 2021-07-26T13:19:20-07:00
 lastmod: 2021-07-26T13:19:20-07:00
@@ -8,16 +8,16 @@ images: []
 menu:
   docs:
     parent: "reference"
-weight: 110
+weight: 100
 toc: true
 ---
 
-Generate the URL for any static assets that live in the theme's `assets` directory.
+Read the contents of a file and return it as a string. Useful for serializing things like SVG files directly into templates.
 
 ## Usage
 
 ```php
-site()->getAssetURL($filename);
+site()->getAssetContents($filename);
 ```
 
 ### Parameters
@@ -30,7 +30,7 @@ site()->getAssetURL($filename);
 
 | Type     | Description               |
 | -------- | ------------------------- |
-| `string` | Absolute URL of the asset |
+| `string` | The contents of the file. |
 
 ## Example
 

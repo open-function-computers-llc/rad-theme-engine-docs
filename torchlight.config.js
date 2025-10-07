@@ -1,3 +1,6 @@
+// note: torchlight is not used in this project anymore, but keeping it here for reference. 
+// We might use it again in the future if we need diffs.
+
 module.exports = {
     // Your token from https://torchlight.dev 
     token: process.env.TORCHLIGHT_TOKEN,
@@ -51,7 +54,7 @@ module.exports = {
         includeGlobs: [
             '**/*.md',
             'content/docs/getting-started/*.html',
-            'layouts/index.html'
+            'layouts/index.html',
         ],
  
         // String patterns to ignore (not globs). The entire file
@@ -59,7 +62,7 @@ module.exports = {
         // appear, the file will be ignored.
         excludePatterns: [
             '/node_modules/',
-            '/vendor/'
-        ]
-    }
+            '/vendor/',
+        ],
+    },
 }

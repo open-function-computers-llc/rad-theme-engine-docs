@@ -30,9 +30,7 @@ toc: false
 
     <div class="step-content">
       From the root of your theme, use <a href="https://getcomposer.org/">Composer</a> to add <code>rad-theme-engine</code> as a dependency.
-      <code class="language-bash hljs">
-        <b>></b> composer require open-function-computers-llc/rad-theme-engine
-      </code>
+      <code class="language-bash hljs"><b>></b> composer require open-function-computers-llc/rad-theme-engine</code>
     </div>
   </div>
 
@@ -43,12 +41,11 @@ toc: false
     <div class="step-content">
       Next, copy the included <code>config.example.php</code> file into the root of your theme and rename it to
       <code>config.php</code>.
-      <code class="language-bash hljs">
-        <span class="hljs-comment"># macOS, Linux</span><br>
-        <b>></b> cp vendor/open-function-computers-llc/rad-theme-engine/config.example.php config.php<br>
-        <span class="hljs-comment"># Windows</span><br>
-        <b>></b> copy vendor\open-function-computers-llc\rad-theme-engine\config.example.php config.php
-      </code>
+      <code class="language-bash hljs"><span class="hljs-comment"># macOS, Linux</span>
+<b>></b> cp vendor/open-function-computers-llc/rad-theme-engine/config.example.php config.php
+
+<span class="hljs-comment"># Windows</span>
+<b>></b> copy vendor\open-function-computers-llc\rad-theme-engine\config.example.php config.php</code>
     </div>
   </div>
 
@@ -59,22 +56,21 @@ toc: false
     <div class="step-content">
       After that, edit your <code>functions.php</code> file to include the following code:
       <br><span class="code-heading">functions.php</span>
-      <pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="php"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #E1E4E8;">&lt;?php</span></div><div class='line'><span style="color: #6A737D;"># Imports all Composer packages</span></div><div class='line'><span style="color: #F97583;">require</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">__DIR__</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">.</span><span style="color: #E1E4E8;"> </span><span style="color: #9ECBFF;">&#39;/vendor/autoload.php&#39;</span><span style="color: #E1E4E8;">;</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #F97583;">use</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">ofc\Site</span><span style="color: #E1E4E8;">;</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #6A737D;"># Declare a new Site object</span></div><div class='line'><span style="color: #E1E4E8;">$site </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #F97583;">new</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">Site</span><span style="color: #E1E4E8;">();</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #6A737D;"># Allow the Site object to be accessed in other files</span></div><div class='line'><span style="color: #F97583;">function</span><span style="color: #E1E4E8;"> </span><span style="color: #B392F0;">site</span><span style="color: #E1E4E8;">()</span></div><div class='line'><span style="color: #E1E4E8;">{</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #F97583;">global</span><span style="color: #E1E4E8;"> $site;</span></div><div class='line'><span style="color: #E1E4E8;">    </span><span style="color: #F97583;">return</span><span style="color: #E1E4E8;"> $site;</span></div><div class='line'><span style="color: #E1E4E8;">}</span></div><textarea data-torchlight-original="true" style="display: none !important;">&lt;xml&gt;&lt;&lt;/xml&gt;?php
-# Imports all Composer packages
+      <pre><code class="hljs language-php">&lt;?php
+# Import all Composer packages
 require __DIR__ . '/vendor/autoload.php';
 
 use ofc\Site;
 
-# Declare a new Site object
-$site = new Site();
-
-# Allow the Site object to be accessed in other files
-function site()
+# Create global accessor for the RAD site instance
+function site(): Site
 {
-    global $site;
-    return $site;
+  return Site::getInstance();
 }
-</textarea></code></pre>
+
+# Initialize the RAD site instance
+add_action('after_setup_theme', 'site');
+</code></pre>
     </div>
   </div>
 
@@ -93,9 +89,7 @@ function site()
     </div>
     <div class="step-content">
       To handle asset bundling we use <code>laravel-mix</code>, available via npm.
-      <code class="language-bash hljs">
-        <b>></b> npm install laravel-mix<br>
-      </code>
+      <code class="language-bash hljs"><b>></b> npm install laravel-mix</code>
       <span class="code-caption">Mix can process JS, CSS, Sass, PostCSS, Vue, and more. </span>
     </div>
   </div>
@@ -106,12 +100,11 @@ function site()
     </div>
     <div class="step-content">
       To configure Mix, create a new file named <code>webpack.mix.js</code>
-      <code class="language-bash hljs">
-        <span class="hljs-comment"># macOS, Linux</span><br>
-        <b>></b> touch webpack.mix.js<br>
-        <span class="hljs-comment"># Windows</span><br>
-        <b>></b> copy nul "webpack.mix.js"<br>
-      </code>
+      <code class="language-bash hljs"><span class="hljs-comment"># macOS, Linux</span>
+<b>></b> touch webpack.mix.js
+
+<span class="hljs-comment"># Windows</span>
+<b>></b> copy nul "webpack.mix.js"</code>
     </div>
   </div>
 
@@ -122,10 +115,10 @@ function site()
     <div class="step-content">
       Inside <code>webpack.mix.js</code> you can define which files you want compiled. BW will automatically enqueue all scripts and stylesheets processed by Mix, so long as they are outputted to the <code>dist</code> folder.<br>
       <span class="code-heading">webpack.mix.js</span>
-      <pre class="torchlight" style="background-color: #24292e; --theme-selection-background: #39414a;" data-torchlight-processed="3449c9e5e332f1dbb81505cd739fbf3f"><code data-language="js"><!-- Syntax highlighted by torchlight.dev --><div class='line'><span style="color: #F97583;">let</span><span style="color: #E1E4E8;"> mix </span><span style="color: #F97583;">=</span><span style="color: #E1E4E8;"> </span><span style="color: #79B8FF;">require</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;laravel-mix&#39;</span><span style="color: #E1E4E8;">);</span></div><div class='line'>&nbsp;</div><div class='line'><span style="color: #E1E4E8;">mix.</span><span style="color: #B392F0;">js</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;src/app.js&#39;</span><span style="color: #E1E4E8;">, </span><span style="color: #9ECBFF;">&#39;dist&#39;</span><span style="color: #E1E4E8;">).</span><span style="color: #B392F0;">setPublicPath</span><span style="color: #E1E4E8;">(</span><span style="color: #9ECBFF;">&#39;dist&#39;</span><span style="color: #E1E4E8;">).</span><span style="color: #B392F0;">version</span><span style="color: #E1E4E8;">();</span></div><textarea data-torchlight-original="true" style="display: none !important;">let mix = require('laravel-mix');
+      <pre><code class="hljs language-javascript">let mix = require('laravel-mix');
 
 mix.js('src/app.js', 'dist').setPublicPath('dist').version();
-</textarea></code></pre>
+</code></pre>
 <span class="code-caption">Adding <code>.version()</code> ensures that the browser will always use the most up-to-date assets. See more examples on the <a href="https://laravel-mix.com/docs/main/examples">Laravel Mix docs</a>.</span>
     </div>
   </div>
@@ -136,9 +129,7 @@ mix.js('src/app.js', 'dist').setPublicPath('dist').version();
     </div>
     <div class="step-content">
       Finally, begin running Mix to automatically compile your assets as you work.
-      <code class="language-bash hljs">
-        <b>></b> npx mix watch<br>
-      </code>
+      <code class="language-bash hljs"><b>></b> npx mix watch</code>
     </div>
   </div>
 

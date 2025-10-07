@@ -96,3 +96,6 @@ rel  = "sitemap"
   [[module.mounts]]
     source = "node_modules/mermaid"
     target = "assets/js/vendor/mermaid"
+  [[module.mounts]]
+    source = "node_modules/@highlightjs/cdn-assets"
+    target = "static/assets/js/vendor/hljs"
